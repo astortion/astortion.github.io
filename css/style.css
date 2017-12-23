@@ -1,0 +1,180 @@
+/* Reset Styles ----------------------------*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*, *:after, *:before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Site Styles ----------------------------*/
+body {
+  background: #ffffff;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  color: #888888;
+  -webkit-font-smoothing: antialiased;
+  /* Fix for webkit rendering */
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Arial, sans-serif;
+  color: #888888;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 40px;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 36px;
+}
+
+h3 {
+  font-size: 28px;
+  line-height: 34px;
+}
+
+h4 {
+  font-size: 21px;
+  line-height: 30px;
+}
+
+h5 {
+  font-size: 17px;
+  line-height: 24px;
+}
+
+h6 {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+/* Grid Styles ----------------------------*/
+img {
+  width: auto;
+  max-width: 100%;
+  height: auto !important;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container, .row {
+  *zoom: 1;
+}
+.container:before, .container:after, .row:before, .row:after {
+  content: " ";
+  display: table;
+}
+.container:after, .row:after {
+  clear: both;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* Grid Breakpoints ----------------------------*/
+@media only screen and (min-width: 992px) {
+  .container {
+    max-width: 1040px;
+  }
+
+  .col-1 {
+    width: 8.3333333333%;
+  }
+
+  .col-2 {
+    width: 16.6666666667%;
+  }
+
+  .col-3 {
+    width: 25%;
+  }
+
+  .col-4 {
+    width: 33.3333333333%;
+  }
+
+  .col-5 {
+    width: 41.6666666667%;
+  }
+
+  .col-6 {
+    width: 50%;
+  }
+
+  .col-7 {
+    width: 58.3333333333%;
+  }
+
+  .col-8 {
+    width: 66.6666666667%;
+  }
+
+  .col-9 {
+    width: 75%;
+  }
+
+  .col-10 {
+    width: 83.3333333333%;
+  }
+
+  .col-11 {
+    width: 91.6666666667%;
+  }
+
+  .col-12 {
+    width: 100%;
+  }
+}
+/* Page Styles ----------------------------*/
+/* Breakpoints ----------------------------*/

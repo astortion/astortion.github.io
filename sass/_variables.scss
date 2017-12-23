@@ -1,0 +1,19 @@
+// Breakpoints Variables ----------------------------/
+$breakpointXsmall: "only screen and (min-width: 480px)";
+$breakpointSmall: "only screen and (min-width: 768px)";
+$breakpointMedium: "only screen and (min-width: 992px)";
+$breakpointLarge: "only screen and (min-width: 1200px)";
+
+// Grid Variables ----------------------------/
+$gridColumns: 12;
+$gridMaxWidth: 1040px;
+$gridColPadding: 0 20px;
+
+// Site Variables ----------------------------/
+$mainBgColor: #ffffff;
+$mainFontColor: #888888;
+$mainFontStack: Arial, sans-serif;
+$mainFontSize: 12px;
+
+$headerFontStack: Arial, sans-serif;
+$headerFontColor: #888888;

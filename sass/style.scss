@@ -4,15 +4,52 @@
 
 /* Page Styles ----------------------------*/
 header {
-    
+   background: #000000;
 }
 
 nav {
-    
+    background: #5a7994;
+    ul {
+        margin: 10px 0;
+        li {
+            display: inline;
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+#mainContent {
+    background: $mainBgColor;
+    .container {
+        padding: 50px 0 50px 0;
+    }
+    #about {
+        background: #5f6877;
+    }
+    #skills {
+        color: $secondaryFontColor;
+    }
+    #experience {
+        background: #b4c6d5;
+    }
+    #education {
+        color: $secondaryFontColor;
+    }
+    #portfolio {
+        background: #5f6877;
+    }
+    #contact {
+        background: #7a7a7a;
+    }
 }
 
 footer {
-    
+    background: #5a7994;
+    p {
+        margin: 10px 0;
+    }
 }
 
 /* Breakpoints ----------------------------*/

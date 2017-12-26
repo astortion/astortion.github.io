@@ -46,15 +46,15 @@ body {
   background: #ffffff;
   font-size: 12px;
   font-family: Arial, sans-serif;
-  color: #888888;
+  color: #ffffff;
   -webkit-font-smoothing: antialiased;
   /* Fix for webkit rendering */
   -webkit-text-size-adjust: 100%;
+  text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Arial, sans-serif;
-  color: #888888;
   font-weight: normal;
   margin-bottom: 20px;
 }
@@ -91,6 +91,10 @@ h6 {
 
 p {
   margin-bottom: 10px;
+}
+
+a {
+  color: #ffffff;
 }
 
 /* Grid Styles ----------------------------*/
@@ -177,4 +181,53 @@ img {
   }
 }
 /* Page Styles ----------------------------*/
+header {
+  background: #000000;
+}
+
+nav {
+  background: #5a7994;
+}
+nav ul {
+  margin: 10px 0;
+}
+nav ul li {
+  display: inline;
+}
+nav ul a {
+  text-decoration: none;
+}
+
+#mainContent {
+  background: #ffffff;
+}
+#mainContent .container {
+  padding: 50px 0 50px 0;
+}
+#mainContent #about {
+  background: #5f6877;
+}
+#mainContent #skills {
+  color: #5d5c61;
+}
+#mainContent #experience {
+  background: #b4c6d5;
+}
+#mainContent #education {
+  color: #5d5c61;
+}
+#mainContent #portfolio {
+  background: #5f6877;
+}
+#mainContent #contact {
+  background: #7a7a7a;
+}
+
+footer {
+  background: #5a7994;
+}
+footer p {
+  margin: 10px 0;
+}
+
 /* Breakpoints ----------------------------*/

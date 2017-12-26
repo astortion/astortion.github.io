@@ -58,6 +58,17 @@ module.exports = function (grunt) {
         files: '**/*.js',
         tasks: ['uglify']
       }
+    },
+    browserSync: {
+        bsFiles: {
+            src : ['css/*.css', '*.html']
+        },
+        options: {
+            server: {
+                baseDir: "./"
+            },
+            watchTask: true
+        }
     }
   });
   // Load Grunt plugins
@@ -66,7 +77,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-
+  grunt.loadNpmTasks('grunt-browser-sync');
+    
   // Register Grunt tasks
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['browserSync','watch']);
 };

@@ -2,3 +2,5 @@
 /.sass-cache
 /resources
 package-lock.json
+package.json
+Gruntfile.js

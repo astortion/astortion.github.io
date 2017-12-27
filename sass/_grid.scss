@@ -28,6 +28,10 @@ img {
     .container {
         max-width: $gridMaxWidth;
     }
+    .row {
+        margin-left: -20px; 
+        margin-right: -20px;
+    }
     @for $i from 1 through $gridColumns {
         .col-#{$i} {width: 100% / $gridColumns * $i;}
     }

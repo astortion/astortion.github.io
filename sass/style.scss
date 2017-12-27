@@ -3,19 +3,37 @@
 @import 'grid';
 
 /* Page Styles ----------------------------*/
+
 header {
-   background: #000000;
+    background: #000000;
+    h1 {
+        font-size: 18px;
+        line-height: 21px;
+        font-weight: normal;
+    }
+    h2 {
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: normal;
+    }
 }
 
 nav {
     background: #5a7994;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
     ul {
-        margin: 10px 0;
         li {
-            display: inline;
+            display: inline-block;
         }
         a {
             text-decoration: none;
+            display: inline-block;
+            padding: 18px 30px;
+            &:hover {
+                color: #000000;
+            }
         }
     }
 }
@@ -27,6 +45,20 @@ nav {
     }
     #about {
         background: #5f6877;
+        p {
+            font-size: 16px;
+            line-height: 19px;
+        }
+        &:after {
+            content: '';
+            width: 0; 
+            height: 0;     
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #5f6877;
+            position: relative;
+            top: 34px;
+        }
     }
     #skills {
         color: $secondaryFontColor;

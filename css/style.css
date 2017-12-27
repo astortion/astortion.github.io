@@ -45,7 +45,7 @@ table {
 body {
   background: #ffffff;
   font-size: 12px;
-  font-family: Arial, sans-serif;
+  font-family: Verdana, Geneva, sans-serif;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
   /* Fix for webkit rendering */
@@ -55,7 +55,8 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Arial, sans-serif;
-  font-weight: normal;
+  font-weight: bold;
+  text-transform: uppercase;
   margin-bottom: 20px;
 }
 
@@ -129,7 +130,12 @@ img {
 /* Grid Breakpoints ----------------------------*/
 @media only screen and (min-width: 992px) {
   .container {
-    max-width: 1040px;
+    max-width: 1000px;
+  }
+
+  .row {
+    margin-left: -20px;
+    margin-right: -20px;
   }
 
   .col-1 {
@@ -184,18 +190,33 @@ img {
 header {
   background: #000000;
 }
+header h1 {
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: normal;
+}
+header h2 {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: normal;
+}
 
 nav {
   background: #5a7994;
-}
-nav ul {
-  margin: 10px 0;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
 }
 nav ul li {
-  display: inline;
+  display: inline-block;
 }
 nav ul a {
   text-decoration: none;
+  display: inline-block;
+  padding: 18px 30px;
+}
+nav ul a:hover {
+  color: #000000;
 }
 
 #mainContent {
@@ -206,6 +227,20 @@ nav ul a {
 }
 #mainContent #about {
   background: #5f6877;
+}
+#mainContent #about p {
+  font-size: 16px;
+  line-height: 19px;
+}
+#mainContent #about:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #5f6877;
+  position: relative;
+  top: 34px;
 }
 #mainContent #skills {
   color: #5d5c61;

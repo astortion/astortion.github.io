@@ -3,7 +3,6 @@
 @import 'grid';
 
 /* Page Styles ----------------------------*/
-
 header {
     background: #000000;
     h1 {
@@ -38,6 +37,17 @@ nav {
     }
 }
 
+%arrow {
+    content: '';
+    width: 0; 
+    height: 0;     
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #ffffff;
+    position: relative;
+    top: 32px;
+}
+
 #mainContent {
     background: $mainBgColor;
     .container {
@@ -50,27 +60,35 @@ nav {
             line-height: 19px;
         }
         &:after {
-            content: '';
-            width: 0; 
-            height: 0;     
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
+            @extend %arrow;
             border-top: 20px solid #5f6877;
-            position: relative;
-            top: 34px;
         }
     }
     #skills {
         color: $secondaryFontColor;
+        &:after {
+            @extend %arrow;
+        }
     }
     #experience {
         background: #b4c6d5;
+        &:after {
+            @extend %arrow;
+            border-top: 20px solid #b4c6d5;
+        }
     }
     #education {
         color: $secondaryFontColor;
+        &:after {
+            @extend %arrow;
+        }
     }
     #portfolio {
         background: #5f6877;
+        &:after {
+            @extend %arrow;
+            border-top: 20px solid #5f6877;
+        }
     }
     #contact {
         background: #7a7a7a;

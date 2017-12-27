@@ -219,6 +219,17 @@ nav ul a:hover {
   color: #000000;
 }
 
+#mainContent #about:after, #mainContent #skills:after, #mainContent #experience:after, #mainContent #education:after, #mainContent #portfolio:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #ffffff;
+  position: relative;
+  top: 32px;
+}
+
 #mainContent {
   background: #ffffff;
 }
@@ -233,14 +244,7 @@ nav ul a:hover {
   line-height: 19px;
 }
 #mainContent #about:after {
-  content: '';
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
   border-top: 20px solid #5f6877;
-  position: relative;
-  top: 34px;
 }
 #mainContent #skills {
   color: #5d5c61;
@@ -248,11 +252,17 @@ nav ul a:hover {
 #mainContent #experience {
   background: #b4c6d5;
 }
+#mainContent #experience:after {
+  border-top: 20px solid #b4c6d5;
+}
 #mainContent #education {
   color: #5d5c61;
 }
 #mainContent #portfolio {
   background: #5f6877;
+}
+#mainContent #portfolio:after {
+  border-top: 20px solid #5f6877;
 }
 #mainContent #contact {
   background: #7a7a7a;

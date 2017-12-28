@@ -38,7 +38,6 @@ table {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -190,7 +189,7 @@ img {
 /* Page Styles ----------------------------*/
 header {
   min-height: 300px;
-  background: #000 url(../images/header-bg.jpg) no-repeat top center;
+  background: #000 url("../images/header-bg.jpg") no-repeat top center;
   background-position-y: -110px;
   background-size: 1000px;
 }
@@ -239,6 +238,7 @@ nav ul a:hover {
 
 #mainContent {
   background: #ffffff;
+  overflow: hidden;
 }
 #mainContent .container {
   padding: 50px 0 50px 0;
@@ -293,13 +293,45 @@ nav ul a:hover {
   color: #5d5c61;
 }
 #mainContent #portfolio {
-  background: #5f6877;
+  background: #000 url("../images/dark-brick-bg.jpg") no-repeat fixed 100%;
 }
 #mainContent #portfolio:after {
-  border-top: 20px solid #5f6877;
+  border-top: 20px solid transparent;
+  border-left: 20px solid #7a7a7a;
+  border-right: 20px solid #7a7a7a;
+  top: 10px;
+}
+#mainContent #portfolio .container {
+  padding-bottom: 77px;
 }
 #mainContent #contact {
   background: #7a7a7a;
+  position: relative;
+}
+#mainContent #contact:after {
+  width: 100%;
+  height: 23px;
+  background: #7a7a7a;
+  position: absolute;
+  display: block;
+  top: -23px;
+  right: -50%;
+  margin-right: -20px;
+  content: "";
+}
+#mainContent #contact:before {
+  width: 100%;
+  height: 23px;
+  background: #7a7a7a;
+  position: absolute;
+  display: block;
+  top: -23px;
+  left: -50%;
+  margin-left: -20px;
+  content: "";
+}
+#mainContent #contact .container {
+  padding-top: 27px;
 }
 
 footer {

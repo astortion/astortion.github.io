@@ -22,15 +22,13 @@ header {
 
 nav {
     background: #5a7994;
-    font-size: 16px;
-    line-height: 19px;
     text-transform: uppercase;
     ul {
-        width: 90%;
-        overflow: hidden;
-        margin: 0 auto;
+        font-size: 0;
         li {
-            float: left;
+            font-size: 16px;
+            line-height: 19px;
+            display: inline-block;
         }
         a {
             text-decoration: none;
@@ -82,11 +80,15 @@ nav {
         a.button {
             padding: 10px 20px;
             border: 2px solid #ffffff;
-            font-size: 20px;
+            font-size: 16px;
             text-transform: uppercase;
             text-align: center;
             display: inline-block;
             text-decoration: none;
+            &:hover {
+                border: 2px solid #000000;
+                color: #000000;
+            }
         }
         &:after {
             @extend %arrow;

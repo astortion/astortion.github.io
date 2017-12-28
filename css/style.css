@@ -38,6 +38,7 @@ table {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -206,17 +207,15 @@ header h2 {
 
 nav {
   background: #5a7994;
-  font-size: 16px;
-  line-height: 19px;
   text-transform: uppercase;
 }
 nav ul {
-  width: 90%;
-  overflow: hidden;
-  margin: 0 auto;
+  font-size: 0;
 }
 nav ul li {
-  float: left;
+  font-size: 16px;
+  line-height: 19px;
+  display: inline-block;
 }
 nav ul a {
   text-decoration: none;
@@ -268,11 +267,15 @@ nav ul a:hover {
 #mainContent #about a.button {
   padding: 10px 20px;
   border: 2px solid #ffffff;
-  font-size: 20px;
+  font-size: 16px;
   text-transform: uppercase;
   text-align: center;
   display: inline-block;
   text-decoration: none;
+}
+#mainContent #about a.button:hover {
+  border: 2px solid #000000;
+  color: #000000;
 }
 #mainContent #about:after {
   border-top: 20px solid #5f6877;

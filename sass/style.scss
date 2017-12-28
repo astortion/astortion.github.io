@@ -65,6 +65,29 @@ nav {
             font-size: 16px;
             line-height: 19px;
         }
+        blockquote {
+            font-size: 20px;
+            line-height: 26px;
+            font-style: italic;
+            margin-bottom: 20px;
+            width: 50%;
+            margin: 0 auto 20px auto;
+            &:before {
+                content: '\201C';
+            }
+            &:after {
+                content: '\201D';
+            }
+        }
+        a.button {
+            padding: 10px 20px;
+            border: 2px solid #ffffff;
+            font-size: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+        }
         &:after {
             @extend %arrow;
             border-top: 20px solid #5f6877;

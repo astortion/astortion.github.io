@@ -91,7 +91,7 @@ h6 {
 }
 
 p {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 a {
@@ -250,6 +250,29 @@ nav ul a:hover {
 #mainContent #about p {
   font-size: 16px;
   line-height: 19px;
+}
+#mainContent #about blockquote {
+  font-size: 20px;
+  line-height: 26px;
+  font-style: italic;
+  margin-bottom: 20px;
+  width: 50%;
+  margin: 0 auto 20px auto;
+}
+#mainContent #about blockquote:before {
+  content: '\201C';
+}
+#mainContent #about blockquote:after {
+  content: '\201D';
+}
+#mainContent #about a.button {
+  padding: 10px 20px;
+  border: 2px solid #ffffff;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
 }
 #mainContent #about:after {
   border-top: 20px solid #5f6877;

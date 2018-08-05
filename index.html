@@ -19,16 +19,20 @@
 //]]></script>
 
 
-<header>  
-    <ul>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#career">Career</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#work">My Work</a></li>
-        <li><a href="#hobbies">Hobbies</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-    <img src="images/sjb.png" alt="sjb" class="sjb">
+<header>
+    <input type="checkbox" id="navToggle" name="navToggle">
+    <div class="logo"><img src="images/sjb.png" alt="sjb" class="sjb"></div>
+    <nav>
+        <ul>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#career">Career</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#work">My Work</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <label for="navToggle"><span></span></label>
 </header>
 
 <section id="home">
@@ -43,6 +47,10 @@
 <section id="about">
     <h1>Personal Profile</h1>
     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+    <div id="skills">
+        <h1>Skills</h1>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+    </div>
 </section>
     
 <section id="career">
@@ -65,7 +73,7 @@
     },
     {
         selector: '.nextPage',
-        vh: 35
+        vh: 32
     }
     ]);
 </script>

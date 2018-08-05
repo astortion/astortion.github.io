@@ -23,30 +23,68 @@
 
 /* Page Styles ----------------------------*/
 header {
-    display: flex;
     position: fixed;
     z-index: 999;
     width: 100%;
     min-height: 48px;
-    justify-content: center;
-    background: $dark;
-}
-header ul {
     text-align: center;
-    margin-top: 56px;
-    display: none;
+    
 }
-header ul li {
+header > input[type="checkbox"] {display: none;}
+header nav {
+    background: $dark;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+header nav ul li a {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+}
+header nav ul li {
     padding: 1rem;
     font-size: 0.8rem;
     font-family: $mainFontStack;
     min-width: 88px;
+    border-top: 1px solid #333333;
+    border-bottom: 1px solid #000000;
 }
-header ul li a:hover {color: $light;}
+header nav ul li:first-child {border-top: 0;}
+header nav ul li a:hover {color: $light;}  
 
-header .sjb {
+label[for="navToggle"] {
     position: absolute;
-    top: 3px;
+    top: 1.2em;
+    right: 1em;
+    z-index: 999;
+    color: $light;
+    
+}
+label[for="navToggle"] span, label[for="navToggle"] span:before, label[for="navToggle"] span:after {
+    display: block;
+    background: $light;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+}
+label[for="navToggle"] span:before, label[for="navToggle"] span:after {
+    content: '';
+    position: absolute;
+}
+
+label[for="navToggle"] span:before {bottom: 8px;}
+label[for="navToggle"] span:after {top: 8px}
+#navToggle:checked ~ nav ul li a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+#navToggle:checked ~ nav {
+    transform: scale(1, 1);
+}
+header .logo {background: $dark; z-index: 999;}
+header .logo img {
+    margin: 0.3rem auto 0 auto;
     width: 40px;
     height: 40px;
 }
@@ -99,11 +137,11 @@ section {
     background: $light;
 }
 #home .nextPage {
-    background: url(../images/down-arrow.png);
+    background: url(../images/down-arrow.png) no-repeat;
     width: 36px;
     height: 54px;
     position: absolute;
-    top: 33vh;
+    top: 32vh;
 }
 #about {
     background: $dark;
@@ -132,10 +170,22 @@ section {
 }
 
 @media #{$breakpointSmall} {
-    header ul {
+    label[for="navToggle"] {display: none;}
+    header {display: flex; justify-content: center;}
+    header nav {
+        flex-basis: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: none;
+        transition: unset;
+    }
+    header nav ul li a {opacity: 1; transition: unset;}
+    header nav  ul {
         display: flex;
         margin-top: 0;
     }
+    header .logo {position: absolute; margin: 0;}
     #home .nextPage {
         top: 36vh;
     }
@@ -147,12 +197,13 @@ section {
         font-size: 2.4rem;
     }
     
-    header ul li:nth-of-type(3) {
+    header nav ul li:nth-of-type(3) {
         margin-right: 56px;
     }
-    header ul li:nth-of-type(4) {
+    header nav ul li:nth-of-type(4) {
         margin-left: 56px;
     }
+    header nav ul li {border: 0;}
 }
 
 @media #{$breakpointMedium} {

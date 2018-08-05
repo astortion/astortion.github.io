@@ -20,7 +20,6 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: $headerFontStack;
     font-weight: normal;
 }
 
@@ -39,5 +38,4 @@ h1 {
     margin-bottom: 1.2rem;
 }
 
-a {color: $primary;}
-a:hover {color: $light;}
+a {color: $primary; text-decoration: none;}

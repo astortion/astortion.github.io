@@ -1,31 +1,34 @@
 @font-face {
   font-family: 'Montserrat';
-  src: url(Montserrat-Regular.otf);
+  src: url(../fonts/Montserrat-Regular.otf);
 }
 @font-face {
-  font-family: 'Merriweather';
-  src: url(Merriweather-Regular.otf);
+  font-family: 'MerriweatherLightItalic';
+  src: url(../fonts/Merriweather-LightItalic.otf);
+}
+@font-face {
+  font-family: 'MerriweatherLightItalic';
+  src: url(../fonts/Merriweather-Regular.otf);
 }
 @font-face {
   font-family: 'Roboto';
-  src: url(Roboto-Regular.ttf);
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url(../fonts/HelveticaNeueLTPro-Lt.ttf);
 }
 /* Reset Styles ----------------------------*/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
   vertical-align: baseline;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
-}
-
-body {
-  line-height: 1;
 }
 
 ol, ul {
@@ -65,7 +68,6 @@ body {
   -webkit-font-smoothing: antialiased;
   /* Fix for webkit rendering */
   -webkit-text-size-adjust: 100%;
-  line-height: 1.2;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -103,7 +105,7 @@ h6 {
 }
 
 h1 {
-  font-family: 'HelveticaNeue', sans-serif;
+  font-family: "HelveticaNeue", sans-serif;
   color: #1d1d1d;
   font-size: 2rem;
   letter-spacing: 0.05em;
@@ -167,12 +169,13 @@ section {
   text-transform: uppercase;
   display: block;
   color: #1d1d1d;
-  padding: 0.8rem 5rem;
+  padding: 0.8rem 4rem;
   border: 2px solid #1d1d1d;
   font-size: 0.9rem;
 }
 .btn:hover {
   color: #989696;
+  border-color: #989696;
 }
 
 #home {
@@ -192,7 +195,7 @@ section {
 }
 
 #home h2 {
-  font-family: 'Merriweather', sans-serif;
+  font-family: 'MerriweatherLightItalic', sans-serif;
   font-style: italic;
   color: #989696;
   font-size: 1rem;
@@ -209,11 +212,15 @@ section {
   width: 36px;
   height: 54px;
   position: absolute;
-  top: 35vh;
+  top: 33vh;
 }
 
 #about {
   background: #1d1d1d;
+  color: #ffffff;
+}
+
+#about h1 {
   color: #ffffff;
 }
 
@@ -222,8 +229,16 @@ section {
   color: #ffffff;
 }
 
+#career h1 {
+  color: #ffffff;
+}
+
 #education {
   background: #1d1d1d;
+  color: #989696;
+}
+
+#education h1 {
   color: #989696;
 }
 
@@ -240,7 +255,7 @@ section {
   }
 
   #home .nextPage {
-    top: 38vh;
+    top: 36vh;
   }
 
   #home {

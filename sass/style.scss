@@ -1,14 +1,22 @@
 @font-face {
   font-family: 'Montserrat';
-  src: url(Montserrat-Regular.otf);
+  src: url(../fonts/Montserrat-Regular.otf);
 }
 @font-face {
-  font-family: 'Merriweather';
-  src: url(Merriweather-Regular.otf);
+  font-family: 'MerriweatherLightItalic';
+  src: url(../fonts/Merriweather-LightItalic.otf);
+}
+@font-face {
+  font-family: 'MerriweatherLightItalic';
+  src: url(../fonts/Merriweather-Regular.otf);
 }
 @font-face {
   font-family: 'Roboto';
-  src: url(Roboto-Regular.ttf);
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url(../fonts/HelveticaNeueLTPro-Lt.ttf);
 }
 @import 'variables';
 @import 'base';
@@ -59,10 +67,10 @@ section {
     text-transform: uppercase;
     display: block;
     color: $dark;
-    padding: 0.8rem 5rem;
+    padding: 0.8rem 4rem;
     border: 2px solid #1d1d1d;
     font-size: 0.9rem;
-    &:hover {color: $primary;}
+    &:hover {color: $primary; border-color: $primary;}
 }
 
 
@@ -80,7 +88,7 @@ section {
     margin-bottom: 0;
 }
 #home h2 {
-    font-family: 'Merriweather', sans-serif;
+    font-family: 'MerriweatherLightItalic', sans-serif;
     font-style: italic;
     color: #989696;
     font-size: 1rem;
@@ -95,21 +103,29 @@ section {
     width: 36px;
     height: 54px;
     position: absolute;
-    top: 35vh;
+    top: 33vh;
 }
 #about {
     background: $dark;
+    color: $light;
+}
+#about h1 {
     color: $light;
 }
 #career {
     background: $primary;
     color: $light;
 }
+#career h1 {
+    color: $light;
+}
 #education {
     background: $dark;
     color: $primary;
 }
-
+#education h1 {
+    color: $primary;
+}
 /* Breakpoints ----------------------------*/
 @media #{$breakpointXXsmall} {
     html {font-size: 14px;}
@@ -121,7 +137,7 @@ section {
         margin-top: 0;
     }
     #home .nextPage {
-        top: 38vh;
+        top: 36vh;
     }
     #home {
         background-size: cover;

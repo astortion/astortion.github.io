@@ -3,8 +3,9 @@ var VHChromeFix = function(selectors) {
   var userAgent = navigator.userAgent.toLowerCase();
   var isAndroidChrome = /chrome/.test(userAgent) && /android/.test(userAgent);
   var isIOSChrome = /crios/.test(userAgent);
+  var isSamsungBrowser = /SamsungBrowser/.test(userAgent) && /android/.test(userAgent);
 
-  if (isAndroidChrome || isIOSChrome) {
+  if (isAndroidChrome || isIOSChrome || isSamsungBrowser) {
     // If we detected Chrome on Android or iOS
     // Cache elements and trigger fix on init
     this.getElements(selectors);

@@ -1,179 +1,131 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url(Montserrat-Regular.otf);
+}
+@font-face {
+  font-family: 'Merriweather';
+  src: url(Merriweather-Regular.otf);
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url(Roboto-Regular.ttf);
+}
 @import 'variables';
 @import 'base';
-@import 'grid';
 
 /* Page Styles ----------------------------*/
 header {
-    min-height: 300px;
-    background: #000 url('../images/header-bg.jpg') no-repeat top center;
-    background-position-y: -110px;
-    background-size: 1000px;
-    h1 {
-        font-size: 18px;
-        line-height: 21px;
-        font-weight: normal;
-    }
-    h2 {
-        font-size: 14px;
-        line-height: 17px;
-        font-weight: normal;
-    }
+    display: flex;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+    background: $dark;
+}
+header ul {
+    text-align: center;
+    margin-top: 56px;
+    display: none;
+}
+header ul li {
+    padding: 1rem;
+    font-size: 0.8rem;
+    font-family: $mainFontStack;
+    min-width: 88px;
+}
+header .sjb {
+    position: absolute;
+    top: 3px;
+    width: 40px;
+    height: 40px;
 }
 
-nav {
-    background: #5a7994;
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+}
+.btn {
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    ul {
-        font-size: 0;
-        li {
-            font-size: 16px;
-            line-height: 19px;
-            display: inline-block;
-        }
-        a {
-            text-decoration: none;
-            display: block;
-            padding: 18px 30px;
-            &:hover {
-                color: #000000;
-            }
-        }
-    }
+    display: block;
+    color: $dark;
+    padding: 0.8rem 5rem;
+    border: 2px solid #1d1d1d;
+    font-size: 0.9rem;
 }
-
-%arrow {
-    content: '';
-    width: 0; 
-    height: 0;     
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-top: 20px solid #ffffff;
+}
+#home {
+    background: $white url(../images/sjb-bg.gif) no-repeat center/contain;
+}
+#home div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
-    top: 32px;
 }
-
-#mainContent {
-    background: $mainBgColor;
-    overflow: hidden;
-    .container {
-        padding: 50px 0 50px 0;
-    }
-    #about {
-        background: #5f6877;
-        p {
-            font-size: 16px;
-            line-height: 19px;
-        }
-        blockquote {
-            font-size: 20px;
-            line-height: 26px;
-            font-style: italic;
-            margin-bottom: 20px;
-            width: 50%;
-            margin: 0 auto 20px auto;
-            &:before {
-                content: '\201C';
-            }
-            &:after {
-                content: '\201D';
-            }
-        }
-        a.button {
-            padding: 10px 20px;
-            border: 2px solid #ffffff;
-            font-size: 16px;
-            text-transform: uppercase;
-            text-align: center;
-            display: inline-block;
-            text-decoration: none;
-            &:hover {
-                border: 2px solid #000000;
-                color: #000000;
-            }
-        }
-        &:after {
-            @extend %arrow;
-            border-top: 20px solid #5f6877;
-        }
-    }
-    #skills {
-        color: $secondaryFontColor;
-        &:after {
-            @extend %arrow;
-        }
-    }
-    #experience {
-        background: #b4c6d5;
-        &:after {
-            @extend %arrow;
-            border-top: 20px solid #b4c6d5;
-        }
-    }
-    #education {
-        color: $secondaryFontColor;
-        &:after {
-            @extend %arrow;
-        }
-    }
-    #portfolio {
-        background: #000 url('../images/dark-brick-bg.jpg') no-repeat fixed 100%;
-        &:after {
-            @extend %arrow;
-            border-top: 20px solid transparent;
-            border-left: 20px solid #7a7a7a;
-            border-right: 20px solid #7a7a7a;
-            top: 10px;
-        }
-        .container {
-            padding-bottom: 77px;
-        }
-    }
-    
-    #contact {
-        background: #7a7a7a;
-        position: relative;
-        &:after {
-            width: 100%;
-            height: 23px;
-            background: #7a7a7a;
-            position: absolute;
-            display: block;
-            top: -23px;
-            right: -50%;
-            margin-right: -20px;
-            content: "";
-        } 
-        &:before {
-            width: 100%;
-            height: 23px;
-            background: #7a7a7a;
-            position: absolute;
-            display: block;
-            top: -23px;
-            left: -50%;
-            margin-left: -20px;
-            content: "";
-        }
-        .container {
-            padding-top: 27px;
-        }
-    }
+#home h1 {
+    color: $dark;
+    margin-bottom: 0;
 }
-
-footer {
-    background: #5a7994;
-    p {
-        margin: 10px 0;
-    }
+#home h2 {
+    font-family: 'Merriweather', sans-serif;
+    font-style: italic;
+    color: #989696;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+}
+#home .btn {
+    background: $light;
+}
+#home .nextPage {
+    background: url(../images/down-arrow.png);
+    width: 36px;
+    height: 54px;
+    position: absolute;
+    top: 35vh;
+}
+#about {
+    background: $dark;
+    color: $light;
+}
+#career {
+    background: $primary;
+    color: $light;
+}
+#education {
+    background: $dark;
+    color: $primary;
 }
 
 /* Breakpoints ----------------------------*/
-@media #{$breakpointXsmall} {
-    
+@media #{$breakpointXXsmall} {
+    html {font-size: 14px;}
 }
 
 @media #{$breakpointSmall} {
-    
+    header ul {
+        display: flex;
+        margin-top: 0;
+    }
+    #home .nextPage {
+        top: 38vh;
+    }
+    #home {
+        background-size: cover;
+        background-position-x: -6px;
+    }
+    h1 {
+        font-size: 2.4rem;
+    }
 }
 
 @media #{$breakpointMedium} {

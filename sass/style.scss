@@ -1,92 +1,85 @@
-@font-face {
-  font-family: 'Montserrat';
-  src: url(../fonts/Montserrat-Regular.otf);
-}
-@font-face {
-  font-family: 'MerriweatherLightItalic';
-  src: url(../fonts/Merriweather-LightItalic.otf);
-}
-@font-face {
-  font-family: 'MerriweatherLightItalic';
-  src: url(../fonts/Merriweather-Regular.otf);
-}
-@font-face {
-  font-family: 'Roboto';
-  src: url(../fonts/Roboto-Regular.ttf);
-}
-@font-face {
-  font-family: 'HelveticaNeue';
-  src: url(../fonts/HelveticaNeueLTPro-Lt.ttf);
-}
 @import 'variables';
 @import 'base';
 
 /* Page Styles ----------------------------*/
+
 header {
     position: fixed;
     z-index: 999;
     width: 100%;
-    min-height: 48px;
+    height: 49px;
+    background: #222222;
     text-align: center;
     
-}
-header > input[type="checkbox"] {display: none;}
-header nav {
-    background: $dark;
-    transform: scale(1, 0);
-    transform-origin: top;
-    transition: transform 400ms ease-in-out;
-}
-header nav ul li a {
-    opacity: 0;
-    transition: opacity 200ms ease-in-out;
-}
-header nav ul li {
-    padding: 1rem;
-    font-size: 0.8rem;
-    font-family: $mainFontStack;
-    min-width: 88px;
-    border-top: 1px solid #333333;
-    border-bottom: 1px solid #000000;
-}
-header nav ul li:first-child {border-top: 0;}
-header nav ul li a:hover {color: $light;}  
-
-label[for="navToggle"] {
-    position: absolute;
-    top: 1.2em;
-    right: 1em;
-    z-index: 999;
-    color: $light;
+    .logo {
+        margin-top: 4px;
+        width: 40px;
+        height: 40px;
+    }
     
-}
-label[for="navToggle"] span, label[for="navToggle"] span:before, label[for="navToggle"] span:after {
-    display: block;
-    background: $light;
-    height: 2px;
-    width: 2em;
-    border-radius: 2px;
-    position: relative;
-}
-label[for="navToggle"] span:before, label[for="navToggle"] span:after {
-    content: '';
-    position: absolute;
+    input {display: none;}
+    #navToggle:checked ~ nav {
+        transform: scale(1, 1);
+    }
+    #navToggle:checked ~ nav ul li a {
+        opacity: 1;
+        transition: opacity 250ms ease-in-out 200ms;
+    }
+    label {
+        position: absolute;
+        top: 24px;
+        right: 1rem;
+        color: $light;
+        
+        span, span:before, span:after {
+            display: block;
+            background: $light;
+            height: 3px;
+            width: 2em;
+            border-radius: 2px;
+            position: relative;
+        }
+        span:before, span:after {
+            content: '';
+            position: absolute;
+        }
+        span:before {bottom: 8px;}
+        span:after {top: 8px}
+    }
+ 
+    nav {
+        background: $dark;
+        transform: scale(1, 0);
+        transform-origin: top;
+        transition: transform 400ms ease-in-out;
+        
+        li {
+            padding: 1rem;
+            font-size: 0.8rem;
+            font-family: $mainFontStack;
+            min-width: 88px;
+            border-top: 1px solid #333333;
+            border-bottom: 1px solid #000000;
+            &:first-child {border-top: 0;}
+            
+            a {
+                opacity: 0;
+                transition: opacity 200ms ease-in-out;
+                &:hover {color: $light;}
+            }
+        }
+    }
 }
 
-label[for="navToggle"] span:before {bottom: 8px;}
-label[for="navToggle"] span:after {top: 8px}
-#navToggle:checked ~ nav ul li a {
-    opacity: 1;
-    transition: opacity 250ms ease-in-out 250ms;
-}
-#navToggle:checked ~ nav {
-    transform: scale(1, 1);
-}
-header .logo {background: $dark; z-index: 999;}
-header .logo img {
-    margin: 0.3rem auto 0 auto;
-    width: 40px;
-    height: 40px;
+.btn {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    display: block;
+    color: $dark;
+    padding: 0.8rem 4rem;
+    border: 2px solid #1d1d1d;
+    font-size: 0.9rem;
+    &:hover {color: $primary; border-color: $primary;}
 }
 
 section {
@@ -100,116 +93,99 @@ section {
     align-items: center;
     padding: 20px;
 }
-.btn {
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    display: block;
-    color: $dark;
-    padding: 0.8rem 4rem;
-    border: 2px solid #1d1d1d;
-    font-size: 0.9rem;
-    &:hover {color: $primary; border-color: $primary;}
-}
-
 
 #home {
     background: $light url(../images/sjb-bg.gif) no-repeat center/contain;
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+    h1 {
+        color: $dark;
+        margin-bottom: 0;
+    }
+    h2 {
+        font-family: 'MerriweatherLightItalic', sans-serif;
+        font-style: italic;
+        color: #989696;
+        font-size: 1rem;
+        letter-spacing: 0.04em;
+        margin-bottom: 1rem;
+    }
+    .btn {
+        background: $light;
+    }
+    .nextPage {
+        background: url(../images/down-arrow.png) no-repeat;
+        width: 36px;
+        height: 54px;
+        position: absolute;
+        top: 32vh;
+    }
 }
-#home div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-#home h1 {
-    color: $dark;
-    margin-bottom: 0;
-}
-#home h2 {
-    font-family: 'MerriweatherLightItalic', sans-serif;
-    font-style: italic;
-    color: #989696;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    margin-bottom: 1rem;
-}
-#home .btn {
-    background: $light;
-}
-#home .nextPage {
-    background: url(../images/down-arrow.png) no-repeat;
-    width: 36px;
-    height: 54px;
-    position: absolute;
-    top: 32vh;
-}
+
 #about {
     background: $dark;
     color: $light;
+    h1 {
+        color: $light;
+    }
 }
-#about h1 {
-    color: $light;
-}
+
 #career {
     background: $primary;
     color: $light;
+    h1 {
+        color: $light;
+    }
 }
-#career h1 {
-    color: $light;
-}
+ 
 #education {
     background: $dark;
     color: $primary;
+    h1 {
+        color: $primary;
+    }
 }
-#education h1 {
-    color: $primary;
-}
+
 /* Breakpoints ----------------------------*/
 @media #{$breakpointXXsmall} {
     html {font-size: 14px;}
 }
 
 @media #{$breakpointSmall} {
-    label[for="navToggle"] {display: none;}
-    header {display: flex; justify-content: center;}
-    header nav {
-        flex-basis: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transform: none;
-        transition: unset;
+    header {
+        display: flex; justify-content: center; align-items: center;
+        > a {position: absolute; margin-top: 0;}
+        label {display: none;}
+        nav {
+            flex-basis: 100%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            transform: none; 
+            transition: unset;
+            ul {
+                display: flex; 
+                margin-top: 0;
+                li {
+                    border: 0;
+                    &:nth-of-type(3) {margin-right: 56px;}
+                    &:nth-of-type(4) {margin-left: 56px;}
+                    a {opacity: 1; transition: unset;}
+                }
+            }
+        }
     }
-    header nav ul li a {opacity: 1; transition: unset;}
-    header nav  ul {
-        display: flex;
-        margin-top: 0;
-    }
-    header .logo {position: absolute; margin: 0;}
-    #home .nextPage {
-        top: 36vh;
-    }
+
     #home {
         background-size: cover;
         background-position-x: -6px;
+        .nextPage {top: 36vh;}
     }
     h1 {
         font-size: 2.4rem;
     }
-    
-    header nav ul li:nth-of-type(3) {
-        margin-right: 56px;
-    }
-    header nav ul li:nth-of-type(4) {
-        margin-left: 56px;
-    }
-    header nav ul li {border: 0;}
-}
-
-@media #{$breakpointMedium} {
-    
-}
-
-@media #{$breakpointLarge} {
-    
 }

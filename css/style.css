@@ -1,3 +1,4 @@
+/* Fonts ----------------------------*/
 @font-face {
   font-family: 'Montserrat';
   src: url(../fonts/Montserrat-Regular.otf);
@@ -122,27 +123,56 @@ header {
   position: fixed;
   z-index: 999;
   width: 100%;
-  min-height: 48px;
+  height: 49px;
+  background: #222222;
   text-align: center;
 }
-
-header > input[type="checkbox"] {
+header .logo {
+  margin-top: 4px;
+  width: 40px;
+  height: 40px;
+}
+header input {
   display: none;
 }
-
+header #navToggle:checked ~ nav {
+  transform: scale(1, 1);
+}
+header #navToggle:checked ~ nav ul li a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 200ms;
+}
+header label {
+  position: absolute;
+  top: 24px;
+  right: 1rem;
+  color: #ffffff;
+}
+header label span, header label span:before, header label span:after {
+  display: block;
+  background: #ffffff;
+  height: 3px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+header label span:before, header label span:after {
+  content: '';
+  position: absolute;
+}
+header label span:before {
+  bottom: 8px;
+}
+header label span:after {
+  top: 8px;
+}
 header nav {
   background: #222222;
   transform: scale(1, 0);
   transform-origin: top;
   transition: transform 400ms ease-in-out;
 }
-
-header nav ul li a {
-  opacity: 0;
-  transition: opacity 200ms ease-in-out;
-}
-
-header nav ul li {
+header nav li {
   padding: 1rem;
   font-size: 0.8rem;
   font-family: "Roboto", sans-serif;
@@ -150,75 +180,15 @@ header nav ul li {
   border-top: 1px solid #333333;
   border-bottom: 1px solid #000000;
 }
-
-header nav ul li:first-child {
+header nav li:first-child {
   border-top: 0;
 }
-
-header nav ul li a:hover {
+header nav li a {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+header nav li a:hover {
   color: #ffffff;
-}
-
-label[for="navToggle"] {
-  position: absolute;
-  top: 1.2em;
-  right: 1em;
-  z-index: 999;
-  color: #ffffff;
-}
-
-label[for="navToggle"] span, label[for="navToggle"] span:before, label[for="navToggle"] span:after {
-  display: block;
-  background: #ffffff;
-  height: 2px;
-  width: 2em;
-  border-radius: 2px;
-  position: relative;
-}
-
-label[for="navToggle"] span:before, label[for="navToggle"] span:after {
-  content: '';
-  position: absolute;
-}
-
-label[for="navToggle"] span:before {
-  bottom: 8px;
-}
-
-label[for="navToggle"] span:after {
-  top: 8px;
-}
-
-#navToggle:checked ~ nav ul li a {
-  opacity: 1;
-  transition: opacity 250ms ease-in-out 250ms;
-}
-
-#navToggle:checked ~ nav {
-  transform: scale(1, 1);
-}
-
-header .logo {
-  background: #222222;
-  z-index: 999;
-}
-
-header .logo img {
-  margin: 0.3rem auto 0 auto;
-  width: 40px;
-  height: 40px;
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100vh;
-  width: 100vw;
-  max-width: 100%;
-  text-align: center;
-  align-items: center;
-  padding: 20px;
 }
 
 .btn {
@@ -235,22 +205,31 @@ section {
   border-color: #989696;
 }
 
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  text-align: center;
+  align-items: center;
+  padding: 20px;
+}
+
 #home {
   background: #ffffff url(../images/sjb-bg.gif) no-repeat center/contain;
 }
-
 #home div {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
 }
-
 #home h1 {
   color: #222222;
   margin-bottom: 0;
 }
-
 #home h2 {
   font-family: 'MerriweatherLightItalic', sans-serif;
   font-style: italic;
@@ -259,11 +238,9 @@ section {
   letter-spacing: 0.04em;
   margin-bottom: 1rem;
 }
-
 #home .btn {
   background: #ffffff;
 }
-
 #home .nextPage {
   background: url(../images/down-arrow.png) no-repeat;
   width: 36px;
@@ -276,7 +253,6 @@ section {
   background: #222222;
   color: #ffffff;
 }
-
 #about h1 {
   color: #ffffff;
 }
@@ -285,7 +261,6 @@ section {
   background: #989696;
   color: #ffffff;
 }
-
 #career h1 {
   color: #ffffff;
 }
@@ -294,7 +269,6 @@ section {
   background: #222222;
   color: #989696;
 }
-
 #education h1 {
   color: #989696;
 }
@@ -306,15 +280,18 @@ section {
   }
 }
 @media only screen and (min-width: 768px) {
-  label[for="navToggle"] {
-    display: none;
-  }
-
   header {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
-
+  header > a {
+    position: absolute;
+    margin-top: 0;
+  }
+  header label {
+    display: none;
+  }
   header nav {
     flex-basis: 100%;
     display: flex;
@@ -323,44 +300,33 @@ section {
     transform: none;
     transition: unset;
   }
-
-  header nav ul li a {
-    opacity: 1;
-    transition: unset;
-  }
-
   header nav ul {
     display: flex;
     margin-top: 0;
   }
-
-  header .logo {
-    position: absolute;
-    margin: 0;
+  header nav ul li {
+    border: 0;
   }
-
-  #home .nextPage {
-    top: 36vh;
+  header nav ul li:nth-of-type(3) {
+    margin-right: 56px;
+  }
+  header nav ul li:nth-of-type(4) {
+    margin-left: 56px;
+  }
+  header nav ul li a {
+    opacity: 1;
+    transition: unset;
   }
 
   #home {
     background-size: cover;
     background-position-x: -6px;
   }
+  #home .nextPage {
+    top: 36vh;
+  }
 
   h1 {
     font-size: 2.4rem;
-  }
-
-  header nav ul li:nth-of-type(3) {
-    margin-right: 56px;
-  }
-
-  header nav ul li:nth-of-type(4) {
-    margin-left: 56px;
-  }
-
-  header nav ul li {
-    border: 0;
   }
 }

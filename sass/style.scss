@@ -25,26 +25,26 @@ header {
         opacity: 1;
         transition: opacity 250ms ease-in-out 200ms;
     }
+    #navToggle:checked ~ label:before {transform: translateY(7px) rotate(135deg); width: 1.4em; margin-left: 5px;}
+    #navToggle:checked ~ label:after {transform: translateY(-9px) rotate(-135deg); width: 1.4em; margin-left: 5px;}
+    #navToggle:checked ~ label span {transform: scale(0);}
     label {
         position: absolute;
-        top: 24px;
+        top: 10px;
         right: 1rem;
         color: $light;
-        
-        span, span:before, span:after {
+        cursor: pointer;
+        span, &:before, &:after {
+            content: '';
             display: block;
             background: $light;
             height: 3px;
+            margin: 5px 0;
             width: 2em;
             border-radius: 2px;
             position: relative;
+            transition: all .2s ease-in-out;
         }
-        span:before, span:after {
-            content: '';
-            position: absolute;
-        }
-        span:before {bottom: 8px;}
-        span:after {top: 8px}
     }
  
     nav {
@@ -63,6 +63,7 @@ header {
             &:first-child {border-top: 0;}
             
             a {
+                display: block;
                 opacity: 0;
                 transition: opacity 200ms ease-in-out;
                 &:hover {color: $light;}
@@ -158,7 +159,7 @@ section {
 @media #{$breakpointSmall} {
     header {
         display: flex; justify-content: center; align-items: center;
-        > a {position: absolute; margin-top: 0;}
+        > a {position: absolute; z-index: 999; margin-top: 0;}
         label {display: none;}
         nav {
             flex-basis: 100%; 

@@ -20,6 +20,7 @@ header {
 }
 
 nav {
+    height: 0px;
     ul {
         background: $dark;
         transform: scale(1, 0);
@@ -41,7 +42,7 @@ nav {
         display: block;
         opacity: 0;
         transition: opacity 200ms ease-in-out;
-        &:hover {color: $light;}
+        &:hover {color: $primary;}
     }
 
     input {display: none;}
@@ -87,7 +88,7 @@ section {
     justify-content: center;
     text-align: center;
     align-items: center;
-    padding: 20px;
+    padding: 50px 20px 60px 20px;
 }
 
 #home {
@@ -131,8 +132,18 @@ section {
     }
 }
 
+#skills {
+    ul {width: 100%;}
+    li {
+        border: 1px solid $primary;
+        margin-bottom: 10px;
+        border-radius: 3px;
+        padding: 0.6rem;
+    }
+}
+
 #career {
-    background: $primary;
+    background: $dark;
     color: $light;
     h1 {
         color: $light;
@@ -141,41 +152,51 @@ section {
  
 #education {
     background: $dark;
-    color: $primary;
+    color: $light;
     h1 {
-        color: $primary;
+        color: $light;
+    }
+}
+
+#work {
+    background: $primary;
+    color: $light;
+    h1 {
+        color: $light;
     }
 }
 
 /* Breakpoints ----------------------------*/
-@media #{$breakpointXXsmall} {
+@media #{$XXsmall} {
     html {font-size: 14px;}
 }
 
-@media #{breakpointXsmallPortrait} {
-    #hmoe {transition: min-height 1000s steps(1);}
+@media #{$Xsmall} {
+    #home {transition: min-height 1000s steps(1);}
 }
-@media #{$breakpointSmall} {
+
+@media #{$desktop} {
     header {
         display: flex; 
         justify-content: center;
         align-items: center;
         > a {position: absolute;}
-        .logo {margin: 0;}
+        .logo {margin: 0; z-index: 999;}
         label {display: none;}
         nav {
+            height: auto;
             ul { 
                 display: flex; 
                 align-items: center; 
                 justify-content: center; 
                 transform: none; 
                 transition: unset;
-                li {
-                    border: 0;
-                    &:nth-of-type(3) {margin-right: 56px;}
-                    &:nth-of-type(4) {margin-left: 56px;}
-                    a {opacity: 1; transition: unset;}
-                }
+            }
+            li {
+                border: 0;
+                &:nth-of-type(3) {margin-right: 56px;}
+                &:nth-of-type(4) {margin-left: 56px;}
+                a {opacity: 1; transition: unset;}
             }
         }
     }
@@ -183,8 +204,20 @@ section {
     #home {
         background-size: cover;
         background-position-x: -6px;
+        h1 {
+            font-size: 2.4rem;
+        }
     }
-    h1 {
-        font-size: 2.4rem;
+    #about {
+        p {width: 80%;}
     }
+    #skills {
+        ul {display: flex;}
+        li {
+            flex: 1;
+            border: 1px solid $primary;
+            margin: 0 10px;
+        }
+    }
+    
 }

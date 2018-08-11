@@ -75,38 +75,12 @@ input, textarea, button, select, label, a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
   font-weight: normal;
 }
 
-h1 {
-  font-size: 36px;
-  line-height: 40px;
-}
-
 h2 {
-  font-size: 32px;
-  line-height: 36px;
-}
-
-h3 {
-  font-size: 28px;
-  line-height: 34px;
-}
-
-h4 {
-  font-size: 21px;
-  line-height: 30px;
-}
-
-h5 {
-  font-size: 17px;
-  line-height: 24px;
-}
-
-h6 {
-  font-size: 14px;
-  line-height: 21px;
+  font-size: 1.4rem;
 }
 
 h1 {
@@ -117,8 +91,12 @@ h1 {
   margin-bottom: 1.2rem;
 }
 
+p {
+  margin-bottom: 1rem;
+}
+
 a {
-  color: #989696;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -140,6 +118,9 @@ header .logo {
   margin-top: 5px;
 }
 
+nav {
+  height: 0px;
+}
 nav ul {
   background: #222222;
   transform: scale(1, 0);
@@ -163,7 +144,7 @@ nav a {
   transition: opacity 200ms ease-in-out;
 }
 nav a:hover {
-  color: #ffffff;
+  color: #989696;
 }
 nav input {
   display: none;
@@ -227,7 +208,7 @@ section {
   justify-content: center;
   text-align: center;
   align-items: center;
-  padding: 20px;
+  padding: 50px 20px 60px 20px;
 }
 
 #home {
@@ -271,8 +252,18 @@ section {
   color: #ffffff;
 }
 
+#skills ul {
+  width: 100%;
+}
+#skills li {
+  border: 1px solid #989696;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  padding: 0.6rem;
+}
+
 #career {
-  background: #989696;
+  background: #222222;
   color: #ffffff;
 }
 #career h1 {
@@ -281,24 +272,32 @@ section {
 
 #education {
   background: #222222;
-  color: #989696;
+  color: #ffffff;
 }
 #education h1 {
-  color: #989696;
+  color: #ffffff;
+}
+
+#work {
+  background: #989696;
+  color: #ffffff;
+}
+#work h1 {
+  color: #ffffff;
 }
 
 /* Breakpoints ----------------------------*/
-@media only screen and (max-width: 359px) and (min-width: 320px) {
+@media (max-width: 359px) and (min-width: 320px) {
   html {
     font-size: 14px;
   }
 }
-@media breakpointXsmallPortrait {
-  #hmoe {
+@media (max-width: 480px) and (orientation: portrait) {
+  #home {
     transition: min-height 1000s steps(1);
   }
 }
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
   header {
     display: flex;
     justify-content: center;
@@ -309,9 +308,13 @@ section {
   }
   header .logo {
     margin: 0;
+    z-index: 999;
   }
   header label {
     display: none;
+  }
+  header nav {
+    height: auto;
   }
   header nav ul {
     display: flex;
@@ -320,16 +323,16 @@ section {
     transform: none;
     transition: unset;
   }
-  header nav ul li {
+  header nav li {
     border: 0;
   }
-  header nav ul li:nth-of-type(3) {
+  header nav li:nth-of-type(3) {
     margin-right: 56px;
   }
-  header nav ul li:nth-of-type(4) {
+  header nav li:nth-of-type(4) {
     margin-left: 56px;
   }
-  header nav ul li a {
+  header nav li a {
     opacity: 1;
     transition: unset;
   }
@@ -338,8 +341,20 @@ section {
     background-size: cover;
     background-position-x: -6px;
   }
-
-  h1 {
+  #home h1 {
     font-size: 2.4rem;
+  }
+
+  #about p {
+    width: 80%;
+  }
+
+  #skills ul {
+    display: flex;
+  }
+  #skills li {
+    flex: 1;
+    border: 1px solid #989696;
+    margin: 0 10px;
   }
 }

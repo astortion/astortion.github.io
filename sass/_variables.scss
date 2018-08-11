@@ -1,10 +1,7 @@
 // Breakpoints Variables ----------------------------/
-$breakpointXsmallPortrait: "only screen and (min-width: 768px) and (orientation:portrait)";
-$breakpointXXsmall: "only screen and (max-width: 359px) and (min-width: 320px)";
-$breakpointXsmall: "only screen and (min-width: 480px)";
-$breakpointSmall: "only screen and (min-width: 768px)";
-$breakpointMedium: "only screen and (min-width: 992px)";
-$breakpointLarge: "only screen and (min-width: 1200px)";
+$XXsmall: "(max-width: 359px) and (min-width: 320px)";
+$Xsmall: "(max-width: 480px) and (orientation:portrait)";
+$desktop: "(min-width: 768px)";
 
 // Site Variables ----------------------------/
 $primary: #989696;

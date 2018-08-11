@@ -71,16 +71,7 @@ nav {
     }
 }
 
-.btn {
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    display: block;
-    color: $dark;
-    padding: 0.8rem 4rem;
-    border: 2px solid #1d1d1d;
-    font-size: 0.9rem;
-    &:hover {color: $primary; border-color: $primary;}
-}
+
 
 section {
     display: flex;
@@ -95,14 +86,76 @@ section {
     min-height: 100vh;
     background: $light url(../images/sjb-bg.gif) no-repeat center/contain;
     div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        padding: 1.5rem;
         position: relative;
+        background: $light;
+        
+        &:before, &:after {
+            content: '';
+            border: 2px solid transparent;
+            border-radius: 4px;
+            opacity: 0.3;
+            position: absolute;
+            width: 0;
+            height: 0;top: 0;
+            left: 0;
+            
+        }
+        
+        &:before {
+            
+            animation: slideFromLeft 2s ease-out 0.5s 1 forwards;
+        }
+        
+        &:after {
+            animation: slideFromTopLeft 2s ease-out 0.5s 1 forwards;
+        }
+
+        @keyframes slideFromLeft {
+            20% {
+                width: 100%;
+                border-top-color: $primary;
+            }
+            60% {
+                width: 100%;
+                height: 100%;
+                border-top-color: $primary;
+                border-right-color: $primary;
+            }
+            
+            100% {
+                width: 100%;
+                height: 100%;
+                border-top-color: $primary;
+                border-right-color: $primary;
+                
+            }
+        }
+        
+        @keyframes slideFromTopLeft {
+            20% {
+                height: 100%;
+                border-left-color: $primary;
+            }
+            60% {
+                width: 100%;
+                height: 100%;
+                border-bottom-color: $primary;
+                border-left-color: $primary;
+            }
+            
+            100% {
+                width: 100%;
+                height: 100%;
+                border-bottom-color: $primary;
+                border-left-color: $primary;
+                
+            }
+        }
     }
+    
     h1 {
         color: $dark;
-        margin-bottom: 0;
     }
     h2 {
         font-family: 'MerriweatherLightItalic', sans-serif;
@@ -112,9 +165,7 @@ section {
         letter-spacing: 0.04em;
         margin-bottom: 1rem;
     }
-    .btn {
-        background: $light;
-    }
+
     .nextPage {
         background: url(../images/down-arrow.png) no-repeat;
         width: 36px;
@@ -166,13 +217,59 @@ section {
     }
 }
 
+.btn {
+    padding: 0.8rem 4rem;
+    color: $dark;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 999;
+    box-shadow: inset 0 0 0 2px $dark;
+    display: inline-block;
+    
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+        border: 2px solid transparent;
+        width: 0;
+        height: 0;
+        // Start :after & :before in same position
+        top: 0;
+        left: 0;
+    }
+    
+    // Hover styles
+    &:hover {color: $primary;}
+    
+    &:hover:before, &:hover:after {
+        width: 100%;
+        height: 100%;
+    }
+
+    &:hover:before {
+        border-top-color: $primary; // Make borders visible
+        border-right-color: $primary;
+        transition:
+        width 0.25s ease-out, // Width expands first
+        height 0.25s ease-out 0.25s; // And then height
+    }
+
+    &:hover:after {
+        border-bottom-color: $primary; // Make borders visible
+        border-left-color: $primary;
+        transition: // Animate height first, then width
+        height 0.25s ease-out,
+        width 0.25s ease-out 0.25s;
+    }
+
+}
+
+
 /* Breakpoints ----------------------------*/
 @media #{$XXsmall} {
     html {font-size: 14px;}
-}
-
-@media #{$Xsmall} {
-    #home {transition: min-height 1000s steps(1);}
 }
 
 @media #{$desktop} {

@@ -2,29 +2,51 @@
 @import 'base';
 
 /* Page Styles ----------------------------*/
-
 header {
     position: fixed;
-    z-index: 999;
     width: 100%;
-    height: 49px;
-    background: #222222;
+    z-index: 999;
+    height: 50px;
+    background: $dark;
     text-align: center;
     
+    > a {line-height: 0;}
+    
     .logo {
-        margin-top: 4px;
         width: 40px;
         height: 40px;
+        margin-top: 5px;
     }
-    
+}
+
+nav {
+    ul {
+        background: $dark;
+        transform: scale(1, 0);
+        transform-origin: top;
+        transition: transform 400ms ease-in-out;
+    }
+
+    li {
+        font-size: 0.8rem;
+        font-family: $mainFontStack;
+        min-width: 88px;
+        border-top: 1px solid #333333;
+        border-bottom: 1px solid #000000;
+        &:first-child {border-top: 0;}
+    }
+
+    a {
+        padding: 1rem;
+        display: block;
+        opacity: 0;
+        transition: opacity 200ms ease-in-out;
+        &:hover {color: $light;}
+    }
+
     input {display: none;}
-    #navToggle:checked ~ nav {
-        transform: scale(1, 1);
-    }
-    #navToggle:checked ~ nav ul li a {
-        opacity: 1;
-        transition: opacity 250ms ease-in-out 200ms;
-    }
+    #navToggle:checked ~ ul {transform: scale(1, 1);}
+    #navToggle:checked ~ ul li a {opacity: 1; transition: opacity 250ms ease-in-out 200ms;}
     #navToggle:checked ~ label:before {transform: translateY(7px) rotate(135deg); width: 1.4em; margin-left: 5px;}
     #navToggle:checked ~ label:after {transform: translateY(-9px) rotate(-135deg); width: 1.4em; margin-left: 5px;}
     #navToggle:checked ~ label span {transform: scale(0);}
@@ -46,30 +68,6 @@ header {
             transition: all .2s ease-in-out;
         }
     }
- 
-    nav {
-        background: $dark;
-        transform: scale(1, 0);
-        transform-origin: top;
-        transition: transform 400ms ease-in-out;
-        
-        li {
-            padding: 1rem;
-            font-size: 0.8rem;
-            font-family: $mainFontStack;
-            min-width: 88px;
-            border-top: 1px solid #333333;
-            border-bottom: 1px solid #000000;
-            &:first-child {border-top: 0;}
-            
-            a {
-                display: block;
-                opacity: 0;
-                transition: opacity 200ms ease-in-out;
-                &:hover {color: $light;}
-            }
-        }
-    }
 }
 
 .btn {
@@ -87,15 +85,13 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 100vh;
-    width: 100vw;
-    max-width: 100%;
     text-align: center;
     align-items: center;
     padding: 20px;
 }
 
 #home {
+    min-height: 100vh;
     background: $light url(../images/sjb-bg.gif) no-repeat center/contain;
     div {
         display: flex;
@@ -123,7 +119,7 @@ section {
         width: 36px;
         height: 54px;
         position: absolute;
-        top: 32vh;
+        bottom: 1.4rem;
     }
 }
 
@@ -156,21 +152,24 @@ section {
     html {font-size: 14px;}
 }
 
+@media #{breakpointXsmallPortrait} {
+    #hmoe {transition: min-height 1000s steps(1);}
+}
 @media #{$breakpointSmall} {
     header {
-        display: flex; justify-content: center; align-items: center;
-        > a {position: absolute; z-index: 999; margin-top: 0;}
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        > a {position: absolute;}
+        .logo {margin: 0;}
         label {display: none;}
         nav {
-            flex-basis: 100%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            transform: none; 
-            transition: unset;
-            ul {
+            ul { 
                 display: flex; 
-                margin-top: 0;
+                align-items: center; 
+                justify-content: center; 
+                transform: none; 
+                transition: unset;
                 li {
                     border: 0;
                     &:nth-of-type(3) {margin-right: 56px;}
@@ -184,7 +183,6 @@ section {
     #home {
         background-size: cover;
         background-position-x: -6px;
-        .nextPage {top: 36vh;}
     }
     h1 {
         font-size: 2.4rem;

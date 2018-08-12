@@ -76,15 +76,15 @@ nav {
 
 section {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     text-align: center;
-    align-items: center;
     padding: 60px  20px 60px 20px;
 }
 
 #home {
     min-height: 100vh;
+    align-items: center;
     background: $light url(../images/sjb-bg.gif) no-repeat center/contain;
     div {
         padding: 1.5rem;
@@ -144,6 +144,7 @@ section {
     
     h1 {
         color: $dark;
+        margin-bottom: 0.5rem;
         opacity: 0;
         animation: fadeIn 2s ease-out 1s 1 forwards;
     }
@@ -274,8 +275,9 @@ section {
 }
 
 #skills {
-    ul {width: 100%;}
-    li {
+    * {flex: 1 1 100%;}
+    p {margin-bottom: 0;}
+    div {
         border: 1px solid $primary;
         margin-bottom: 10px;
         border-radius: 3px;
@@ -286,8 +288,63 @@ section {
 #career {
     background: $dark;
     color: $light;
+    position: relative;
     h1 {
         color: $light;
+    }
+    div {
+        flex-basis: 48%;
+        position: relative;
+        padding: 0.8rem;
+        border-radius: 3px;
+        margin-bottom: 20px;
+        p {margin-bottom: 0;}
+        p.description {
+            font-family: 'Montserrat', sans-serif;
+            color: $primary;
+            font-size: 0.75rem;
+            margin-top: 5px;
+        }
+    }
+    div.left {
+        left: -20px;
+        text-align: right;
+        &:after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: $dark;
+            border: 2px solid white;
+            border-radius: 50%;
+            position: absolute;
+            top: 17px;
+            right: -31px;
+        }
+    }
+    div.right {
+        right: -20px;
+        padding-top: 60px;
+        text-align: left;
+        &:before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: $dark;
+            border: 2px solid white;
+            border-radius: 50%;
+            position: absolute;
+            top: 66px;
+            left: -29px;
+        }
+    }
+    &:before {
+        content: '';
+        height: 76%;
+        width: 4px;
+        background: $light;
+        border-radius: 10px;
+        position: absolute;
+        top: 100px;
     }
 }
  
@@ -305,6 +362,13 @@ section {
     h1 {
         color: $light;
     }
+    * {flex: 1 1 100%;}
+    div {
+        border: 1px solid $light;
+        margin-bottom: 10px;
+        border-radius: 3px;
+        padding: 0.6rem;
+    }
 }
 
 
@@ -314,12 +378,21 @@ section {
 @media #{$XXsmall} {
     html {font-size: 14px;}
 }
+@media #{$Xsmall} {
+    #skills {
+        div {
+            flex-basis: calc(50% - 20px);
+            margin: 10px;
+        }
+    }
+}
 
 @media #{$desktop} {
     header {
         display: flex; 
         justify-content: center;
         align-items: center;
+        box-shadow: 0px -3px 10px 0px rgba(255,255,255,0.5);
         > a {position: absolute;}
         .logo {margin: 0; z-index: 999;}
         label {display: none;}
@@ -352,17 +425,19 @@ section {
         p {width: 80%;}
     }
     #skills {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: stretch;
-        h1 {
-            flex-basis: 100%;
-        }
         div {
-            
-            flex-basis: 25%;
-            border: 1px solid $primary;
+            flex: 1;
+            margin: 0 10px;
+        }
+    }
+    #career {
+        div {
+            flex-basis: 40%;
+        }
+    }
+    #work {
+        div {
+            flex: 1;
             margin: 0 10px;
         }
     }

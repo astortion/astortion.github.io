@@ -297,7 +297,7 @@ section {
         position: relative;
         padding: 0.8rem;
         border-radius: 3px;
-        margin-bottom: 20px;
+        margin-bottom: 2rem;
         p {margin-bottom: 0;}
         p.description {
             font-family: 'Montserrat', sans-serif;
@@ -317,14 +317,15 @@ section {
             border: 2px solid white;
             border-radius: 50%;
             position: absolute;
-            top: 17px;
-            right: -31px;
+            top: 18px;
+            right: -30px;
         }
     }
     div.right {
-        right: -20px;
-        padding-top: 60px;
         text-align: left;
+        position: relative;
+        top: 60px;
+        right: -20px;
         &:before {
             content: '';
             width: 20px;
@@ -333,8 +334,8 @@ section {
             border: 2px solid white;
             border-radius: 50%;
             position: absolute;
-            top: 66px;
-            left: -29px;
+            top: 19px;
+            left: -30px;
         }
     }
     &:before {
@@ -434,6 +435,9 @@ section {
         div {
             flex-basis: 40%;
         }
+    }
+    #education {
+        p {width: 80%;}
     }
     #work {
         div {

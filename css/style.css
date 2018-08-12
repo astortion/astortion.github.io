@@ -95,6 +95,7 @@ h1 {
 
 p {
   margin-bottom: 1rem;
+  font-size: 0.875rem;
 }
 
 a {
@@ -388,7 +389,7 @@ section {
   position: relative;
   padding: 0.8rem;
   border-radius: 3px;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 #career div p {
   margin-bottom: 0;
@@ -411,13 +412,14 @@ section {
   border: 2px solid white;
   border-radius: 50%;
   position: absolute;
-  top: 17px;
-  right: -31px;
+  top: 18px;
+  right: -30px;
 }
 #career div.right {
-  right: -20px;
-  padding-top: 60px;
   text-align: left;
+  position: relative;
+  top: 60px;
+  right: -20px;
 }
 #career div.right:before {
   content: '';
@@ -427,8 +429,8 @@ section {
   border: 2px solid white;
   border-radius: 50%;
   position: absolute;
-  top: 66px;
-  left: -29px;
+  top: 19px;
+  left: -30px;
 }
 #career:before {
   content: '';
@@ -537,6 +539,10 @@ section {
 
   #career div {
     flex-basis: 40%;
+  }
+
+  #education p {
+    width: 80%;
   }
 
   #work div {

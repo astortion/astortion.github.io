@@ -69,6 +69,7 @@ body {
   -webkit-font-smoothing: antialiased;
   /* Fix for webkit rendering */
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 input, textarea, button, select, label, a {
@@ -198,11 +199,12 @@ section {
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
-  padding: 60px  20px 60px 20px;
+  padding: 50px 20px 50px 20px;
 }
 
 #home {
   min-height: 100vh;
+  width: 100vw;
   align-items: center;
   background: #ffffff url(../images/sjb-bg.gif) no-repeat center/contain;
 }
@@ -363,20 +365,47 @@ section {
   color: #ffffff;
 }
 
-#skills * {
-  flex: 1 1 100%;
+#skills {
+  padding: 50px 0;
 }
 #skills p {
   margin-bottom: 0;
+  font-size: 0.7rem;
+  font-family: 'Montserrat', sans-serif;
+}
+#skills p.description {
+  color: #989696;
+}
+#skills i {
+  font-size: 3rem;
+  line-height: 0.85;
+  color: #222222;
+  margin-bottom: 0.5rem;
+}
+#skills img {
+  width: 2.625rem;
+  margin-bottom: 0.6rem;
+}
+#skills em {
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  font-size: 0.6rem;
+  color: #989696;
+}
+#skills em:before {
+  content: '(';
+}
+#skills em:after {
+  content: ')';
 }
 #skills div {
-  border: 1px solid #989696;
-  margin-bottom: 10px;
-  border-radius: 3px;
-  padding: 0.6rem;
+  flex: 1 1 50%;
+  margin-bottom: 2rem;
+  padding: 0 10px;
 }
 
 #career {
+  padding-bottom: 70px;
   background: #222222;
   color: #ffffff;
   position: relative;
@@ -434,20 +463,20 @@ section {
 }
 #career:before {
   content: '';
-  height: 76%;
+  height: 72%;
   width: 4px;
   background: #ffffff;
   border-radius: 10px;
   position: absolute;
-  top: 100px;
+  top: 88px;
 }
 
 #education {
-  background: #222222;
-  color: #ffffff;
+  background: lightdark;
+  color: #222222;
 }
 #education h1 {
-  color: #ffffff;
+  color: #222222;
 }
 
 #work {
@@ -461,7 +490,6 @@ section {
   flex: 1 1 100%;
 }
 #work div {
-  border: 1px solid #ffffff;
   margin-bottom: 10px;
   border-radius: 3px;
   padding: 0.6rem;
@@ -475,8 +503,7 @@ section {
 }
 @media (min-width: 480px) {
   #skills div {
-    flex-basis: calc(50% - 20px);
-    margin: 10px;
+    flex-basis: 33.333%;
   }
 }
 @media (min-width: 768px) {
@@ -534,7 +561,7 @@ section {
 
   #skills div {
     flex: 1;
-    margin: 0 10px;
+    margin-bottom: 0;
   }
 
   #career div {

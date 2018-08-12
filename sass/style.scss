@@ -40,9 +40,10 @@ nav {
     a {
         padding: 1rem;
         display: block;
+        position: relative;
         opacity: 0;
         transition: opacity 200ms ease-in-out;
-        &:hover {color: $primary;}
+        &:hover {color: $primary;} transition: opacity .25s ease-in-out;
     }
 
     input {display: none;}
@@ -79,7 +80,7 @@ section {
     justify-content: center;
     text-align: center;
     align-items: center;
-    padding: 50px 20px 60px 20px;
+    padding: 60px  20px 60px 20px;
 }
 
 #home {
@@ -88,8 +89,8 @@ section {
     div {
         padding: 1.5rem;
         position: relative;
-        background: $light;
-        
+        overflow: hidden;
+
         &:before, &:after {
             content: '';
             border: 2px solid transparent;
@@ -99,28 +100,21 @@ section {
             width: 0;
             height: 0;top: 0;
             left: 0;
-            
         }
         
         &:before {
-            
-            animation: slideFromLeft 2s ease-out 0.5s 1 forwards;
+            animation: slideTopRight 1s ease-out 0.5s 1 forwards;
         }
         
         &:after {
-            animation: slideFromTopLeft 2s ease-out 0.5s 1 forwards;
+            animation: slideRightBottom 1s ease-out 0.5s 1 forwards;
         }
 
-        @keyframes slideFromLeft {
-            20% {
+        @keyframes slideTopRight {
+            50% {
                 width: 100%;
+                height: 0%;
                 border-top-color: $primary;
-            }
-            60% {
-                width: 100%;
-                height: 100%;
-                border-top-color: $primary;
-                border-right-color: $primary;
             }
             
             100% {
@@ -128,19 +122,13 @@ section {
                 height: 100%;
                 border-top-color: $primary;
                 border-right-color: $primary;
-                
             }
         }
         
-        @keyframes slideFromTopLeft {
-            20% {
+        @keyframes slideRightBottom {
+            50% {
+                width: 0%;
                 height: 100%;
-                border-left-color: $primary;
-            }
-            60% {
-                width: 100%;
-                height: 100%;
-                border-bottom-color: $primary;
                 border-left-color: $primary;
             }
             
@@ -156,7 +144,10 @@ section {
     
     h1 {
         color: $dark;
+        opacity: 0;
+        animation: fadeIn 2s ease-out 1s 1 forwards;
     }
+    
     h2 {
         font-family: 'MerriweatherLightItalic', sans-serif;
         font-style: italic;
@@ -164,15 +155,114 @@ section {
         font-size: 1rem;
         letter-spacing: 0.04em;
         margin-bottom: 1rem;
+        opacity: 0;
+        animation: fadeIn 1s ease-in 1.5s 1 forwards;
     }
 
-    .nextPage {
-        background: url(../images/down-arrow.png) no-repeat;
-        width: 36px;
-        height: 54px;
+    @keyframes fadeIn {
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slideFromLeft {
+        80% {
+            left: 20px;
+        }
+        100% {
+            left: 0;
+        }
+    }
+    
+    .btn {
+        padding: 0.6rem 2.5rem;
+        color: $dark;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        position: relative;
+        z-index: 10;
+        box-shadow: inset 0 0 0 2px $dark;
+        display: inline-block;
+        left: -350px;
+        animation: slideFromLeft 0.5s ease-out 2.5s 1 forwards;
+
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+            border: 2px solid transparent;
+            width: 0;
+            height: 0;
+            // Start :after & :before in same position
+            top: 0;
+            left: 0;
+        }
+
+        // Hover styles
+        &:hover {color: $primary;}
+
+        &:hover:before, &:hover:after {
+            width: 100%;
+            height: 100%;
+        }
+
+        &:hover:before {
+            border-top-color: $primary; // Make borders visible
+            border-right-color: $primary;
+            transition:
+            width 0.25s ease-out, // Width expands first
+            height 0.25s ease-out 0.25s; // And then height
+        }
+
+        &:hover:after {
+            border-bottom-color: $primary; // Make borders visible
+            border-left-color: $primary;
+            transition: // Animate height first, then width
+            height 0.25s ease-out,
+            width 0.25s ease-out 0.25s;
+        }
+    }
+    
+    .next {
         position: absolute;
         bottom: 1.4rem;
     }
+    
+    .next span, .next:before, .next:after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        position: relative;
+        display: block;
+        border-radius: 50%;
+    }
+     
+    .next:before {
+        background: #f0f0f0;
+        opacity: 0;
+        animation: next 4s ease-out infinite;
+    }
+    
+    .next span {
+        margin: 8px 0;
+        background: #e0e0e0;
+        opacity: 0;
+        animation: next 4s ease-out infinite 250ms;
+    }
+    
+    .next:after {
+        background: #d0d0d0;
+        opacity: 0;
+        animation: next 4s ease-out infinite 500ms;
+    }
+    
+    @keyframes next {
+        50% {
+            opacity: 1;
+        }
+    }
+    
 }
 
 #about {
@@ -217,54 +307,7 @@ section {
     }
 }
 
-.btn {
-    padding: 0.8rem 4rem;
-    color: $dark;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    position: relative;
-    z-index: 999;
-    box-shadow: inset 0 0 0 2px $dark;
-    display: inline-block;
-    
-    &:before, &:after {
-        content: '';
-        position: absolute;
-        // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
-        border: 2px solid transparent;
-        width: 0;
-        height: 0;
-        // Start :after & :before in same position
-        top: 0;
-        left: 0;
-    }
-    
-    // Hover styles
-    &:hover {color: $primary;}
-    
-    &:hover:before, &:hover:after {
-        width: 100%;
-        height: 100%;
-    }
 
-    &:hover:before {
-        border-top-color: $primary; // Make borders visible
-        border-right-color: $primary;
-        transition:
-        width 0.25s ease-out, // Width expands first
-        height 0.25s ease-out 0.25s; // And then height
-    }
-
-    &:hover:after {
-        border-bottom-color: $primary; // Make borders visible
-        border-left-color: $primary;
-        transition: // Animate height first, then width
-        height 0.25s ease-out,
-        width 0.25s ease-out 0.25s;
-    }
-
-}
 
 
 /* Breakpoints ----------------------------*/
@@ -309,9 +352,16 @@ section {
         p {width: 80%;}
     }
     #skills {
-        ul {display: flex;}
-        li {
-            flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+        h1 {
+            flex-basis: 100%;
+        }
+        div {
+            
+            flex-basis: 25%;
             border: 1px solid $primary;
             margin: 0 10px;
         }

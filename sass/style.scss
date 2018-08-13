@@ -4,18 +4,34 @@
 /* Page Styles ----------------------------*/
 header {
     position: fixed;
+    top: 0;
     width: 100%;
     z-index: 999;
     height: 50px;
     background: $dark;
     text-align: center;
     
-    > a {line-height: 0;}
+    > a {
+        line-height: 0;
+        &:hover {animation: logo 1s ease-in-out 1;}
+    }
     
     .logo {
         width: 40px;
         height: 40px;
         margin-top: 5px;
+        animation: logo 1s ease-in-out 1 5s;
+        
+        
+    }
+    
+    @keyframes logo {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
     }
 }
 
@@ -96,7 +112,7 @@ section {
             content: '';
             border: 2px solid transparent;
             border-radius: 4px;
-            opacity: 0.3;
+            opacity: 0.4;
             position: absolute;
             width: 0;
             height: 0;top: 0;
@@ -104,25 +120,25 @@ section {
         }
         
         &:before {
-            animation: slideTopRight 1s ease-out 0.5s 1 forwards;
+            animation: slideTopRight 1s ease-out 3.5s 1 forwards;
         }
         
         &:after {
-            animation: slideRightBottom 1s ease-out 0.5s 1 forwards;
+            animation: slideRightBottom 1s ease-out 4s 1 forwards;
         }
 
         @keyframes slideTopRight {
             50% {
                 width: 100%;
                 height: 0%;
-                border-top-color: $primary;
+                border-top-color: $dark;
             }
             
             100% {
                 width: 100%;
                 height: 100%;
-                border-top-color: $primary;
-                border-right-color: $primary;
+                border-top-color: $dark;
+                border-right-color: $dark;
             }
         }
         
@@ -130,14 +146,14 @@ section {
             50% {
                 width: 0%;
                 height: 100%;
-                border-left-color: $primary;
+                border-left-color: $dark;
             }
             
             100% {
                 width: 100%;
                 height: 100%;
-                border-bottom-color: $primary;
-                border-left-color: $primary;
+                border-bottom-color: $dark;
+                border-left-color: $dark;
                 
             }
         }
@@ -147,23 +163,27 @@ section {
         color: $dark;
         margin-bottom: 0.5rem;
         opacity: 0;
-        animation: fadeIn 2s ease-out 1s 1 forwards;
+        animation: fadeInH1 2s ease-out 1s 1 forwards;
     }
     
     h2 {
         font-family: 'MerriweatherLightItalic', sans-serif;
         font-style: italic;
-        color: $primary;
+        color: $dark;
         font-size: 1rem;
         letter-spacing: 0.04em;
         margin-bottom: 1rem;
         opacity: 0;
-        animation: fadeIn 1s ease-in 1.5s 1 forwards;
+        animation: fadeInH2 1s ease-in 1.5s 1 forwards;
     }
-
-    @keyframes fadeIn {
+    @keyframes fadeInH1 {
         100% {
             opacity: 1;
+        }
+    }
+    @keyframes fadeInH2 {
+        100% {
+            opacity: 0.8;
         }
     }
     
@@ -180,7 +200,6 @@ section {
         padding: 0.6rem 2.5rem;
         color: $dark;
         font-family: 'Montserrat', sans-serif;
-        text-transform: uppercase;
         font-size: 0.9rem;
         position: relative;
         z-index: 10;
@@ -229,46 +248,21 @@ section {
     .next {
         position: absolute;
         bottom: 1.4rem;
-    }
-    
-    .next span, .next:before, .next:after {
-        content: '';
-        width: 10px;
-        height: 10px;
-        position: relative;
-        display: block;
-        border-radius: 50%;
-    }
-     
-    .next:before {
-        background: #f0f0f0;
-        opacity: 0;
-        animation: next 4s ease-out infinite;
-    }
-    
-    .next span {
-        margin: 8px 0;
-        background: #e0e0e0;
-        opacity: 0;
-        animation: next 4s ease-out infinite 250ms;
-    }
-    
-    .next:after {
-        background: #d0d0d0;
-        opacity: 0;
-        animation: next 4s ease-out infinite 500ms;
+        color: $primary;
+        font-size: 1.8rem;
+        animation: next 1.4s ease-in infinite 2s;
     }
     
     @keyframes next {
         50% {
-            opacity: 1;
+            bottom: 1.2rem;
         }
     }
     
 }
 
 #about {
-    background: $dark;
+    background: $dark url(../images/bg-about.jpg) no-repeat fixed center/cover;
     color: $light;
     h1 {
         color: $light;
@@ -377,7 +371,7 @@ section {
 }
 
 #work {
-    background: $primary;
+    background: $dark url(../images/bg-about.jpg) no-repeat fixed center/cover;
     color: $light;
     h1 {
         color: $light;
@@ -410,8 +404,14 @@ section {
         display: flex; 
         justify-content: center;
         align-items: center;
-        box-shadow: 0px -3px 10px 0px rgba(255,255,255,0.5);
-        > a {position: absolute;}
+        height: 30px;
+        > a {
+            position: absolute;
+            background: $dark;
+            padding: 0.2rem;
+            top: 0;
+            border-radius: 50%;
+        }
         .logo {margin: 0; z-index: 999;}
         label {display: none;}
         nav {
@@ -424,10 +424,11 @@ section {
                 transition: unset;
             }
             li {
+                font-size: 0.75rem;
                 border: 0;
                 &:nth-of-type(3) {margin-right: 56px;}
                 &:nth-of-type(4) {margin-left: 56px;}
-                a {opacity: 1; transition: unset;}
+                a {padding: 0 1rem; opacity: 1; transition: unset;}
             }
         }
     }

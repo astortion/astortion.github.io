@@ -5,73 +5,40 @@
 header {
     position: fixed;
     top: 0;
-    width: 100%;
     z-index: 999;
-    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    width: 100%;
     background: $dark;
-    text-align: center;
+    opacity: 0.97;
+    padding: 0.3rem 0.9rem;
     
-    > a {
-        line-height: 0;
-        &:hover {animation: logo 1s ease-in-out 1;}
-    }
+    > a {line-height: 0; display: inline-block;}
     
     .logo {
-        width: 40px;
-        height: 40px;
-        margin-top: 5px;
-        animation: logo 1s ease-in-out 1 5s;
-        
-        
+        flex: 1 1 50%;
+    }
+    .logo a {
+        display: block;
+        line-height: 0;
+    }
+    .logo img {
+        width: 36px;
+        height: 36px;
+        transition: transform 500ms ease;
     }
     
-    @keyframes logo {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg);
-        }
-    }
-}
-
-nav {
-    height: 0px;
-    ul {
-        background: $dark;
-        transform: scale(1, 0);
-        transform-origin: top;
-        transition: transform 400ms ease-in-out;
-    }
-
-    li {
-        font-size: 0.8rem;
-        font-family: $mainFontStack;
-        min-width: 88px;
-        border-top: 1px solid #333333;
-        border-bottom: 1px solid #000000;
-        &:first-child {border-top: 0;}
-    }
-
-    a {
-        padding: 1rem;
-        display: block;
-        position: relative;
-        opacity: 0;
-        transition: opacity 200ms ease-in-out;
-        &:hover {color: $primary;} transition: opacity .25s ease-in-out;
-    }
-
     input {display: none;}
-    #navToggle:checked ~ ul {transform: scale(1, 1);}
-    #navToggle:checked ~ ul li a {opacity: 1; transition: opacity 250ms ease-in-out 200ms;}
+    #navToggle:checked ~ nav ul {height: 100vh;}
+    #navToggle:checked ~ nav ul li a {opacity: 1; transition: opacity 450ms ease-in-out 200ms;}
     #navToggle:checked ~ label:before {transform: translateY(7px) rotate(135deg); width: 1.4em; margin-left: 5px;}
     #navToggle:checked ~ label:after {transform: translateY(-9px) rotate(-135deg); width: 1.4em; margin-left: 5px;}
     #navToggle:checked ~ label span {transform: scale(0);}
+    #navToggle:checked ~ .logo img {transform: rotate(-20deg);}
     label {
-        position: absolute;
-        top: 10px;
-        right: 1rem;
         color: $light;
         cursor: pointer;
         span, &:before, &:after {
@@ -83,9 +50,36 @@ nav {
             width: 2em;
             border-radius: 2px;
             position: relative;
-            transition: all .2s ease-in-out;
+            transition: all 200ms ease-in-out;
         }
     }
+    
+    nav {
+        flex: 1 1 100%;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            height: 0;
+            transition: height 500ms cubic-bezier(0.42, 0, 0.59, 0.99);
+        }
+
+        li {
+            font-size: 2rem;
+            font-family: $mainFontStack;
+            padding-top: 1rem;
+            text-align: right;
+        }
+
+        a {
+            position: relative;
+            opacity: 0;
+            transition: opacity 400ms ease-in-out;
+            &:hover {color: $primary;}
+        }
+
+    }
+    
 }
 
 
@@ -401,10 +395,7 @@ section {
 
 @media #{$desktop} {
     header {
-        display: flex; 
-        justify-content: center;
-        align-items: center;
-        height: 30px;
+        flex-wrap: nowrap;
         > a {
             position: absolute;
             background: $dark;
@@ -412,23 +403,30 @@ section {
             top: 0;
             border-radius: 50%;
         }
-        .logo {margin: 0; z-index: 999;}
+        .logo {flex: auto; position: absolute;}
         label {display: none;}
         nav {
-            height: auto;
+            height: 30px;
+                height: 30px;
+                align-items: center;
+                justify-content: center;
+                display: flex;
             ul { 
-                display: flex; 
-                align-items: center; 
-                justify-content: center; 
+                flex-direction: row;
+                flex-basis: 88%;
                 transform: none; 
                 transition: unset;
+                height: auto!important;
             }
             li {
+                flex: 1;
+                text-align: center;
+                padding: 0;
                 font-size: 0.75rem;
                 border: 0;
                 &:nth-of-type(3) {margin-right: 56px;}
                 &:nth-of-type(4) {margin-left: 56px;}
-                a {padding: 0 1rem; opacity: 1; transition: unset;}
+                a {opacity: 1; transition: unset;}
             }
         }
     }

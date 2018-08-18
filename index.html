@@ -18,45 +18,55 @@
 
 </head>
 <body>
+
+<input type="radio" id="home" name="nav">
+<input type="radio" id="about" name="nav">
+<input type="radio" id="skills" name="nav">
+<input type="radio" id="career" name="nav">
+<input type="radio" id="education" name="nav">
+<input type="radio" id="work" name="nav">
+<input type="radio" id="hobbies" name="nav">
+<input type="radio" id="contact" name="nav">
     
 <header>
     <input type="checkbox" id="navToggle" name="navToggle">
     <label for="navToggle"><span></span></label>
     <div class="logo">
-        <a href="#home"><img src="images/sjb.png" alt="sjb"></a>
+        <label for="home"><img src="images/sjb.png" alt="sjb"></label>
     </div>
     <nav>
         <ul>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#career">Career</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#work">My Work</a></li>
-            <li><a href="#hobbies">Hobbies</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="about"><label for="about">About</label></li>
+            <li><label for="skills">Skills</label></li>
+            <li><label for="career">Career</label></li>
+            <li><label for="education">Education</label></li>
+            <li><label for="work">My Work</label></li>
+            <li><label for="hobbies">Hobbies</label></li>
+            <li><label for="contact">Contact</label></li>
         </ul>
     </nav>
 </header>
 
-<section id="home">
+<section class="home">
     <div>
         <h1>Steve James Brailey</h1>
         <h2>Front End Developer</h2>
-        <a href="#about" class="btn">About me</a>
+        <label for="about" class="btn">About me</label>
     </div>
 
-    <a href="#about" class="next"><i class="far fa-arrow-alt-circle-down"></i>
+    <!--<a href="#about" class="next"><i class="far fa-arrow-alt-circle-down"></i>-->
 
 </a>
 </section>
 
-<section id="about">
-    <h1>Personal Profile</h1>
+<section class="about">
+    <h1>About me</h1>
     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
     <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Parturient montes sociis natoque.</p>
     <p>Contact me</p>
     </section>
 
-<section id="skills">
+<section class="skills">
     <h1>Skills</h1>
     <div>
         <i class="fab fa-html5"></i>
@@ -88,7 +98,7 @@
     </div>
 </section>
     
-<section id="career">
+<section class="career">
     <h1>Career History</h1>
     <div class="left">
         <h2>2011 - 2014</h2>
@@ -112,12 +122,12 @@
     </div>
 </section>
     
-<section id="education">
+<section class="education">
     <h1>Education</h1>
     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
 </section>
 
-<section id="work">
+<section class="work">
     <h1>My Work</h1>
 
     <div><i class="fas fa-code"></i>

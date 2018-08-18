@@ -59,7 +59,7 @@ table {
   box-sizing: border-box;
 }
 
-/* Site Styles HELLO SUCKER ----------------------------*/
+/* Site Styles  ----------------------------*/
 html {
   font-size: 16px;
 }
@@ -106,6 +106,15 @@ a {
 }
 
 /* Page Styles ----------------------------*/
+body input {
+  display: none;
+}
+
+label {
+  cursor: pointer;
+}
+
+/* Header bar ----------------------------*/
 header {
   position: fixed;
   top: 0;
@@ -119,6 +128,8 @@ header {
   background: #222222;
   opacity: 0.9;
   padding: 0.3rem 0.9rem;
+  color: #ffffff;
+  transition: all 1500ms linear;
   /* Mobile nav dropdown animation */
 }
 header > a {
@@ -128,8 +139,8 @@ header > a {
 header .logo {
   flex: 1 1 50%;
 }
-header .logo a {
-  display: block;
+header .logo label {
+  display: inline-block;
   line-height: 0;
 }
 header .logo img {
@@ -137,13 +148,10 @@ header .logo img {
   height: 36px;
   transition: transform 1000ms ease;
 }
-header input {
-  display: none;
-}
 header #navToggle:checked ~ nav ul {
   height: 100vh;
 }
-header #navToggle:checked ~ nav ul li a {
+header #navToggle:checked ~ nav ul li label {
   opacity: 1;
   transition: opacity 450ms ease-in-out 200ms;
 }
@@ -164,11 +172,11 @@ header #navToggle:checked ~ .logo img {
   transition: transform 600ms ease;
   transform: rotate(-20deg);
 }
-header label {
+header label[for="navToggle"] {
   color: #ffffff;
   cursor: pointer;
 }
-header label span, header label:before, header label:after {
+header label[for="navToggle"] span, header label[for="navToggle"]:before, header label[for="navToggle"]:after {
   content: '';
   display: block;
   background: #ffffff;
@@ -195,35 +203,87 @@ header nav li {
   padding-top: 1rem;
   text-align: right;
 }
-header nav a {
-  position: relative;
+header nav label {
+  display: inline-block;
   opacity: 0;
   transition: opacity 400ms ease-in-out;
 }
-header nav a:hover {
+header nav label:hover {
   color: #989696;
 }
 
+/* Navigation controls ----------------------------*/
+#home:checked ~ section,
+#about:checked ~ section,
+#skills:checked ~ section,
+#career:checked ~ section,
+#education:checked ~ section,
+#work:checked ~ section,
+#hobbies:checked ~ section,
+#contact:checked ~ section {
+  opacity: 0;
+  transition: all 1000ms linear;
+}
+
+#home:checked ~ .home,
+#about:checked ~ .about,
+#skills:checked ~ .skills,
+#career:checked ~ .career,
+#education:checked ~ .education,
+#work:checked ~ .work,
+#hobbies:checked ~ .hobbies,
+#contact:checked ~ .contact {
+  opacity: 1;
+  transition: opacity 1500ms linear 500ms;
+}
+
+#career:checked ~ header,
+#work:checked ~ header {
+  background: #ffffff;
+  color: #222222;
+  transition: all 1500ms linear;
+}
+
+#career:checked ~ header .logo label,
+#work:checked ~ header .logo label {
+  background: #222222;
+  border-radius: 50%;
+  transition: background 1500ms linear;
+}
+
+#career:checked ~ header label[for="navToggle"] span,
+#work:checked ~ header label[for="navToggle"] span,
+#career:checked ~ header label[for="navToggle"]:before,
+#work:checked ~ header label[for="navToggle"]:before,
+#career:checked ~ header label[for="navToggle"]:after,
+#work:checked ~ header label[for="navToggle"]:after {
+  background: #222222;
+}
+
+/* Page sections ----------------------------*/
 section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
   padding: 60px 20px 30px 20px;
-}
-
-#home {
   min-height: 100vh;
   width: 100vw;
+  opacity: 0;
+  position: absolute;
+}
+
+section.home {
+  opacity: 1;
   align-items: center;
   background: #ffffff url(../images/sjb-bg.gif) no-repeat center/contain;
 }
-#home div {
+section.home div {
   padding: 1.5rem;
   position: relative;
   overflow: hidden;
 }
-#home div:before, #home div:after {
+section.home div:before, section.home div:after {
   content: '';
   border: 2px solid transparent;
   border-radius: 4px;
@@ -234,10 +294,10 @@ section {
   top: 0;
   left: 0;
 }
-#home div:before {
+section.home div:before {
   animation: slideTopRight 1s ease-out 3.5s 1 forwards;
 }
-#home div:after {
+section.home div:after {
   animation: slideRightBottom 1s ease-out 4s 1 forwards;
 }
 @keyframes slideTopRight {
@@ -266,13 +326,13 @@ section {
     border-left-color: #222222;
   }
 }
-#home h1 {
+section.home h1 {
   color: #222222;
   margin-bottom: 0.5rem;
   opacity: 0;
   animation: fadeInH1 2s ease-out 1s 1 forwards;
 }
-#home h2 {
+section.home h2 {
   font-family: 'MerriweatherLightItalic', sans-serif;
   font-style: italic;
   color: #222222;
@@ -300,7 +360,7 @@ section {
     left: 0;
   }
 }
-#home .btn {
+section.home .btn {
   padding: 0.6rem 2.5rem;
   color: #222222;
   font-family: 'Montserrat', sans-serif;
@@ -312,7 +372,7 @@ section {
   left: -350px;
   animation: slideFromLeft 0.5s ease-out 2.5s 1 forwards;
 }
-#home .btn:before, #home .btn:after {
+section.home .btn:before, section.home .btn:after {
   content: '';
   position: absolute;
   border: 2px solid transparent;
@@ -321,24 +381,24 @@ section {
   top: 0;
   left: 0;
 }
-#home .btn:hover {
+section.home .btn:hover {
   color: #989696;
 }
-#home .btn:hover:before, #home .btn:hover:after {
+section.home .btn:hover:before, section.home .btn:hover:after {
   width: 100%;
   height: 100%;
 }
-#home .btn:hover:before {
+section.home .btn:hover:before {
   border-top-color: #989696;
   border-right-color: #989696;
   transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
 }
-#home .btn:hover:after {
+section.home .btn:hover:after {
   border-bottom-color: #989696;
   border-left-color: #989696;
   transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
 }
-#home .next {
+section.home .next {
   position: absolute;
   bottom: 1.4rem;
   color: #989696;
@@ -350,80 +410,79 @@ section {
     bottom: 1.2rem;
   }
 }
-#about {
+section.about {
   background: #222222 url(../images/bg-about.jpg) no-repeat fixed center/cover;
   color: #ffffff;
 }
-#about h1 {
+section.about h1 {
   color: #ffffff;
 }
 
-#skills p {
+section.skills p {
   margin-bottom: 0;
   font-size: 0.7rem;
   font-family: 'Montserrat', sans-serif;
 }
-#skills p.description {
+section.skills p.description {
   color: #989696;
 }
-#skills i {
+section.skills i {
   font-size: 3rem;
   line-height: 0.85;
   color: #222222;
   margin-bottom: 0.5rem;
 }
-#skills img {
+section.skills img {
   width: 2.625rem;
   margin-bottom: 0.6rem;
 }
-#skills em {
+section.skills em {
   font-family: 'Montserrat', sans-serif;
   font-style: italic;
   font-size: 0.6rem;
   color: #989696;
 }
-#skills em:before {
+section.skills em:before {
   content: '(';
 }
-#skills em:after {
+section.skills em:after {
   content: ')';
 }
-#skills div {
+section.skills div {
   flex: 1 1 50%;
   margin-bottom: 2rem;
   padding: 0 10px;
 }
 
-#career {
+section.career {
   padding-bottom: 60px;
   background: #222222;
   color: #ffffff;
-  position: relative;
 }
-#career h1 {
+section.career h1 {
   color: #ffffff;
 }
-#career div {
+section.career div {
   flex-basis: 48%;
   position: relative;
   padding: 0.8rem;
   border-radius: 3px;
   margin-bottom: 2rem;
 }
-#career div p {
+section.career div p {
   margin-bottom: 0;
 }
-#career div p.description {
+section.career div p.description {
   font-family: 'Montserrat', sans-serif;
   color: #989696;
   font-size: 0.75rem;
   margin-top: 5px;
 }
-#career div.left {
+section.career div.left {
   left: -20px;
   text-align: right;
 }
-#career div.left:after {
+section.career div.left:after {
   content: '';
   width: 20px;
   height: 20px;
@@ -434,13 +493,13 @@ section {
   top: 18px;
   right: -30px;
 }
-#career div.right {
+section.career div.right {
   text-align: left;
   position: relative;
   top: 60px;
   right: -20px;
 }
-#career div.right:before {
+section.career div.right:before {
   content: '';
   width: 20px;
   height: 20px;
@@ -451,7 +510,7 @@ section {
   top: 19px;
   left: -30px;
 }
-#career:before {
+section.career:before {
   content: '';
   height: 72%;
   width: 4px;
@@ -461,25 +520,25 @@ section {
   top: 88px;
 }
 
-#education {
+section.education {
   background: lightdark;
   color: #222222;
 }
-#education h1 {
+section.education h1 {
   color: #222222;
 }
 
-#work {
+section.work {
   background: #222222 url(../images/bg-about.jpg) no-repeat fixed center/cover;
   color: #ffffff;
 }
-#work h1 {
+section.work h1 {
   color: #ffffff;
 }
-#work * {
+section.work * {
   flex: 1 1 100%;
 }
-#work div {
+section.work div {
   margin-bottom: 10px;
   border-radius: 3px;
   padding: 0.6rem;
@@ -492,7 +551,7 @@ section {
   }
 }
 @media (min-width: 480px) {
-  #skills div {
+  section.skills div {
     flex-basis: 33.333%;
   }
 }
@@ -511,7 +570,7 @@ section {
     flex: auto;
     position: absolute;
   }
-  header label {
+  header label[for="navToggle"] {
     display: none;
   }
   header nav {
@@ -535,43 +594,41 @@ section {
     font-size: 0.75rem;
     border: 0;
   }
-  header nav li:nth-of-type(3) {
+  header nav li:nth-of-type(4) {
     margin-right: 56px;
   }
-  header nav li:nth-of-type(4) {
+  header nav li:nth-of-type(5) {
     margin-left: 56px;
   }
-  header nav li a {
+  header nav li label {
     opacity: 1;
     transition: unset;
   }
+  header nav .about {
+    display: none;
+  }
 
-  #home {
+  section .home {
     background-size: cover;
     background-position-x: -6px;
   }
-  #home h1 {
+  section .home h1 {
     font-size: 2.4rem;
   }
-
-  #about p {
+  section .about p {
     width: 80%;
   }
-
-  #skills div {
+  section .skills div {
     flex: 1;
     margin-bottom: 0;
   }
-
-  #career div {
+  section .career div {
     flex-basis: 40%;
   }
-
-  #education p {
+  section .education p {
     width: 80%;
   }
-
-  #work div {
+  section .work div {
     flex: 1;
     margin: 0 10px;
   }

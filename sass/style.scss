@@ -2,6 +2,10 @@
 @import 'base';
 
 /* Page Styles ----------------------------*/
+body input {display: none;}
+label {cursor: pointer;}
+
+/* Header bar ----------------------------*/
 header {
     position: fixed;
     top: 0;
@@ -15,14 +19,16 @@ header {
     background: $dark;
     opacity: 0.9;
     padding: 0.3rem 0.9rem;
+    color: $light;
+    transition: all 1500ms linear;
     
     > a {line-height: 0; display: inline-block;}
     
     .logo {
         flex: 1 1 50%;
     }
-    .logo a {
-        display: block;
+    .logo label {
+        display: inline-block;
         line-height: 0;
     }
     .logo img {
@@ -30,12 +36,10 @@ header {
         height: 36px;
         transition: transform 1000ms ease;
     }
-    
-    input {display: none;}
-    
+
     /* Mobile nav dropdown animation */
     #navToggle:checked ~ nav ul {height: 100vh;}
-    #navToggle:checked ~ nav ul li a {opacity: 1; transition: opacity 450ms ease-in-out 200ms;}
+    #navToggle:checked ~ nav ul li label {opacity: 1; transition: opacity 450ms ease-in-out 200ms;}
     
     #navToggle:checked ~ label:before {transform: translateY(7px) rotate(135deg); width: 1.4em; margin-left: 5px;}
     #navToggle:checked ~ label:after {transform: translateY(-9px) rotate(-135deg); width: 1.4em; margin-left: 5px;}
@@ -43,7 +47,7 @@ header {
     
     #navToggle:checked ~ .logo img {transition: transform 600ms ease; transform: rotate(-20deg);}
     
-    label {
+    label[for="navToggle"] {
         color: $light;
         cursor: pointer;
         span, &:before, &:after {
@@ -77,8 +81,8 @@ header {
             text-align: right;
         }
 
-        a {
-            position: relative;
+        label {
+            display: inline-block;
             opacity: 0;
             transition: opacity 400ms ease-in-out;
             &:hover {color: $primary;}
@@ -88,19 +92,64 @@ header {
     
 }
 
+/* Navigation controls ----------------------------*/
+#home:checked ~ section,
+#about:checked ~ section,
+#skills:checked ~ section,
+#career:checked ~ section,
+#education:checked ~ section,
+#work:checked ~ section,
+#hobbies:checked ~ section,
+#contact:checked ~ section {opacity: 0; transition: all 1000ms linear;}
+
+#home:checked ~ .home,
+#about:checked ~ .about,
+#skills:checked ~ .skills,
+#career:checked ~ .career,
+#education:checked ~ .education,
+#work:checked ~ .work,
+#hobbies:checked ~ .hobbies,
+#contact:checked ~ .contact {opacity: 1; transition: opacity 1500ms linear 500ms;}
+
+#career:checked ~ header,
+#work:checked ~ header {
+    background: $light; 
+    color: $dark;
+    transition: all 1500ms linear;
+}
+
+#career:checked ~ header .logo label,
+#work:checked ~ header .logo label {
+    background: $dark;
+    border-radius: 50%;
+    transition: background 1500ms linear;
+}
+
+#career:checked ~ header label[for="navToggle"] span,
+#work:checked ~ header label[for="navToggle"] span,
+#career:checked ~ header label[for="navToggle"]:before,
+#work:checked ~ header label[for="navToggle"]:before,
+#career:checked ~ header label[for="navToggle"]:after,
+#work:checked ~ header label[for="navToggle"]:after {background: $dark;}
 
 
+
+
+/* Page sections ----------------------------*/
 section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
     padding: 60px 20px 30px 20px;
-}
-
-#home {
     min-height: 100vh;
     width: 100vw;
+    opacity: 0;
+    position: absolute;
+}
+
+section.home {
+    opacity: 1;
     align-items: center;
     background: $light url(../images/sjb-bg.gif) no-repeat center/contain;
     div {
@@ -261,7 +310,7 @@ section {
     
 }
 
-#about {
+section.about {
     background: $dark url(../images/bg-about.jpg) no-repeat fixed center/cover;
     color: $light;
     h1 {
@@ -269,7 +318,7 @@ section {
     }
 }
 
-#skills {
+section.skills {
     p {margin-bottom: 0; font-size: 0.7rem; font-family: 'Montserrat', sans-serif;}
     p.description {
         color: $primary;
@@ -296,11 +345,10 @@ section {
     }
 }
 
-#career {
+section.career {
     padding-bottom: 60px;
     background: $dark;
     color: $light;
-    position: relative;
     h1 {
         color: $light;
     }
@@ -361,7 +409,7 @@ section {
     }
 }
  
-#education {
+section.education {
     background: lightdark;
     color: $dark;
     h1 {
@@ -369,7 +417,7 @@ section {
     }
 }
 
-#work {
+section.work {
     background: $dark url(../images/bg-about.jpg) no-repeat fixed center/cover;
     color: $light;
     h1 {
@@ -384,14 +432,12 @@ section {
 }
 
 
-
-
 /* Breakpoints ----------------------------*/
 @media #{$XXsmall} {
     html {font-size: 14px;}
 }
 @media #{$Xsmall} {
-    #skills {
+    section.skills {
         div {
             flex-basis: 33.333%;
         }
@@ -409,7 +455,7 @@ section {
             border-radius: 50%;
         }
         .logo {flex: auto; position: absolute;}
-        label {display: none;}
+        label[for="navToggle"] {display: none;}
         nav {
             height: 30px;
                 height: 30px;
@@ -429,42 +475,50 @@ section {
                 padding: 0;
                 font-size: 0.75rem;
                 border: 0;
-                &:nth-of-type(3) {margin-right: 56px;}
-                &:nth-of-type(4) {margin-left: 56px;}
-                a {opacity: 1; transition: unset;}
+                &:nth-of-type(4) {margin-right: 56px;}
+                &:nth-of-type(5) {margin-left: 56px;}
+                label {opacity: 1; transition: unset;}
+                
             }
+            .about {display: none;}
         }
     }
 
-    #home {
-        background-size: cover;
-        background-position-x: -6px;
-        h1 {
-            font-size: 2.4rem;
-        }
-    }
-    #about {
-        p {width: 80%;}
-    }
-    #skills {
-        div {
-            flex: 1;
-            margin-bottom: 0;
+    section {
+        .home {
+            background-size: cover;
+            background-position-x: -6px;
+            h1 {
+                font-size: 2.4rem;
+            }
         }
         
-    }
-    #career {
-        div {
-            flex-basis: 40%;
+        .about {
+            p {width: 80%;}
         }
-    }
-    #education {
-        p {width: 80%;}
-    }
-    #work {
-        div {
-            flex: 1;
-            margin: 0 10px;
+        
+        .skills {
+            div {
+                flex: 1;
+                margin-bottom: 0;
+            }
+        }
+            
+        .career {
+                div {
+                    flex-basis: 40%;
+                }
+            }
+        
+        .education {
+            p {width: 80%;}
+        }
+        
+        .work {
+            div {
+                flex: 1;
+                margin: 0 10px;
+            }
         }
     }
     

@@ -125,10 +125,9 @@ header {
   flex-wrap: wrap;
   flex-direction: row-reverse;
   width: 100%;
-  background: #222222;
   opacity: 0.9;
-  padding: 0.3rem 0.9rem;
   color: #ffffff;
+  padding: 0.5rem 1rem;
   transition: all 1500ms linear;
   /* Mobile nav dropdown animation */
 }
@@ -138,22 +137,26 @@ header > a {
 }
 header .logo {
   flex: 1 1 50%;
+  z-index: 999;
 }
 header .logo label {
-  display: inline-block;
+  display: block;
   line-height: 0;
-}
-header .logo img {
   width: 36px;
   height: 36px;
-  transition: transform 1000ms ease;
+  background: url(../images/sjb-dark.png) no-repeat 0/cover;
+  transition: all 1000ms ease;
+}
+header #navToggle:checked ~ nav {
+  height: 100vh;
 }
 header #navToggle:checked ~ nav ul {
-  height: 100vh;
+  padding: 3rem 1.4em;
+  transition: padding 1000ms;
 }
 header #navToggle:checked ~ nav ul li label {
   opacity: 1;
-  transition: opacity 450ms ease-in-out 200ms;
+  transition: opacity 450ms ease-in-out;
 }
 header #navToggle:checked ~ label:before {
   transform: translateY(7px) rotate(135deg);
@@ -168,8 +171,14 @@ header #navToggle:checked ~ label:after {
 header #navToggle:checked ~ label span {
   transform: scale(0);
 }
-header #navToggle:checked ~ .logo img {
-  transition: transform 600ms ease;
+header #navToggle:checked ~ label[for="navToggle"] span,
+header #navToggle:checked ~ label[for="navToggle"]:before,
+header #navToggle:checked ~ label[for="navToggle"]:after {
+  background: #ffffff;
+}
+header #navToggle:checked ~ .logo label {
+  background-image: url(../images/sjb-light.png);
+  transition: all 1000ms ease;
   transform: rotate(-20deg);
 }
 header label[for="navToggle"] {
@@ -179,27 +188,34 @@ header label[for="navToggle"] {
 header label[for="navToggle"] span, header label[for="navToggle"]:before, header label[for="navToggle"]:after {
   content: '';
   display: block;
-  background: #ffffff;
+  background: #222222;
   height: 3px;
   margin: 5px 0;
   width: 2em;
   border-radius: 2px;
   position: relative;
+  z-index: 999;
   transition: all 200ms ease-in-out;
 }
 header nav {
   flex: 1 1 100%;
+  height: 0;
+  overflow: hidden;
+  background: #222222;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  transition: height 500ms cubic-bezier(0.42, 0, 0.59, 0.99);
 }
 header nav ul {
   display: flex;
   flex-direction: column;
-  height: 0;
-  overflow: hidden;
-  transition: height 500ms cubic-bezier(0.42, 0, 0.59, 0.99);
+  transition: padding 1000ms;
 }
 header nav li {
   font-size: 2rem;
   font-family: "Roboto", sans-serif;
+  color: #ffffff;
   padding-top: 1rem;
   text-align: right;
 }
@@ -222,7 +238,7 @@ header nav label:hover {
 #hobbies:checked ~ section,
 #contact:checked ~ section {
   opacity: 0;
-  transition: all 1000ms linear;
+  transition: opacity 500ms linear;
 }
 
 #home:checked ~ .home,
@@ -233,31 +249,25 @@ header nav label:hover {
 #work:checked ~ .work,
 #hobbies:checked ~ .hobbies,
 #contact:checked ~ .contact {
+  z-index: 1;
   opacity: 1;
-  transition: opacity 1500ms linear 500ms;
+  transition: opacity 500ms linear;
 }
 
-#career:checked ~ header,
-#work:checked ~ header {
-  background: #ffffff;
+input.dark:checked ~ header {
   color: #222222;
   transition: all 1500ms linear;
 }
 
-#career:checked ~ header .logo label,
-#work:checked ~ header .logo label {
-  background: #222222;
-  border-radius: 50%;
+input.dark:checked ~ header .logo label {
+  background-image: url(../images/sjb-light.png);
   transition: background 1500ms linear;
 }
 
-#career:checked ~ header label[for="navToggle"] span,
-#work:checked ~ header label[for="navToggle"] span,
-#career:checked ~ header label[for="navToggle"]:before,
-#work:checked ~ header label[for="navToggle"]:before,
-#career:checked ~ header label[for="navToggle"]:after,
-#work:checked ~ header label[for="navToggle"]:after {
-  background: #222222;
+input.dark:checked ~ header label[for="navToggle"] span,
+input.dark:checked ~ header label[for="navToggle"]:before,
+input.dark:checked ~ header label[for="navToggle"]:after {
+  background: #ffffff;
 }
 
 /* Page sections ----------------------------*/
@@ -265,6 +275,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-content: center;
   text-align: center;
   padding: 60px 20px 30px 20px;
   min-height: 100vh;
@@ -275,6 +286,7 @@ section {
 
 section.home {
   opacity: 1;
+  z-index: 1;
   align-items: center;
   background: #ffffff url(../images/sjb-bg.gif) no-repeat center/contain;
 }
@@ -521,7 +533,7 @@ section.career:before {
 }
 
 section.education {
-  background: lightdark;
+  background: #ffffff;
   color: #222222;
 }
 section.education h1 {
@@ -556,19 +568,13 @@ section.work div {
   }
 }
 @media (min-width: 600px) {
-  header {
-    flex-wrap: nowrap;
-  }
-  header > a {
+  header .logo {
     position: absolute;
-    background: #222222;
     padding: 0.2rem;
     top: 0;
-    border-radius: 50%;
   }
-  header .logo {
-    flex: auto;
-    position: absolute;
+  header .logo label {
+    background-image: url(../images/sjb-light.png);
   }
   header label[for="navToggle"] {
     display: none;
@@ -579,6 +585,7 @@ section.work div {
     align-items: center;
     justify-content: center;
     display: flex;
+    height: 42px;
   }
   header nav ul {
     flex-direction: row;
@@ -608,27 +615,32 @@ section.work div {
     display: none;
   }
 
-  section .home {
+  section.home {
     background-size: cover;
     background-position-x: -6px;
   }
-  section .home h1 {
+  section.home h1 {
     font-size: 2.4rem;
   }
-  section .about p {
+
+  section.about p {
     width: 80%;
   }
-  section .skills div {
+
+  section.skills div {
     flex: 1;
     margin-bottom: 0;
   }
-  section .career div {
+
+  section.career div {
     flex-basis: 40%;
   }
-  section .education p {
+
+  section.education p {
     width: 80%;
   }
-  section .work div {
+
+  section.work div {
     flex: 1;
     margin: 0 10px;
   }

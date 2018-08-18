@@ -16,36 +16,45 @@ header {
     flex-wrap: wrap;
     flex-direction: row-reverse;
     width: 100%;
-    background: $dark;
     opacity: 0.9;
-    padding: 0.3rem 0.9rem;
     color: $light;
+    padding: 0.5rem 1rem;
     transition: all 1500ms linear;
     
     > a {line-height: 0; display: inline-block;}
     
     .logo {
         flex: 1 1 50%;
+        z-index: 999;
     }
     .logo label {
-        display: inline-block;
+        display: block;
         line-height: 0;
-    }
-    .logo img {
         width: 36px;
         height: 36px;
-        transition: transform 1000ms ease;
+        background: url(../images/sjb-dark.png) no-repeat 0/cover;
+        transition: all 1000ms ease;
     }
 
     /* Mobile nav dropdown animation */
-    #navToggle:checked ~ nav ul {height: 100vh;}
-    #navToggle:checked ~ nav ul li label {opacity: 1; transition: opacity 450ms ease-in-out 200ms;}
+    #navToggle:checked ~ nav {height: 100vh;}
+    #navToggle:checked ~ nav ul {padding: 3rem 1.4em; transition: padding 1000ms;}
+    #navToggle:checked ~ nav ul li label {opacity: 1; transition: opacity 450ms ease-in-out;}
     
     #navToggle:checked ~ label:before {transform: translateY(7px) rotate(135deg); width: 1.4em; margin-left: 5px;}
     #navToggle:checked ~ label:after {transform: translateY(-9px) rotate(-135deg); width: 1.4em; margin-left: 5px;}
     #navToggle:checked ~ label span {transform: scale(0);}
+    #navToggle:checked ~ label[for="navToggle"] span,
+    #navToggle:checked ~ label[for="navToggle"]:before,
+    #navToggle:checked ~ label[for="navToggle"]:after {background: $light;}
     
-    #navToggle:checked ~ .logo img {transition: transform 600ms ease; transform: rotate(-20deg);}
+    #navToggle:checked ~ .logo label {
+        background-image: url(../images/sjb-light.png);
+        transition: all 1000ms ease;
+        transform: rotate(-20deg);
+    }
+    
+    
     
     label[for="navToggle"] {
         color: $light;
@@ -53,30 +62,37 @@ header {
         span, &:before, &:after {
             content: '';
             display: block;
-            background: $light;
+            background: $dark;
             height: 3px;
             margin: 5px 0;
             width: 2em;
             border-radius: 2px;
             position: relative;
+            z-index: 999;
             transition: all 200ms ease-in-out;
         }
     }
 
     nav {
         flex: 1 1 100%;
+        height: 0;
+        overflow: hidden;
+        background: $dark;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        transition: height 500ms cubic-bezier(0.42, 0, 0.59, 0.99);
         
         ul {
             display: flex;
             flex-direction: column;
-            height: 0;
-            overflow: hidden;
-            transition: height 500ms cubic-bezier(0.42, 0, 0.59, 0.99);
+            transition: padding 1000ms;
         }
 
         li {
             font-size: 2rem;
             font-family: $mainFontStack;
+            color: $light;
             padding-top: 1rem;
             text-align: right;
         }
@@ -100,7 +116,7 @@ header {
 #education:checked ~ section,
 #work:checked ~ section,
 #hobbies:checked ~ section,
-#contact:checked ~ section {opacity: 0; transition: all 1000ms linear;}
+#contact:checked ~ section {opacity: 0; transition: opacity 500ms linear;}
 
 #home:checked ~ .home,
 #about:checked ~ .about,
@@ -109,37 +125,28 @@ header {
 #education:checked ~ .education,
 #work:checked ~ .work,
 #hobbies:checked ~ .hobbies,
-#contact:checked ~ .contact {opacity: 1; transition: opacity 1500ms linear 500ms;}
+#contact:checked ~ .contact {z-index: 1; opacity: 1; transition: opacity 500ms linear;}
 
-#career:checked ~ header,
-#work:checked ~ header {
-    background: $light; 
+input.dark:checked ~ header {
     color: $dark;
     transition: all 1500ms linear;
 }
 
-#career:checked ~ header .logo label,
-#work:checked ~ header .logo label {
-    background: $dark;
-    border-radius: 50%;
+input.dark:checked ~ header .logo label {
+    background-image: url(../images/sjb-light.png);
     transition: background 1500ms linear;
 }
 
-#career:checked ~ header label[for="navToggle"] span,
-#work:checked ~ header label[for="navToggle"] span,
-#career:checked ~ header label[for="navToggle"]:before,
-#work:checked ~ header label[for="navToggle"]:before,
-#career:checked ~ header label[for="navToggle"]:after,
-#work:checked ~ header label[for="navToggle"]:after {background: $dark;}
-
-
-
+input.dark:checked ~ header label[for="navToggle"] span,
+input.dark:checked ~ header label[for="navToggle"]:before,
+input.dark:checked ~ header label[for="navToggle"]:after {background: $light;}
 
 /* Page sections ----------------------------*/
 section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: center;
     text-align: center;
     padding: 60px 20px 30px 20px;
     min-height: 100vh;
@@ -150,6 +157,7 @@ section {
 
 section.home {
     opacity: 1;
+    z-index: 1;
     align-items: center;
     background: $light url(../images/sjb-bg.gif) no-repeat center/contain;
     div {
@@ -410,7 +418,7 @@ section.career {
 }
  
 section.education {
-    background: lightdark;
+    background: $light;
     color: $dark;
     h1 {
         color: $dark;
@@ -446,15 +454,13 @@ section.work {
 
 @media #{$desktop} {
     header {
-        flex-wrap: nowrap;
-        > a {
+        .logo {
             position: absolute;
-            background: $dark;
             padding: 0.2rem;
             top: 0;
-            border-radius: 50%;
         }
-        .logo {flex: auto; position: absolute;}
+        .logo label {background-image: url(../images/sjb-light.png);}
+        
         label[for="navToggle"] {display: none;}
         nav {
             height: 30px;
@@ -462,6 +468,7 @@ section.work {
                 align-items: center;
                 justify-content: center;
                 display: flex;
+                height: 42px;
             ul { 
                 flex-direction: row;
                 flex-basis: 88%;
@@ -484,8 +491,8 @@ section.work {
         }
     }
 
-    section {
-        .home {
+
+        section.home {
             background-size: cover;
             background-position-x: -6px;
             h1 {
@@ -493,33 +500,33 @@ section.work {
             }
         }
         
-        .about {
+        section.about {
             p {width: 80%;}
         }
         
-        .skills {
+        section.skills {
             div {
                 flex: 1;
                 margin-bottom: 0;
             }
         }
             
-        .career {
+        section.career {
                 div {
                     flex-basis: 40%;
                 }
             }
         
-        .education {
+        section.education {
             p {width: 80%;}
         }
         
-        .work {
+        section.work {
             div {
                 flex: 1;
                 margin: 0 10px;
             }
         }
-    }
+
     
 }

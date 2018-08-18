@@ -13,7 +13,7 @@ header {
     flex-direction: row-reverse;
     width: 100%;
     background: $dark;
-    opacity: 0.97;
+    opacity: 0.9;
     padding: 0.3rem 0.9rem;
     
     > a {line-height: 0; display: inline-block;}
@@ -28,16 +28,21 @@ header {
     .logo img {
         width: 36px;
         height: 36px;
-        transition: transform 500ms ease;
+        transition: transform 1000ms ease;
     }
     
     input {display: none;}
+    
+    /* Mobile nav dropdown animation */
     #navToggle:checked ~ nav ul {height: 100vh;}
     #navToggle:checked ~ nav ul li a {opacity: 1; transition: opacity 450ms ease-in-out 200ms;}
+    
     #navToggle:checked ~ label:before {transform: translateY(7px) rotate(135deg); width: 1.4em; margin-left: 5px;}
     #navToggle:checked ~ label:after {transform: translateY(-9px) rotate(-135deg); width: 1.4em; margin-left: 5px;}
     #navToggle:checked ~ label span {transform: scale(0);}
-    #navToggle:checked ~ .logo img {transform: rotate(-20deg);}
+    
+    #navToggle:checked ~ .logo img {transition: transform 600ms ease; transform: rotate(-20deg);}
+    
     label {
         color: $light;
         cursor: pointer;
@@ -53,14 +58,15 @@ header {
             transition: all 200ms ease-in-out;
         }
     }
-    
+
     nav {
         flex: 1 1 100%;
-
+        
         ul {
             display: flex;
             flex-direction: column;
             height: 0;
+            overflow: hidden;
             transition: height 500ms cubic-bezier(0.42, 0, 0.59, 0.99);
         }
 
@@ -89,7 +95,7 @@ section {
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
-    padding: 50px 20px 50px 20px;
+    padding: 60px 20px 30px 20px;
 }
 
 #home {
@@ -264,7 +270,6 @@ section {
 }
 
 #skills {
-    padding: 50px 0;
     p {margin-bottom: 0; font-size: 0.7rem; font-family: 'Montserrat', sans-serif;}
     p.description {
         color: $primary;
@@ -292,7 +297,7 @@ section {
 }
 
 #career {
-    padding-bottom: 70px;
+    padding-bottom: 60px;
     background: $dark;
     color: $light;
     position: relative;

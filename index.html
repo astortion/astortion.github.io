@@ -14,6 +14,8 @@
 		<script src="js/html5shiv.min.js"></script>
 		<script src="js/respond.min.js"></script>
 	<![endif]-->
+    
+
 </head>
 <body>
     
@@ -136,6 +138,13 @@
 </section>
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('nav ul li').click(function() {
+            $('#navToggle').prop( "checked", false );
+        });
+    });
+</script>
 <script id="__bs_script__">//<![CDATA[
     document.write("<script async src='http://HOST:3001/browser-sync/browser-sync-client.js?v=2.24.6'><\/script>".replace("http://localhost:3000/", location.hostname));
 //]]></script>

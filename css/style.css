@@ -285,7 +285,7 @@ section {
   width: 100vw;
   opacity: 0;
   position: absolute;
-  top: -999px;
+  top: -9999px;
 }
 
 section.home {
@@ -479,6 +479,9 @@ section.career {
 section.career h1 {
   color: #ffffff;
 }
+section.career h2 {
+  font-size: 1.2rem;
+}
 section.career > div {
   display: flex;
   flex-wrap: wrap;
@@ -488,7 +491,7 @@ section.career > div {
 }
 section.career > div:before {
   content: '';
-  height: 110%;
+  height: 100%;
   width: 4px;
   background: #ffffff;
   border-radius: 10px;
@@ -496,24 +499,37 @@ section.career > div:before {
   top: 0;
 }
 section.career > div div {
-  flex-basis: 48%;
+  flex-basis: calc(50% - 20px);
   position: relative;
-  padding: 0.8rem;
+  padding: 0.8rem 0;
   border-radius: 3px;
   margin-bottom: 2rem;
 }
 section.career > div div p {
   margin-bottom: 0;
 }
-section.career > div div p.description {
+section.career > div div p.jobTitle {
+  margin-bottom: 8px;
+  position: relative;
+}
+section.career > div div ul.description, section.career > div div p.company {
   font-family: 'Montserrat', sans-serif;
-  color: #989696;
   font-size: 0.75rem;
-  margin-top: 5px;
+}
+section.career > div div ul.description li, section.career > div div p.company li {
+  color: #989696;
+}
+section.career > div div ul.description li:before, section.career > div div p.company li:before {
+  content: '-';
+  color: #989696;
+  font-size: 1rem;
 }
 section.career > div .left {
   left: -20px;
   text-align: right;
+}
+section.career > div .left p.jobTitle:after {
+  right: 0;
 }
 section.career > div .left:after {
   content: '';
@@ -523,7 +539,7 @@ section.career > div .left:after {
   border: 2px solid white;
   border-radius: 50%;
   position: absolute;
-  top: 18px;
+  top: 17px;
   right: -30px;
 }
 section.career > div .right {
@@ -531,6 +547,9 @@ section.career > div .right {
   position: relative;
   top: 60px;
   right: -20px;
+}
+section.career > div .right p.jobTitle:after {
+  left: 0;
 }
 section.career > div .right:before {
   content: '';
@@ -540,7 +559,7 @@ section.career > div .right:before {
   border: 2px solid white;
   border-radius: 50%;
   position: absolute;
-  top: 19px;
+  top: 17px;
   left: -30px;
 }
 

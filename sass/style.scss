@@ -152,7 +152,7 @@ section {
     width: 100vw;
     opacity: 0;
     position: absolute;
-    top: -999px;
+    top: -9999px;
 }
 
 section.home {
@@ -361,7 +361,7 @@ section.career {
     h1 {
         color: $light;
     }
-    
+    h2 {font-size: 1.2rem;}
     > div {
         display: flex;
         flex-wrap: wrap;
@@ -370,7 +370,7 @@ section.career {
         position: relative;
         &:before {
             content: '';
-            height: 110%;
+            height: 100%;
             width: 4px;
             background: $light;
             border-radius: 10px;
@@ -379,23 +379,37 @@ section.career {
         }
         
         div {
-            flex-basis: 48%;
+            flex-basis: calc(50% - 20px);
             position: relative;
-            padding: 0.8rem;
+            padding: 0.8rem 0;
             border-radius: 3px;
             margin-bottom: 2rem;
             p {margin-bottom: 0;}
-            p.description {
+            p.jobTitle {
+                margin-bottom: 8px;
+                position: relative;
+            }
+            ul.description, p.company {
                 font-family: 'Montserrat', sans-serif;
-                color: $primary;
                 font-size: 0.75rem;
-                margin-top: 5px;
+                
+                li {color: $primary;}
+                li:before {
+                    content: '-';
+                    color: #989696;
+                    font-size: 1rem;
+                }
             }
         }
         
         .left {
             left: -20px;
             text-align: right;
+            
+            p.jobTitle {
+                &:after {right: 0;}
+            }
+            
             &:after {
                 content: '';
                 width: 20px;
@@ -404,7 +418,7 @@ section.career {
                 border: 2px solid white;
                 border-radius: 50%;
                 position: absolute;
-                top: 18px;
+                top: 17px;
                 right: -30px;
             }
         }
@@ -413,6 +427,11 @@ section.career {
             position: relative;
             top: 60px;
             right: -20px;
+            
+            p.jobTitle {
+                &:after {left: 0;}
+            }
+            
             &:before {
                 content: '';
                 width: 20px;
@@ -421,7 +440,7 @@ section.career {
                 border: 2px solid white;
                 border-radius: 50%;
                 position: absolute;
-                top: 19px;
+                top: 17px;
                 left: -30px;
             }
         }

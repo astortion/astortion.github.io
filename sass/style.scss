@@ -33,32 +33,13 @@ header {
         width: 36px;
         height: 36px;
         background: url(../images/sjb-dark.png) no-repeat 0/cover;
-        transition: all 1000ms ease;
+        transition: transform 1000ms ease, background 500ms linear 400ms;
     }
 
-    /* Mobile nav dropdown animation */
-    #navToggle:checked ~ nav {height: 100vh;}
-    #navToggle:checked ~ nav ul {padding: 3rem 1.4em; transition: padding 1000ms;}
-    #navToggle:checked ~ nav ul li label {opacity: 1; transition: opacity 450ms ease-in-out;}
-    
-    #navToggle:checked ~ label:before {transform: translateY(7px) rotate(135deg); width: 1.4em; margin-left: 5px;}
-    #navToggle:checked ~ label:after {transform: translateY(-9px) rotate(-135deg); width: 1.4em; margin-left: 5px;}
-    #navToggle:checked ~ label span {transform: scale(0);}
-    #navToggle:checked ~ label[for="navToggle"] span,
-    #navToggle:checked ~ label[for="navToggle"]:before,
-    #navToggle:checked ~ label[for="navToggle"]:after {background: $light;}
-    
-    #navToggle:checked ~ .logo label {
-        background-image: url(../images/sjb-light.png);
-        transition: all 1000ms ease;
-        transform: rotate(-20deg);
-    }
-    
-    
-    
     label[for="navToggle"] {
         color: $light;
         cursor: pointer;
+        z-index: 999;
         span, &:before, &:after {
             content: '';
             display: block;
@@ -69,7 +50,7 @@ header {
             border-radius: 2px;
             position: relative;
             z-index: 999;
-            transition: all 200ms ease-in-out;
+            transition: transform 200ms ease-in-out, background 200ms ease-in-out 400ms;
         }
     }
 
@@ -106,6 +87,24 @@ header {
 
     }
     
+    /* Mobile nav dropdown animation */
+    #navToggle:checked ~ nav {height: 100vh;}
+    #navToggle:checked ~ nav ul {padding: 3rem 1.4em; transition: padding 1000ms;}
+    #navToggle:checked ~ nav ul li label {opacity: 1; transition: opacity 450ms ease-in-out;}
+    
+    #navToggle:checked ~ label:before {transform: translateY(7px) rotate(135deg); width: 1.4em; margin-left: 5px;}
+    #navToggle:checked ~ label:after {transform: translateY(-9px) rotate(-135deg); width: 1.4em; margin-left: 5px;}
+    #navToggle:checked ~ label span {transform: scale(0);}
+    #navToggle:checked ~ label[for="navToggle"] span,
+    #navToggle:checked ~ label[for="navToggle"]:before,
+    #navToggle:checked ~ label[for="navToggle"]:after {background: $light; transition: all 200ms ease-in-out 100ms, background 200ms ease;}
+    
+    #navToggle:checked ~ .logo label {
+        background-image: url(../images/sjb-light.png);
+        transform: rotate(-20deg);
+        transition: all 1000ms ease;
+    }
+    
 }
 
 /* Navigation controls ----------------------------*/
@@ -125,7 +124,7 @@ header {
 #education:checked ~ .education,
 #work:checked ~ .work,
 #hobbies:checked ~ .hobbies,
-#contact:checked ~ .contact {z-index: 1; opacity: 1; transition: opacity 500ms linear;}
+#contact:checked ~ .contact {top: 0; z-index: 1; opacity: 1; transition: opacity 500ms linear;}
 
 input.dark:checked ~ header {
     color: $dark;
@@ -134,7 +133,7 @@ input.dark:checked ~ header {
 
 input.dark:checked ~ header .logo label {
     background-image: url(../images/sjb-light.png);
-    transition: background 1500ms linear;
+    transition: transform 500ms linear, background 1500ms linear;
 }
 
 input.dark:checked ~ header label[for="navToggle"] span,
@@ -153,9 +152,11 @@ section {
     width: 100vw;
     opacity: 0;
     position: absolute;
+    top: -999px;
 }
 
 section.home {
+    top: 0;
     opacity: 1;
     z-index: 1;
     align-items: center;
@@ -231,7 +232,7 @@ section.home {
         letter-spacing: 0.04em;
         margin-bottom: 1rem;
         opacity: 0;
-        animation: fadeInH2 1s ease-in 1.5s 1 forwards;
+        animation: fadeInH2 2s ease-in 1.5s 1 forwards;
     }
     @keyframes fadeInH1 {
         100% {
@@ -263,7 +264,7 @@ section.home {
         box-shadow: inset 0 0 0 2px $dark;
         display: inline-block;
         left: -350px;
-        animation: slideFromLeft 0.5s ease-out 2.5s 1 forwards;
+        animation: slideFromLeft 500ms ease-out 2.5s 1 forwards;
 
         &:before, &:after {
             content: '';
@@ -319,7 +320,7 @@ section.home {
 }
 
 section.about {
-    background: $dark url(../images/bg-about.jpg) no-repeat fixed center/cover;
+    background: $dark;
     color: $light;
     h1 {
         color: $light;
@@ -360,60 +361,70 @@ section.career {
     h1 {
         color: $light;
     }
-    div {
-        flex-basis: 48%;
+    
+    > div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
         position: relative;
-        padding: 0.8rem;
-        border-radius: 3px;
-        margin-bottom: 2rem;
-        p {margin-bottom: 0;}
-        p.description {
-            font-family: 'Montserrat', sans-serif;
-            color: $primary;
-            font-size: 0.75rem;
-            margin-top: 5px;
-        }
-    }
-    div.left {
-        left: -20px;
-        text-align: right;
-        &:after {
-            content: '';
-            width: 20px;
-            height: 20px;
-            background: $dark;
-            border: 2px solid white;
-            border-radius: 50%;
-            position: absolute;
-            top: 18px;
-            right: -30px;
-        }
-    }
-    div.right {
-        text-align: left;
-        position: relative;
-        top: 60px;
-        right: -20px;
         &:before {
             content: '';
-            width: 20px;
-            height: 20px;
-            background: $dark;
-            border: 2px solid white;
-            border-radius: 50%;
+            height: 110%;
+            width: 4px;
+            background: $light;
+            border-radius: 10px;
             position: absolute;
-            top: 19px;
-            left: -30px;
+            top: 0;
         }
-    }
-    &:before {
-        content: '';
-        height: 72%;
-        width: 4px;
-        background: $light;
-        border-radius: 10px;
-        position: absolute;
-        top: 88px;
+        
+        div {
+            flex-basis: 48%;
+            position: relative;
+            padding: 0.8rem;
+            border-radius: 3px;
+            margin-bottom: 2rem;
+            p {margin-bottom: 0;}
+            p.description {
+                font-family: 'Montserrat', sans-serif;
+                color: $primary;
+                font-size: 0.75rem;
+                margin-top: 5px;
+            }
+        }
+        
+        .left {
+            left: -20px;
+            text-align: right;
+            &:after {
+                content: '';
+                width: 20px;
+                height: 20px;
+                background: $dark;
+                border: 2px solid white;
+                border-radius: 50%;
+                position: absolute;
+                top: 18px;
+                right: -30px;
+            }
+        }
+        .right {
+            text-align: left;
+            position: relative;
+            top: 60px;
+            right: -20px;
+            &:before {
+                content: '';
+                width: 20px;
+                height: 20px;
+                background: $dark;
+                border: 2px solid white;
+                border-radius: 50%;
+                position: absolute;
+                top: 19px;
+                left: -30px;
+            }
+        }
     }
 }
  
@@ -426,7 +437,7 @@ section.education {
 }
 
 section.work {
-    background: $dark url(../images/bg-about.jpg) no-repeat fixed center/cover;
+    background: $dark;
     color: $light;
     h1 {
         color: $light;
@@ -445,20 +456,16 @@ section.work {
     html {font-size: 14px;}
 }
 @media #{$Xsmall} {
-    section.skills {
-        div {
-            flex-basis: 33.333%;
+    section {
+        &.skills {
+            div {flex-basis: 33.333%;}
         }
     }
 }
 
 @media #{$desktop} {
     header {
-        .logo {
-            position: absolute;
-            padding: 0.2rem;
-            top: 0;
-        }
+        .logo {position: absolute; padding: 0.2rem; top: 0;}
         .logo label {background-image: url(../images/sjb-light.png);}
         
         label[for="navToggle"] {display: none;}
@@ -491,42 +498,33 @@ section.work {
         }
     }
 
-
-        section.home {
-            background-size: cover;
-            background-position-x: -6px;
-            h1 {
-                font-size: 2.4rem;
-            }
+    section {
+        &.home {
+            background-size: cover; background-position-x: -6px;
+            h1 {font-size: 2.4rem;}
         }
         
-        section.about {
+        &.about {
             p {width: 80%;}
         }
         
-        section.skills {
-            div {
-                flex: 1;
-                margin-bottom: 0;
-            }
+        &.skills {
+            div {flex: 1; margin-bottom: 0;}
         }
             
-        section.career {
+        &.career {
                 div {
-                    flex-basis: 40%;
-                }
+                    div {flex-basis: 40%;}
+                } 
             }
         
-        section.education {
+        &.education {
             p {width: 80%;}
         }
         
-        section.work {
-            div {
-                flex: 1;
-                margin: 0 10px;
-            }
+        &.work {
+            div {flex: 1; margin: 0 10px;}
         }
-
-    
+    }
+   
 }

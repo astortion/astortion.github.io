@@ -145,45 +145,12 @@ header .logo label {
   width: 36px;
   height: 36px;
   background: url(../images/sjb-dark.png) no-repeat 0/cover;
-  transition: all 1000ms ease;
-}
-header #navToggle:checked ~ nav {
-  height: 100vh;
-}
-header #navToggle:checked ~ nav ul {
-  padding: 3rem 1.4em;
-  transition: padding 1000ms;
-}
-header #navToggle:checked ~ nav ul li label {
-  opacity: 1;
-  transition: opacity 450ms ease-in-out;
-}
-header #navToggle:checked ~ label:before {
-  transform: translateY(7px) rotate(135deg);
-  width: 1.4em;
-  margin-left: 5px;
-}
-header #navToggle:checked ~ label:after {
-  transform: translateY(-9px) rotate(-135deg);
-  width: 1.4em;
-  margin-left: 5px;
-}
-header #navToggle:checked ~ label span {
-  transform: scale(0);
-}
-header #navToggle:checked ~ label[for="navToggle"] span,
-header #navToggle:checked ~ label[for="navToggle"]:before,
-header #navToggle:checked ~ label[for="navToggle"]:after {
-  background: #ffffff;
-}
-header #navToggle:checked ~ .logo label {
-  background-image: url(../images/sjb-light.png);
-  transition: all 1000ms ease;
-  transform: rotate(-20deg);
+  transition: transform 1000ms ease, background 500ms linear 400ms;
 }
 header label[for="navToggle"] {
   color: #ffffff;
   cursor: pointer;
+  z-index: 999;
 }
 header label[for="navToggle"] span, header label[for="navToggle"]:before, header label[for="navToggle"]:after {
   content: '';
@@ -195,7 +162,7 @@ header label[for="navToggle"] span, header label[for="navToggle"]:before, header
   border-radius: 2px;
   position: relative;
   z-index: 999;
-  transition: all 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, background 200ms ease-in-out 400ms;
 }
 header nav {
   flex: 1 1 100%;
@@ -227,6 +194,41 @@ header nav label {
 header nav label:hover {
   color: #989696;
 }
+header #navToggle:checked ~ nav {
+  height: 100vh;
+}
+header #navToggle:checked ~ nav ul {
+  padding: 3rem 1.4em;
+  transition: padding 1000ms;
+}
+header #navToggle:checked ~ nav ul li label {
+  opacity: 1;
+  transition: opacity 450ms ease-in-out;
+}
+header #navToggle:checked ~ label:before {
+  transform: translateY(7px) rotate(135deg);
+  width: 1.4em;
+  margin-left: 5px;
+}
+header #navToggle:checked ~ label:after {
+  transform: translateY(-9px) rotate(-135deg);
+  width: 1.4em;
+  margin-left: 5px;
+}
+header #navToggle:checked ~ label span {
+  transform: scale(0);
+}
+header #navToggle:checked ~ label[for="navToggle"] span,
+header #navToggle:checked ~ label[for="navToggle"]:before,
+header #navToggle:checked ~ label[for="navToggle"]:after {
+  background: #ffffff;
+  transition: all 200ms ease-in-out 100ms, background 200ms ease;
+}
+header #navToggle:checked ~ .logo label {
+  background-image: url(../images/sjb-light.png);
+  transform: rotate(-20deg);
+  transition: all 1000ms ease;
+}
 
 /* Navigation controls ----------------------------*/
 #home:checked ~ section,
@@ -249,6 +251,7 @@ header nav label:hover {
 #work:checked ~ .work,
 #hobbies:checked ~ .hobbies,
 #contact:checked ~ .contact {
+  top: 0;
   z-index: 1;
   opacity: 1;
   transition: opacity 500ms linear;
@@ -261,7 +264,7 @@ input.dark:checked ~ header {
 
 input.dark:checked ~ header .logo label {
   background-image: url(../images/sjb-light.png);
-  transition: background 1500ms linear;
+  transition: transform 500ms linear, background 1500ms linear;
 }
 
 input.dark:checked ~ header label[for="navToggle"] span,
@@ -282,9 +285,11 @@ section {
   width: 100vw;
   opacity: 0;
   position: absolute;
+  top: -999px;
 }
 
 section.home {
+  top: 0;
   opacity: 1;
   z-index: 1;
   align-items: center;
@@ -352,7 +357,7 @@ section.home h2 {
   letter-spacing: 0.04em;
   margin-bottom: 1rem;
   opacity: 0;
-  animation: fadeInH2 1s ease-in 1.5s 1 forwards;
+  animation: fadeInH2 2s ease-in 1.5s 1 forwards;
 }
 @keyframes fadeInH1 {
   100% {
@@ -382,7 +387,7 @@ section.home .btn {
   box-shadow: inset 0 0 0 2px #222222;
   display: inline-block;
   left: -350px;
-  animation: slideFromLeft 0.5s ease-out 2.5s 1 forwards;
+  animation: slideFromLeft 500ms ease-out 2.5s 1 forwards;
 }
 section.home .btn:before, section.home .btn:after {
   content: '';
@@ -423,7 +428,7 @@ section.home .next {
   }
 }
 section.about {
-  background: #222222 url(../images/bg-about.jpg) no-repeat fixed center/cover;
+  background: #222222;
   color: #ffffff;
 }
 section.about h1 {
@@ -474,27 +479,43 @@ section.career {
 section.career h1 {
   color: #ffffff;
 }
-section.career div {
+section.career > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+}
+section.career > div:before {
+  content: '';
+  height: 110%;
+  width: 4px;
+  background: #ffffff;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+}
+section.career > div div {
   flex-basis: 48%;
   position: relative;
   padding: 0.8rem;
   border-radius: 3px;
   margin-bottom: 2rem;
 }
-section.career div p {
+section.career > div div p {
   margin-bottom: 0;
 }
-section.career div p.description {
+section.career > div div p.description {
   font-family: 'Montserrat', sans-serif;
   color: #989696;
   font-size: 0.75rem;
   margin-top: 5px;
 }
-section.career div.left {
+section.career > div .left {
   left: -20px;
   text-align: right;
 }
-section.career div.left:after {
+section.career > div .left:after {
   content: '';
   width: 20px;
   height: 20px;
@@ -505,13 +526,13 @@ section.career div.left:after {
   top: 18px;
   right: -30px;
 }
-section.career div.right {
+section.career > div .right {
   text-align: left;
   position: relative;
   top: 60px;
   right: -20px;
 }
-section.career div.right:before {
+section.career > div .right:before {
   content: '';
   width: 20px;
   height: 20px;
@@ -521,15 +542,6 @@ section.career div.right:before {
   position: absolute;
   top: 19px;
   left: -30px;
-}
-section.career:before {
-  content: '';
-  height: 72%;
-  width: 4px;
-  background: #ffffff;
-  border-radius: 10px;
-  position: absolute;
-  top: 88px;
 }
 
 section.education {
@@ -541,7 +553,7 @@ section.education h1 {
 }
 
 section.work {
-  background: #222222 url(../images/bg-about.jpg) no-repeat fixed center/cover;
+  background: #222222;
   color: #ffffff;
 }
 section.work h1 {
@@ -622,24 +634,19 @@ section.work div {
   section.home h1 {
     font-size: 2.4rem;
   }
-
   section.about p {
     width: 80%;
   }
-
   section.skills div {
     flex: 1;
     margin-bottom: 0;
   }
-
-  section.career div {
+  section.career div div {
     flex-basis: 40%;
   }
-
   section.education p {
     width: 80%;
   }
-
   section.work div {
     flex: 1;
     margin: 0 10px;

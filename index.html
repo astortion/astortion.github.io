@@ -54,9 +54,8 @@
         <label for="about" class="btn">About me</label>
     </div>
 
-    <!--<a href="#about" class="next"><i class="far fa-arrow-alt-circle-down"></i>-->
+    <!--<a href="#about" class="next"><i class="far fa-arrow-alt-circle-down"></i></a>-->
 
-</a>
 </section>
 
 <section class="about">
@@ -100,25 +99,27 @@
     
 <section class="career">
     <h1>Career History</h1>
-    <div class="left">
-        <h2>2011 - 2014</h2>
-        <p>Job Title</p>
-        <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
-    </div>
-    <div class="right">
-        <h2>2011 - 2014</h2>
-        <p>Job Title</p>
-        <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
-    </div>
-    <div class="left">
-        <h2>2011 - 2014</h2>
-        <p>Job Title</p>
-        <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
-    </div>
-    <div class="right">
-        <h2>2011 - 2014</h2>
-        <p>Job Title</p>
-        <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+    <div>
+        <div class="left">
+            <h2>2011 - 2014</h2>
+            <p>Job Title</p>
+            <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+        </div>
+        <div class="right">
+            <h2>2011 - 2014</h2>
+            <p>Job Title</p>
+            <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+        </div>
+        <div class="left">
+            <h2>2011 - 2014</h2>
+            <p>Job Title</p>
+            <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+        </div>
+        <div class="right">
+            <h2>2011 - 2014</h2>
+            <p>Job Title</p>
+            <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+        </div>
     </div>
 </section>
     
@@ -150,7 +151,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('nav ul li').click(function() {
+        $('nav ul li, label[for="home"]').click(function() {
             $('#navToggle').prop( "checked", false );
         });
     });

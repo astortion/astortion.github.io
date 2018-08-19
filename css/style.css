@@ -124,11 +124,11 @@ header {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: row-reverse;
-  width: 100%;
+  width: 100vw;
   opacity: 0.9;
   color: #ffffff;
   padding: 0.5rem 1rem;
-  transition: all 1500ms linear;
+  /*transition: all 1500ms linear;*/
   /* Mobile nav dropdown animation */
 }
 header > a {
@@ -259,7 +259,7 @@ header #navToggle:checked ~ .logo label {
 
 input.dark:checked ~ header {
   color: #222222;
-  transition: all 1500ms linear;
+  transition: color 1500ms linear;
 }
 
 input.dark:checked ~ header .logo label {
@@ -472,7 +472,7 @@ section.skills div {
 }
 
 section.career {
-  padding-bottom: 60px;
+  padding-bottom: 100px;
   background: #222222;
   color: #ffffff;
 }
@@ -491,7 +491,7 @@ section.career > div {
 }
 section.career > div:before {
   content: '';
-  height: 100%;
+  height: calc(100% + 50px);
   width: 4px;
   background: #ffffff;
   border-radius: 10px;
@@ -505,6 +505,9 @@ section.career > div div {
   border-radius: 3px;
   margin-bottom: 2rem;
 }
+section.career > div div h2 {
+  color: #05a8aa;
+}
 section.career > div div p {
   margin-bottom: 0;
 }
@@ -515,14 +518,11 @@ section.career > div div p.jobTitle {
 section.career > div div ul.description, section.career > div div p.company {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.75rem;
+  margin-top: 6px;
 }
 section.career > div div ul.description li, section.career > div div p.company li {
   color: #989696;
-}
-section.career > div div ul.description li:before, section.career > div div p.company li:before {
-  content: '-';
-  color: #989696;
-  font-size: 1rem;
+  margin-bottom: 6px;
 }
 section.career > div .left {
   left: -20px;
@@ -536,8 +536,9 @@ section.career > div .left:after {
   width: 20px;
   height: 20px;
   background: #222222;
-  border: 2px solid white;
+  border: 2px solid #05a8aa;
   border-radius: 50%;
+  box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 17px;
   right: -30px;
@@ -545,7 +546,7 @@ section.career > div .left:after {
 section.career > div .right {
   text-align: left;
   position: relative;
-  top: 60px;
+  top: 100px;
   right: -20px;
 }
 section.career > div .right p.jobTitle:after {
@@ -556,8 +557,9 @@ section.career > div .right:before {
   width: 20px;
   height: 20px;
   background: #222222;
-  border: 2px solid white;
+  border: 2px solid #05a8aa;
   border-radius: 50%;
+  box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 17px;
   left: -30px;

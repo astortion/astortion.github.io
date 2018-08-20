@@ -435,11 +435,6 @@ section.about h1 {
   color: #ffffff;
 }
 
-section.skills p {
-  margin-bottom: 0;
-  font-size: 0.7rem;
-  font-family: 'Montserrat', sans-serif;
-}
 section.skills p.description {
   color: #989696;
 }
@@ -465,10 +460,66 @@ section.skills em:before {
 section.skills em:after {
   content: ')';
 }
-section.skills div {
+section.skills i {
   flex: 1 1 50%;
   margin-bottom: 2rem;
   padding: 0 10px;
+}
+section.skills .skillBars {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+section.skills .skillBars li {
+  flex: 1;
+}
+section.skills .skillBars li p {
+  margin: 0.5rem 0 0.1rem 0;
+  font-size: 0.8rem;
+  font-family: 'Montserrat', sans-serif;
+}
+section.skills .skillBars li div {
+  background: #989696;
+  display: block;
+  color: #05a8aa;
+  text-align: right;
+  font-size: 0.8rem;
+}
+section.skills .skillBars li div span {
+  background: #222222;
+  display: block;
+  padding: 2px 5px;
+}
+section.skills .skillBars li div .html {
+  width: 90%;
+}
+section.skills .skillBars li div .css {
+  width: 80%;
+}
+section.skills .skillBars li div .cssAni {
+  width: 70%;
+}
+section.skills .skillBars li div .cssFlex {
+  width: 80%;
+}
+section.skills .skillBars li div .sass {
+  width: 60%;
+}
+section.skills .skillBars li div .js {
+  width: 50%;
+}
+section.skills .skillBars li div .jquery {
+  width: 40%;
+}
+section.skills .skillBars li div .react {
+  width: 20%;
+}
+section.skills .skillBars li div .git {
+  width: 80%;
+}
+section.skills .skillBars li div .photoshop {
+  width: 70%;
 }
 
 section.career {
@@ -596,7 +647,7 @@ section.work div {
   }
 }
 @media (min-width: 480px) {
-  section.skills div {
+  section.skills i {
     flex-basis: 33.333%;
   }
 }
@@ -658,9 +709,16 @@ section.work div {
   section.about p {
     width: 80%;
   }
-  section.skills div {
+  section.skills i {
     flex: 1;
     margin-bottom: 0;
+  }
+  section.skills .skillBars {
+    flex-direction: row;
+  }
+  section.skills .skillBars li {
+    margin: 0 30px;
+    flex: 1 1 calc(50% - 60px);
   }
   section.career div div {
     flex-basis: 40%;

@@ -130,6 +130,11 @@ header {
   padding: 0.5rem 1rem;
   /*transition: all 1500ms linear;*/
   /* Mobile nav dropdown animation */
+  /*#navToggle:checked ~ .logo label {
+      background-image: url(../images/sjb-light.png);
+      transform: rotate(-20deg);
+      transition: all 1000ms ease;
+  }*/
 }
 header > a {
   line-height: 0;
@@ -144,8 +149,12 @@ header .logo label {
   line-height: 0;
   width: 36px;
   height: 36px;
-  background: url(../images/sjb-dark.png) no-repeat 0/cover;
-  transition: transform 1000ms ease, background 500ms linear 400ms;
+  /* background: url(../images/sjb-dark.png) no-repeat 0/cover;*/
+  /*transition: transform 1000ms ease, background 500ms linear 400ms;*/
+}
+header svg g {
+  fill: #222222;
+  transition: fill 500ms linear 400ms;
 }
 header label[for="navToggle"] {
   color: #ffffff;
@@ -224,10 +233,8 @@ header #navToggle:checked ~ label[for="navToggle"]:after {
   background: #ffffff;
   transition: all 200ms ease-in-out 100ms, background 200ms ease;
 }
-header #navToggle:checked ~ .logo label {
-  background-image: url(../images/sjb-light.png);
-  transform: rotate(-20deg);
-  transition: all 1000ms ease;
+header #navToggle:checked ~ .logo label svg g {
+  fill: #ffffff;
 }
 
 /* Navigation controls ----------------------------*/
@@ -262,9 +269,13 @@ input.dark:checked ~ header {
   transition: color 1500ms linear;
 }
 
-input.dark:checked ~ header .logo label {
-  background-image: url(../images/sjb-light.png);
-  transition: transform 500ms linear, background 1500ms linear;
+/*input.dark:checked ~ header .logo label {
+    background-image: url(../images/sjb-light.png);
+    transition: transform 500ms linear, background 1500ms linear;
+}*/
+input.dark:checked ~ header .logo label svg g {
+  fill: #ffffff;
+  transition: fill 1500ms linear;
 }
 
 input.dark:checked ~ header label[for="navToggle"] span,
@@ -652,13 +663,16 @@ section.work div {
   }
 }
 @media (min-width: 600px) {
+  header {
+    /*.logo label {background-image: url(../images/sjb-light.png);}*/
+  }
   header .logo {
     position: absolute;
     padding: 0.2rem;
     top: 0;
   }
-  header .logo label {
-    background-image: url(../images/sjb-light.png);
+  header svg g {
+    fill: #ffffff;
   }
   header label[for="navToggle"] {
     display: none;

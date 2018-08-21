@@ -32,9 +32,11 @@ header {
         line-height: 0;
         width: 36px;
         height: 36px;
-        background: url(../images/sjb-dark.png) no-repeat 0/cover;
-        transition: transform 1000ms ease, background 500ms linear 400ms;
+       /* background: url(../images/sjb-dark.png) no-repeat 0/cover;*/
+        /*transition: transform 1000ms ease, background 500ms linear 400ms;*/
     }
+    
+    svg g {fill: $dark; transition: fill 500ms linear 400ms;}
 
     label[for="navToggle"] {
         color: $light;
@@ -99,10 +101,13 @@ header {
     #navToggle:checked ~ label[for="navToggle"]:before,
     #navToggle:checked ~ label[for="navToggle"]:after {background: $light; transition: all 200ms ease-in-out 100ms, background 200ms ease;}
     
-    #navToggle:checked ~ .logo label {
+    /*#navToggle:checked ~ .logo label {
         background-image: url(../images/sjb-light.png);
         transform: rotate(-20deg);
         transition: all 1000ms ease;
+    }*/
+    #navToggle:checked ~ .logo label svg g {
+        fill: $light;
     }
     
 }
@@ -131,11 +136,14 @@ input.dark:checked ~ header {
     transition: color 1500ms linear;
 }
 
-input.dark:checked ~ header .logo label {
+/*input.dark:checked ~ header .logo label {
     background-image: url(../images/sjb-light.png);
     transition: transform 500ms linear, background 1500ms linear;
-}
-
+}*/
+    input.dark:checked ~ header .logo label svg g {
+        fill: $light;
+        transition: fill 1500ms linear;
+    }
 input.dark:checked ~ header label[for="navToggle"] span,
 input.dark:checked ~ header label[for="navToggle"]:before,
 input.dark:checked ~ header label[for="navToggle"]:after {background: $light;}
@@ -527,7 +535,8 @@ section.work {
 @media #{$desktop} {
     header {
         .logo {position: absolute; padding: 0.2rem; top: 0;}
-        .logo label {background-image: url(../images/sjb-light.png);}
+        svg g {fill: $light;}
+        /*.logo label {background-image: url(../images/sjb-light.png);}*/
         
         label[for="navToggle"] {display: none;}
         nav {

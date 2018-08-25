@@ -14,7 +14,30 @@
 		<script src="js/respond.min.js"></script>
 	<![endif]-->
     
-
+<script>
+    function _(id){ return document.getElementById(id); }
+    function submitForm(){
+        _("submit").disabled = true;
+        _("status").innerHTML = 'please wait ...';
+        var formdata = new FormData();
+        formdata.append( "name", _("name").value );
+        formdata.append( "email", _("email").value );
+        formdata.append( "message", _("message").value );
+        var ajax = new XMLHttpRequest();
+        ajax.open( "POST", "contact.php" );
+        ajax.onreadystatechange = function() {
+            if(ajax.readyState == 4 && ajax.status == 200) {
+                if(ajax.responseText == "success"){
+                    _("contact").innerHTML = '<h2>Thanks '+_("name").value+', your message has been sent.</h2>';
+                } else {
+                    _("status").innerHTML = ajax.responseText;
+                    _("submit").disabled = false;
+                }
+            }
+        }
+        ajax.send( formdata );
+    }
+</script>
 </head>
 <body>
 
@@ -33,9 +56,9 @@
     <div class="logo">
         <label for="home">
             <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-             width="400.000000pt" height="400.000000pt" viewBox="0 0 400.000000 400.000000"
+             width="36" height="36" viewBox="0 0 400.000000 400.000000"
              preserveAspectRatio="xMidYMid meet" style="width: 36px; height: 36px;">
-            <g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)"
+            <g transform="translate(0,400) scale(0.1,-0.1)"
             fill="#222222" stroke="none">
             <path d="M1805 3894 c-246 -37 -307 -50 -455 -101 -628 -215 -1115 -765 -1249
             -1408 -58 -281 -55 -602 9 -870 97 -409 335 -782 669 -1050 247 -196 513 -318
@@ -105,43 +128,43 @@
     
     
     <ul class="skillBars">
-        <li>
+        <li class="html">
             <p>HTML 5</p>
             <div><span class="html">90%</span></div>
         </li>
-        <li>
+        <li class="css">
             <p>CSS 3</p>
             <div><span class="css">80%</span></div>
         </li>
-        <li>
+        <li class="cssAni">
             <p>CSS Animation</p>
             <div><span class="cssAni">70%</span></div>
         </li>
-        <li>
+        <li class="cssFlex">
             <p>CSS Flexbox</p>
             <div><span class="cssFlex">90%</span></div>
         </li>
-        <li>
+        <li class="sass">
             <p>SASS</p>
             <div><span class="sass">60%</span></div>
         </li>
-        <li>
+        <li class="js">
             <p>JavaScript</p>
             <div><span class="js">50%</span></div>
         </li>
-        <li>
+        <li class="jquery">
             <p>jQuery</p>
             <div><span class="jquery">40%</span></div>
         </li>
-        <li>
+        <li class="react">
             <p>React JS</p>
             <div><span class="react">20%</span></div>
         </li>
-        <li>
+        <li class="git">
             <p>Git</p>
             <div><span class="git">80%</span></div>
         </li>
-        <li>
+        <li class="photoshop">
             <p>Photoshop</p>
             <div><span class="photoshop">70%</span></div>
         </li>
@@ -284,6 +307,20 @@
 
 </section>
     
+<section class="contact">
+    <h1>Contact</h1>
+    <form id="contact" onsubmit="submitForm(); return false;">
+        <label for="name">Name:</label>
+        <input id="name" type="text" required>
+        <label for="email">Email:</label>
+        <input id="email" type="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message"  required></textarea>
+        <button id="submit" class="btn">Send</button>
+        <div id="status"></div>
+    </form>
+</section>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
     $(document).ready(function() {

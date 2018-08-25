@@ -35,7 +35,7 @@ header {
        /* background: url(../images/sjb-dark.png) no-repeat 0/cover;*/
         /*transition: transform 1000ms ease, background 500ms linear 400ms;*/
     }
-    
+    svg {transition: transform 1000ms ease,}
     svg g {fill: $dark; transition: fill 500ms linear 400ms;}
 
     label[for="navToggle"] {
@@ -106,8 +106,13 @@ header {
         transform: rotate(-20deg);
         transition: all 1000ms ease;
     }*/
+    #navToggle:checked ~ .logo label svg {
+        transform: rotate(-20deg);
+        transition: transform 1000ms ease;
+    }
     #navToggle:checked ~ .logo label svg g {
         fill: $light;
+        transition: fill 100ms ease;
     }
     
 }
@@ -163,6 +168,7 @@ section {
     top: -9999px;
 }
 
+/* Home ----------------------------*/
 section.home {
     top: 0;
     opacity: 1;
@@ -327,6 +333,7 @@ section.home {
     
 }
 
+/* About ----------------------------*/
 section.about {
     background: $dark;
     color: $light;
@@ -335,6 +342,7 @@ section.about {
     }
 }
 
+/* Skills ----------------------------*/
 section.skills {
     p.description {
         color: $primary;
@@ -355,7 +363,7 @@ section.skills {
     }
     
     i {
-        flex: 1 1 50%;
+        flex: 1 1 33.333%;
         margin-bottom: 2rem;
         padding: 0 10px;
     }
@@ -368,6 +376,7 @@ section.skills {
         p {}
         li {
             flex: 1;
+            
             p {
                 margin: 0.5rem 0 0.1rem 0;
                 font-size: 0.8rem;
@@ -386,22 +395,91 @@ section.skills {
                     padding: 2px 5px;
                 }
                 
-                .html {width: 90%;}
-                .css {width: 80%;}
-                .cssAni {width: 70%}
-                .cssFlex {width: 80%}
-                .sass {width: 60%;}
-                .js {width: 50%;}
-                .jquery {width: 40%;}
-                .react {width: 20%;}
-                .git {width: 80%;}
-                .photoshop {width: 70%;}
+                span.html {width: 90%;}
+                span.css {width: 80%;}
+                span.cssAni {width: 70%;}
+                span.cssFlex {width: 80%;}
+                span.sass {width: 60%;}
+                span.js {width: 50%;}
+                span.jquery {width: 40%;}
+                span.react {width: 20%;}
+                span.git {width: 80%;}
+                span.photoshop {width: 70%;}
             }
         }
     }
     
 }
 
+.contact {
+    form {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        font-family: 'Montserrat', sans-serif;
+        padding: 0 1rem;
+        input {display: block;}
+        input, textarea {
+        padding: 0.3rem;
+        margin: 0.3rem 0 0.8rem 0;
+        text-align: center;
+     }
+        
+    .btn {
+        padding: 0.6rem 2.5rem;
+        color: $dark;
+        border: 0;
+        cursor: pointer;
+        background: $light;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.9rem;
+        position: relative;
+        box-shadow: inset 0 0 0 2px $dark;
+        animation: slideFromLeft 500ms ease-out 2.5s 1 forwards;
+
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+            border: 2px solid transparent;
+            width: 0;
+            height: 0;
+            // Start :after & :before in same position
+            top: 0;
+            left: 0;
+        }
+
+        // Hover styles
+        &:hover {color: $primary;}
+
+        &:hover:before, &:hover:after {
+            width: 100%;
+            height: 100%;
+        }
+
+        &:hover:before {
+            border-top-color: $primary; // Make borders visible
+            border-right-color: $primary;
+            transition:
+            width 0.25s ease-out, // Width expands first
+            height 0.25s ease-out 0.25s; // And then height
+        }
+
+        &:hover:after {
+            border-bottom-color: $primary; // Make borders visible
+            border-left-color: $primary;
+            transition: // Animate height first, then width
+            height 0.25s ease-out,
+            width 0.25s ease-out 0.25s;
+        }
+    }
+        
+        
+    }
+    
+}
+
+/* career ----------------------------*/
 section.career {
     padding-bottom: 100px;
     background: $dark;
@@ -496,7 +574,8 @@ section.career {
         }
     }
 }
- 
+
+/* Education ----------------------------*/
 section.education {
     background: $light;
     color: $dark;
@@ -505,6 +584,7 @@ section.education {
     }
 }
 
+/* Work ----------------------------*/
 section.work {
     background: $dark;
     color: $light;
@@ -525,11 +605,7 @@ section.work {
     html {font-size: 14px;}
 }
 @media #{$Xsmall} {
-    section {
-        &.skills {
-            i {flex-basis: 33.333%;}
-        }
-    }
+    
 }
 
 @media #{$desktop} {
@@ -582,7 +658,19 @@ section.work {
            i {flex: 1; margin-bottom: 0;}
             .skillBars {
                 flex-direction: row;
-                li {margin: 0 30px; flex: 1 1 calc(50% - 60px);}
+                li {
+                    margin: 0 30px; flex: 1 1 calc(50% - 60px);
+                    &.html {order: 1;}
+                    &.css {order: 4;}
+                    &.cssAni {order: 6;}
+                    &.cssFlex {order: 8;}
+                    &.sass {order: 10;}
+                    &.js {order: 2;}
+                    &.jquery {order: 5;}
+                    &.react {order: 7;}
+                    &.git {order: 9;}
+                    &.photoshop {order: 11;}
+                }
             }
         }
             

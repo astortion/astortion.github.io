@@ -756,65 +756,66 @@ section {
     display: none;
   }
 
-  section.home {
+  .homePage {
     background-size: cover;
     background-position-x: -6px;
   }
-  section.home h1 {
+  .homePage h1 {
     font-size: 2.4rem;
   }
-  section.about p {
-    width: 80%;
-  }
-  section.skills i {
+
+  .skills i {
     flex: 1;
     margin-bottom: 0;
   }
-  section.skills .skillBars {
+  .skills .skillBars {
     flex-direction: row;
   }
-  section.skills .skillBars li {
+  .skills .skillBars li {
     margin: 0 30px;
     flex: 1 1 calc(50% - 60px);
   }
-  section.skills .skillBars li.html {
+  .skills .skillBars li.html {
     order: 1;
   }
-  section.skills .skillBars li.css {
+  .skills .skillBars li.css {
     order: 4;
   }
-  section.skills .skillBars li.cssAni {
+  .skills .skillBars li.cssAni {
     order: 6;
   }
-  section.skills .skillBars li.cssFlex {
+  .skills .skillBars li.cssFlex {
     order: 8;
   }
-  section.skills .skillBars li.sass {
+  .skills .skillBars li.sass {
     order: 10;
   }
-  section.skills .skillBars li.js {
+  .skills .skillBars li.js {
     order: 2;
   }
-  section.skills .skillBars li.jquery {
+  .skills .skillBars li.jquery {
     order: 5;
   }
-  section.skills .skillBars li.react {
+  .skills .skillBars li.react {
     order: 7;
   }
-  section.skills .skillBars li.git {
+  .skills .skillBars li.git {
     order: 9;
   }
-  section.skills .skillBars li.photoshop {
+  .skills .skillBars li.photoshop {
     order: 11;
   }
-  section.career div div {
+
+  .career div div {
     flex-basis: 40%;
   }
-  section.work div {
+
+  .work div {
     flex: 1;
     margin: 0 10px;
   }
-  section.contact form {
+
+  .contact form {
     width: 500px;
   }
 }

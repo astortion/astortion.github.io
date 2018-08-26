@@ -124,7 +124,6 @@ header {
 #career:checked ~ section,
 #education:checked ~ section,
 #work:checked ~ section,
-#hobbies:checked ~ section,
 #contact:checked ~ section {opacity: 0; transition: opacity 500ms linear;}
 
 #home:checked ~ .home,
@@ -133,7 +132,6 @@ header {
 #career:checked ~ .career,
 #education:checked ~ .education,
 #work:checked ~ .work,
-#hobbies:checked ~ .hobbies,
 #contact:checked ~ .contact {top: 0; z-index: 1; opacity: 1; transition: opacity 500ms linear;}
 
 input.dark:checked ~ header {
@@ -241,7 +239,7 @@ section.home {
     h2 {
         font-family: 'MerriweatherLightItalic', sans-serif;
         font-style: italic;
-        color: $dark;
+        color: $primaryDark;
         font-size: 1rem;
         letter-spacing: 0.04em;
         margin-bottom: 1rem;
@@ -255,7 +253,7 @@ section.home {
     }
     @keyframes fadeInH2 {
         100% {
-            opacity: 0.8;
+            opacity: 1;
         }
     }
     
@@ -579,8 +577,25 @@ section.career {
 section.education {
     background: $light;
     color: $dark;
-    h1 {
-        color: $dark;
+    h1 {color: $dark;}
+    .box {
+        flex: 1 1 100%;
+        margin-bottom: 2rem;
+        position: relative;
+        h2 {color: $secondaryDark; font-size: 1.2rem;}
+        h3 {
+            color: $dark;
+            font-size: 0.875rem;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+        }
+        h4 {font-family: 'Montserrat', sans-serif; font-size: 0.75rem; margin-top: 6px;}
+        ul {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            margin-top: 6px;
+            color: $primaryDark;
+        }
     }
 }
 
@@ -640,7 +655,7 @@ section.work {
                 label {opacity: 1; transition: unset;}
                 
             }
-            .about {display: none;}
+            .home {display: none;}
         }
     }
 
@@ -681,7 +696,7 @@ section.work {
             }
         
         &.education {
-            p {width: 80%;}
+            
         }
         
         &.work {

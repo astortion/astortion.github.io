@@ -257,7 +257,7 @@ header #navToggle:checked ~ .logo label svg g {
   transition: opacity 500ms linear;
 }
 
-#home:checked ~ .home,
+#home:checked ~ .homePage,
 #about:checked ~ .about,
 #skills:checked ~ .skills,
 #career:checked ~ .career,
@@ -290,7 +290,46 @@ input.dark:checked ~ header label[for="navToggle"]:after {
   background: #ffffff;
 }
 
-/* Page sections ----------------------------*/
+.homePage .btn, .about .btn, .contact form .btn {
+  padding: 0.6rem 2.5rem;
+  color: #222222;
+  font-family: 'Montserrat', sans-serif;
+  border: 0;
+  cursor: pointer;
+  background: #ffffff;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 10;
+  box-shadow: inset 0 0 0 2px #222222;
+  display: inline-block;
+}
+.homePage .btn:before, .about .btn:before, .contact form .btn:before, .homePage .btn:after, .about .btn:after, .contact form .btn:after {
+  content: '';
+  position: absolute;
+  border: 2px solid transparent;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+}
+.homePage .btn:hover, .about .btn:hover, .contact form .btn:hover {
+  color: #989696;
+}
+.homePage .btn:hover:before, .about .btn:hover:before, .contact form .btn:hover:before, .homePage .btn:hover:after, .about .btn:hover:after, .contact form .btn:hover:after {
+  width: 100%;
+  height: 100%;
+}
+.homePage .btn:hover:before, .about .btn:hover:before, .contact form .btn:hover:before {
+  border-top-color: #989696;
+  border-right-color: #989696;
+  transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+}
+.homePage .btn:hover:after, .about .btn:hover:after, .contact form .btn:hover:after {
+  border-bottom-color: #989696;
+  border-left-color: #989696;
+  transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
+}
+
 section {
   display: flex;
   flex-wrap: wrap;
@@ -305,20 +344,19 @@ section {
   top: -9999px;
 }
 
-/* Home ----------------------------*/
-section.home {
+.homePage {
   top: 0;
   opacity: 1;
   z-index: 1;
   align-items: center;
   background: #ffffff url(../images/sjb-bg.gif) no-repeat center/contain;
 }
-section.home div {
+.homePage div {
   padding: 1.5rem;
   position: relative;
   overflow: hidden;
 }
-section.home div:before, section.home div:after {
+.homePage div:before, .homePage div:after {
   content: '';
   border: 2px solid transparent;
   border-radius: 4px;
@@ -329,10 +367,10 @@ section.home div:before, section.home div:after {
   top: 0;
   left: 0;
 }
-section.home div:before {
+.homePage div:before {
   animation: slideTopRight 1s ease-out 3.5s 1 forwards;
 }
-section.home div:after {
+.homePage div:after {
   animation: slideRightBottom 1s ease-out 4s 1 forwards;
 }
 @keyframes slideTopRight {
@@ -361,13 +399,13 @@ section.home div:after {
     border-left-color: #222222;
   }
 }
-section.home h1 {
+.homePage h1 {
   color: #222222;
   margin-bottom: 0.5rem;
   opacity: 0;
   animation: fadeInH1 2s ease-out 1s 1 forwards;
 }
-section.home h2 {
+.homePage h2 {
   font-family: 'MerriweatherLightItalic', sans-serif;
   font-style: italic;
   color: #525151;
@@ -376,6 +414,10 @@ section.home h2 {
   margin-bottom: 1rem;
   opacity: 0;
   animation: fadeInH2 2s ease-in 1.5s 1 forwards;
+}
+.homePage .btn {
+  left: -350px;
+  animation: slideFromLeft 500ms ease-out 2.5s 1 forwards;
 }
 @keyframes fadeInH1 {
   100% {
@@ -395,227 +437,122 @@ section.home h2 {
     left: 0;
   }
 }
-section.home .btn {
-  padding: 0.6rem 2.5rem;
-  color: #222222;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.9rem;
-  position: relative;
-  z-index: 10;
-  box-shadow: inset 0 0 0 2px #222222;
-  display: inline-block;
-  left: -350px;
-  animation: slideFromLeft 500ms ease-out 2.5s 1 forwards;
-}
-section.home .btn:before, section.home .btn:after {
-  content: '';
-  position: absolute;
-  border: 2px solid transparent;
-  width: 0;
-  height: 0;
-  top: 0;
-  left: 0;
-}
-section.home .btn:hover {
-  color: #989696;
-}
-section.home .btn:hover:before, section.home .btn:hover:after {
-  width: 100%;
-  height: 100%;
-}
-section.home .btn:hover:before {
-  border-top-color: #989696;
-  border-right-color: #989696;
-  transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
-}
-section.home .btn:hover:after {
-  border-bottom-color: #989696;
-  border-left-color: #989696;
-  transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
-}
-section.home .next {
-  position: absolute;
-  bottom: 1.4rem;
-  color: #989696;
-  font-size: 1.8rem;
-  animation: next 1.4s ease-in infinite 2s;
-}
-@keyframes next {
-  50% {
-    bottom: 1.2rem;
-  }
-}
-/* About ----------------------------*/
-section.about {
+.about {
   background: #222222;
   color: #ffffff;
 }
-section.about h1 {
+.about h1 {
   color: #ffffff;
 }
+.about .btn {
+  background: #222222;
+  color: #ffffff;
+  box-shadow: inset 0 0 0 2px #ffffff;
+}
 
-/* Skills ----------------------------*/
-section.skills p.description {
+.skills p.description {
   color: #989696;
 }
-section.skills i {
+.skills i {
+  flex: 1 1 33.333%;
   font-size: 3rem;
   line-height: 0.85;
   color: #222222;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 0 10px;
 }
-section.skills img {
+.skills img {
   width: 2.625rem;
   margin-bottom: 0.6rem;
 }
-section.skills em {
+.skills em {
   font-family: 'Montserrat', sans-serif;
   font-style: italic;
   font-size: 0.6rem;
   color: #989696;
 }
-section.skills em:before {
+.skills em:before {
   content: '(';
 }
-section.skills em:after {
+.skills em:after {
   content: ')';
 }
-section.skills i {
-  flex: 1 1 33.333%;
-  margin-bottom: 2rem;
-  padding: 0 10px;
-}
-section.skills .skillBars {
+.skills .skillBars {
   flex-basis: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
-section.skills .skillBars li {
+.skills .skillBars li {
   flex: 1;
 }
-section.skills .skillBars li p {
+.skills .skillBars li p {
   margin: 0.5rem 0 0.1rem 0;
   font-size: 0.8rem;
   font-family: 'Montserrat', sans-serif;
 }
-section.skills .skillBars li div {
+.skills .skillBars li div {
   background: #989696;
   display: block;
   color: #05a8aa;
   text-align: right;
   font-size: 0.8rem;
 }
-section.skills .skillBars li div span {
+.skills .skillBars li div span {
   background: #222222;
   display: block;
   padding: 2px 5px;
 }
-section.skills .skillBars li div span.html {
+.skills .skillBars li div span.html {
   width: 90%;
 }
-section.skills .skillBars li div span.css {
+.skills .skillBars li div span.css {
   width: 80%;
 }
-section.skills .skillBars li div span.cssAni {
+.skills .skillBars li div span.cssAni {
   width: 70%;
 }
-section.skills .skillBars li div span.cssFlex {
+.skills .skillBars li div span.cssFlex {
   width: 80%;
 }
-section.skills .skillBars li div span.sass {
+.skills .skillBars li div span.sass {
   width: 60%;
 }
-section.skills .skillBars li div span.js {
+.skills .skillBars li div span.js {
   width: 50%;
 }
-section.skills .skillBars li div span.jquery {
+.skills .skillBars li div span.jquery {
   width: 40%;
 }
-section.skills .skillBars li div span.react {
+.skills .skillBars li div span.react {
   width: 20%;
 }
-section.skills .skillBars li div span.git {
+.skills .skillBars li div span.git {
   width: 80%;
 }
-section.skills .skillBars li div span.photoshop {
+.skills .skillBars li div span.photoshop {
   width: 70%;
 }
 
-.contact form {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  font-family: 'Montserrat', sans-serif;
-  padding: 0 1rem;
-}
-.contact form input {
-  display: block;
-}
-.contact form input, .contact form textarea {
-  padding: 0.3rem;
-  margin: 0.3rem 0 0.8rem 0;
-  text-align: center;
-}
-.contact form .btn {
-  padding: 0.6rem 2.5rem;
-  color: #222222;
-  border: 0;
-  cursor: pointer;
-  background: #ffffff;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.9rem;
-  position: relative;
-  box-shadow: inset 0 0 0 2px #222222;
-  animation: slideFromLeft 500ms ease-out 2.5s 1 forwards;
-}
-.contact form .btn:before, .contact form .btn:after {
-  content: '';
-  position: absolute;
-  border: 2px solid transparent;
-  width: 0;
-  height: 0;
-  top: 0;
-  left: 0;
-}
-.contact form .btn:hover {
-  color: #989696;
-}
-.contact form .btn:hover:before, .contact form .btn:hover:after {
-  width: 100%;
-  height: 100%;
-}
-.contact form .btn:hover:before {
-  border-top-color: #989696;
-  border-right-color: #989696;
-  transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
-}
-.contact form .btn:hover:after {
-  border-bottom-color: #989696;
-  border-left-color: #989696;
-  transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
-}
-
-/* career ----------------------------*/
-section.career {
+.career {
   padding-bottom: 100px;
   background: #222222;
   color: #ffffff;
 }
-section.career h1 {
+.career h1 {
   color: #ffffff;
 }
-section.career h2 {
+.career h2 {
   font-size: 1.2rem;
 }
-section.career > div {
+.career > div {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
   position: relative;
 }
-section.career > div:before {
+.career > div:before {
   content: '';
   height: calc(100% + 50px);
   width: 4px;
@@ -624,40 +561,40 @@ section.career > div:before {
   position: absolute;
   top: 0;
 }
-section.career > div div {
+.career > div div {
   flex-basis: calc(50% - 20px);
   position: relative;
   padding: 0.8rem 0;
   border-radius: 3px;
   margin-bottom: 2rem;
 }
-section.career > div div h2 {
+.career > div div h2 {
   color: #05a8aa;
 }
-section.career > div div p {
+.career > div div p {
   margin-bottom: 0;
 }
-section.career > div div p.jobTitle {
+.career > div div p.jobTitle {
   margin-bottom: 8px;
   position: relative;
 }
-section.career > div div ul.description, section.career > div div p.company {
+.career > div div ul.description, .career > div div p.company {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.75rem;
   margin-top: 6px;
 }
-section.career > div div ul.description li, section.career > div div p.company li {
+.career > div div ul.description li, .career > div div p.company li {
   color: #989696;
   margin-bottom: 6px;
 }
-section.career > div .left {
+.career > div .left {
   left: -20px;
   text-align: right;
 }
-section.career > div .left p.jobTitle:after {
+.career > div .left p.jobTitle:after {
   right: 0;
 }
-section.career > div .left:after {
+.career > div .left:after {
   content: '';
   width: 20px;
   height: 20px;
@@ -669,16 +606,16 @@ section.career > div .left:after {
   top: 17px;
   right: -30px;
 }
-section.career > div .right {
+.career > div .right {
   text-align: left;
   position: relative;
   top: 100px;
   right: -20px;
 }
-section.career > div .right p.jobTitle:after {
+.career > div .right p.jobTitle:after {
   left: 0;
 }
-section.career > div .right:before {
+.career > div .right:before {
   content: '';
   width: 20px;
   height: 20px;
@@ -691,59 +628,78 @@ section.career > div .right:before {
   left: -30px;
 }
 
-/* Education ----------------------------*/
-section.education {
+.education {
   background: #ffffff;
   color: #222222;
 }
-section.education h1 {
+.education h1 {
   color: #222222;
 }
-section.education .box {
+.education .box {
   flex: 1 1 100%;
   margin-bottom: 2rem;
   position: relative;
 }
-section.education .box h2 {
+.education .box h2 {
   color: #035b5d;
   font-size: 1.2rem;
 }
-section.education .box h3 {
+.education .box h3 {
   color: #222222;
   font-size: 0.875rem;
   letter-spacing: 0.04em;
   margin-bottom: 8px;
 }
-section.education .box h4 {
+.education .box h4 {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.75rem;
   margin-top: 6px;
 }
-section.education .box ul {
+.education .box ul {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.75rem;
   margin-top: 6px;
   color: #525151;
 }
 
-/* Work ----------------------------*/
-section.work {
+.work {
   background: #222222;
   color: #ffffff;
 }
-section.work h1 {
+.work h1 {
   color: #ffffff;
 }
-section.work * {
+.work * {
   flex: 1 1 100%;
 }
-section.work div {
+.work div {
   margin-bottom: 10px;
   border-radius: 3px;
   padding: 0.6rem;
 }
 
-/* Breakpoints ----------------------------*/
+.contact form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0 1rem;
+}
+.contact form input {
+  display: block;
+}
+.contact form input, .contact form textarea {
+  flex: 1 1 100%;
+  padding: 0.3rem;
+  margin: 0.3rem 0 0.8rem 0;
+  background: #222222;
+  border: 0;
+  color: #ffffff;
+}
+.contact form textarea {
+  height: 200px;
+}
+
 @media (max-width: 359px) and (min-width: 320px) {
   html {
     font-size: 14px;
@@ -857,5 +813,8 @@ section.work div {
   section.work div {
     flex: 1;
     margin: 0 10px;
+  }
+  section.contact form {
+    width: 500px;
   }
 }

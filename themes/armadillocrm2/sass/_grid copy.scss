@@ -1,0 +1,57 @@
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    &.contain {max-width: 1600px; margin: 0 auto;}
+}
+
+.col-1 {
+    flex: 1 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.col-2 {
+    flex: 1 50%;
+    &.marg:nth-child(odd) {
+        flex: 1 calc(50% - 20px);
+        margin-right: 20px;
+    }
+}
+
+.col-3 {
+    position: relative;
+    flex-basis: 33.33%;
+    &.marg:not:nth-child(3n+3) {
+        flex-basis: calc(33.33% - 20px);
+        margin-right: 20px;
+    }
+}
+
+@media #{$Xlarge} { 
+    .col-2 {
+        flex: 1 100%;
+        &.marg:nth-child(odd) {
+            flex: 1 100%;
+            margin-right: 0px;
+        }
+    }
+
+    .col-3 {
+        flex: 1 50%;
+        &.marg:not:nth-child(3n+3) {
+            flex: 1 50%;
+            margin-right: 0px;
+        }
+    }
+}
+
+@media #{$medium} { 
+    .col-3 {
+        flex: 1 100%;
+        &.marg:not:nth-child(3n+3) {
+            flex: 1 50%;
+            margin-right: 0px;
+        }
+    }
+}

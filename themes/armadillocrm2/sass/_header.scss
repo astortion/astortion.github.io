@@ -1,0 +1,59 @@
+/* Header  ----------------------------*/
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 20px 0;
+    background-color: rgba(45,60,60,.85);
+    z-index: 999;
+    
+    .armadilloLogo {
+        flex: 1;
+        position: relative;
+        z-index: 999;
+        svg {
+            transform: scale(1); width: 322px; height: 57px;
+            [data-name=target] {fill: #5257f3;}
+        }
+    }
+
+    nav {
+        align-self: flex-end;
+        li {
+            margin: 0 0 0 30px;
+            display: inline-block;
+            color: $light;
+            font-family: $boldFont;
+            font-weight: 400;
+            font-size: 1.125rem;
+            line-height: 1.55556;
+        }
+        
+        li {position: relative;}
+        li.current-menu-item:before {
+            content: '';
+            width: 25px;
+            height: 25px;
+            border: 5px solid;
+            position: absolute;
+            top: -43px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: translate3d(0,-100%,0);
+            border-radius: 100%;
+            opacity: 1;
+        }
+        
+        .whatWeDo a:hover {color: $red;}
+        .whoWeAre a:hover {color: $pink;}
+        .ourWork a:hover {color: $orange;}
+        .blog a:hover {color: $purple;}
+        .contactUs a:hover {color: $yellow;}
+     
+    }
+
+    input[type="checkbox"] {display: none;}
+
+}

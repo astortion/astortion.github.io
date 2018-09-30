@@ -1,0 +1,81 @@
+/* Fonts ----------------------------*/
+@font-face {font-family: 'ObjektivMk1-Light';src: url('../fonts/304D42_0_0.eot');src: url('../fonts/304D42_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/304D42_0_0.woff2') format('woff2'),url('../fonts/304D42_0_0.woff') format('woff'),url('../fonts/304D42_0_0.ttf') format('truetype'),url('../fonts/304D42_0_0.svg#wf') format('svg');}
+@font-face {font-family: 'ObjektivMk1-Bold';src: url('../fonts/304D42_1_0.eot');src: url('../fonts/304D42_1_0.eot?#iefix') format('embedded-opentype'),url('../fonts/304D42_1_0.woff2') format('woff2'),url('../fonts/304D42_1_0.woff') format('woff'),url('../fonts/304D42_1_0.ttf') format('truetype'),url('../fonts/304D42_1_0.svg#wf') format('svg');}
+
+/* Reset Styles ----------------------------*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0; padding: 0; border: 0; font: inherit; vertical-align: baseline;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+ol, ul {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none;}
+table {border-collapse: collapse; border-spacing: 0;}
+*, *:after, *:before {margin: 0; padding: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+/* Site Styles  ----------------------------*/
+html {font-size: 16px;}
+body {
+    background: $dark;
+    font-family: $mainFont;
+    -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+    line-height: 1.2;
+    color: $light;
+}
+
+input, textarea, button, select, label, a {-webkit-tap-highlight-color: rgba(0,0,0,0);}
+p:not(:last-child) {margin: 0 0 20px;}
+h1, h2, h3, h4, h5 {font-family: $boldFont;}
+em {font-style: italic;}
+strong {font-family: $boldFont; font-weight: 400;}
+a {text-decoration: none; color: inherit;}
+a:hover {color: $green;}
+
+.wrapper {padding-top: 103px;}
+.container {display: flex; flex-wrap: wrap; position: relative; width: 100%; margin: 0 auto; padding: 0 80px;}
+
+// Button
+%button {
+    padding: 0.6rem 2.5rem;
+    color: $light;
+    font-family: 'Montserrat', sans-serif;
+    border: 0;
+    cursor: pointer;
+    font-size: 1rem;
+    position: relative;
+    z-index: 10;
+    box-shadow: inset 0 0 0 2px $light;
+    display: inline-block;
+
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+        border: 2px solid transparent;
+        width: 0;
+        height: 0;
+        // Start :after & :before in same position
+        top: 0;
+        left: 0;
+    }
+
+    // Hover styles
+    &:hover {color: $green;}
+    &:hover:before, &:hover:after {width: 100%; height: 100%;}
+    &:hover:before {
+        border-top-color: $green; // Make borders visible
+        border-right-color: $green;
+        transition:
+        width 0.25s ease-out, // Width expands first
+        height 0.25s ease-out 0.25s; // And then height
+    }
+    &:hover:after {
+        border-bottom-color: $green; // Make borders visible
+        border-left-color: $green;
+        transition: // Animate height first, then width
+        height 0.25s ease-out,
+        width 0.25s ease-out 0.25s;
+    }
+    
+}

@@ -1,0 +1,107 @@
+/* Case Stuff ---------------*/
+.case {
+    
+    section.pageHeader h2 {
+        font-family: $mainFont;
+        font-size: 1.4rem;
+        margin-top: 40px;
+        flex-basis: 100%;
+    }
+    
+    section.caseStudyHero {
+        background: $lightGrey;
+        line-height: 0;
+        img {
+            max-width: 1600px;
+            width: 100%;
+            height: auto;
+        }
+    }
+    
+    section.pageContent {
+        background: $lightGrey;
+        h3 {margin-bottom: 20px;}
+            color: $dark;
+        text-align: left;
+        padding: 0 0;
+        
+        p, ol, ul {
+            font-size: 1.1rem;
+            line-height: 1.6rem;
+            width: 85%;
+        }
+        ul {list-style: disc; padding-left: 18px;}
+        ol {counter-reset: item;} 
+        ol li {counter-increment: item;}
+        
+        ol > li:before {
+          display: inline-block;
+          margin-right: 8px;
+          font-weight: bold;
+          text-align: right;
+          content: counter(item) ".";
+        }
+        
+        .col {
+            background: $light;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            img {width: 100%; height: 100%;}
+            
+            &.padding {padding: 40px;}
+            &.didItWork {
+                align-items: center; background: $pink; color: $light; text-align: center;
+                #counter {color: $yellow; display: block; font-weight: 700; font-family: $boldFont; font-size: 8rem; line-height: 8rem;}
+                .counter-value:after {content: '%';}
+            }
+        }
+        
+
+    }
+    
+    section.anythingElse {
+        background: $lightGrey;
+        color: $dark;
+        padding: 60px 20%;
+        h4 {margin-bottom: 20px;}
+        .blogBox {
+            .col {
+                width: 100px; margin: 0 20px;
+                .blogThumb {width: 100px; height: 100px; border-radius: 50%; background: grey; margin-bottom: 10px; margin: 0 auto 10px auto;}
+                h5 {font-family: $mainFont;}
+            }
+        }
+    }
+    
+
+}
+
+@media #{$Xlarge} {
+    .case {
+        .col:nth-child(1) {order: 1;}
+        .col:nth-child(2) {order: 2;}
+        .col:nth-child(3) {order: 4;}
+        .col:nth-child(4) {order: 3;}
+        .col:nth-child(5) {order: 5;}
+        .col:nth-child(6) {order: 6;}
+
+        section.pageContent {
+            padding: 0 0;
+            p, ol, ul {
+                width: 100%;
+            }
+
+        }
+
+        section.anythingElse {
+            padding: 40px 40px;
+            .blogBox {
+                .col {
+                    h5 {margin: 20px 0;}
+                }
+            }
+        }
+    }
+}

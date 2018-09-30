@@ -1,0 +1,56 @@
+/* Footer  ----------------------------*/
+footer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    
+    a {border-bottom: 2px solid transparent; padding-bottom: 5px; transition: border-bottom .2s ease-in-out;}
+    a:hover {border-bottom: 2px solid $green; transition: border-bottom .2s ease-in-out;}
+    
+    .contact {
+        font-size: 1rem;
+        line-height: 1.625;
+        .details dt {font-family: $boldFont; font-weight: 400;}
+        .details dd {margin-bottom: 20px;}
+    }
+    
+    .contact:first-child {
+        margin-right: 100px;
+    }
+    
+    .sitemap {
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1;
+        text-align: right;
+        
+        ul {flex: 1 1 100%;}
+        li {display: inline-block; margin: 0 20px 0 0;}
+        .social {align-self: flex-end;}
+    }
+    
+    .social {
+        li a {
+            padding-bottom: 15px;
+            span {font-size: 22px; 
+                color: $green;
+                border: 3px solid $green;
+                border-radius: 50%;
+                padding: 7px;
+                text-align: center;
+                width: 40px;
+                height: 40px;
+            } 
+        } 
+    }
+    
+    
+    a.backToTop {color: $green;}
+    
+    .copyright {
+        flex: 1 1 100%; 
+        margin: 20px 0; 
+        font-size: .75rem;
+        a {margin-left: 20px;}
+    }
+ 
+}

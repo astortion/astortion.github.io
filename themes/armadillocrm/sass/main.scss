@@ -1,0 +1,206 @@
+@import 'variables';
+@import 'base';
+@import 'grid';
+@import 'header';
+@import 'footer';
+
+/* Hero  ----------------------------*/
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 800px; 
+    position: relative;
+    h1 {
+        font-size: 3.75rem;
+        line-height: 1.16; 
+        
+        span {
+            font-family: $mainFont;
+            display: block;
+        }
+    }
+    
+    #Layer_1 {
+        height: 200px;
+        margin-bottom: 40px;
+    }
+    
+    .icon--play {
+        width: 60px;
+        height: 60px;
+        display: block;
+        margin: 20px auto;
+    }
+
+    video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: 100%;
+        height: auto;
+        opacity: 0;
+        transition: opacity .3s;
+        pointer-events: none;
+        object-fit: cover;
+        width: 100%; 
+        height: 100%;
+    }
+    
+    video + a {display: none;}
+} 
+
+/* Page Styles  ----------------------------*/
+div.page {
+    text-align: center;
+    font-size: 1.3rem; line-height: 1.4;
+    .container {flex-direction: column; align-items: center; padding:  0;}
+    p:not(:last-child) {margin-bottom: 20px;}
+    strong {font-family: $boldFont; font-weight: 400;}
+    .btn {@extend %button; margin: 30px auto 0 auto;}
+    
+    .pageHeader {
+        flex: 1 1 100%; padding: 60px 20%;
+        h1 {font-size: 3rem; line-height: 1.2; font-weight: 400; font-family: $boldFont;}
+    } 
+    .pageContent {flex: 1 1 100%; padding: 60px 20%;}
+
+    
+    &#post-8 .pageContent, &#post-10 .pageContent {background: $red;} //Home & What we do
+    &#post-12 .pageContent {background: $pink;} //Who we are
+    &#post-14 .pageContent {background: $grey; color: $orange;} //Our Work
+    &#post-18 .pageContent {background: $yellow; color: $dark;} //Contact Us
+        
+}
+
+
+// Breakpoints =============================================================================
+@media #{$XXlarge} {
+    #armadilloLogo {width: 250px; height: 57px;}
+    .container {padding: 0 40px;}
+}
+
+@media #{$Xlarge} {
+    .wrapper {padding-top: 81px;}
+    #armadilloLogo {width: 200px; height: 35px;}
+}
+
+@media #{$large} {
+    .container {padding: 0 20px;}
+    
+    /* Header  ----------------------------*/
+    header {
+        .container {align-items: center;}
+
+        /* Mobile navigation */
+        nav {
+            height: 0;
+            overflow: hidden;
+            background: $dark;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            transition: height 500ms cubic-bezier(0.42, 0, 0.59, 0.99);
+            ul {display: flex; flex-direction: column; transition: padding 1000ms;}
+            li {font-size: 1.5rem; padding-top: 1.5rem; text-align: center; margin: 0;}
+            a {display: inline-block; opacity: 0; transition: opacity 400ms ease-in-out;}
+            
+            li.current-menu-item:before {display: none;}
+        }
+        
+        label[for="navToggle"] {
+            color: $light; cursor: pointer; z-index: 999;
+            span, &:before, &:after {
+                content: '';
+                display: block;
+                background: $light;
+                height: 3px;
+                margin: 5px 0;
+                width: 2em;
+                border-radius: 2px;
+                position: relative;
+                z-index: 999;
+                transition: transform 200ms ease-in-out;
+            }
+        }
+        
+        /* Mobile navigation dropdown animation */
+        #navToggle:checked ~ nav {height: 100vh;}
+        #navToggle:checked ~ nav ul {padding: 4rem 1.4em; transition: padding 1000ms;}
+        #navToggle:checked ~ nav ul li a {opacity: 1; transition: opacity 450ms ease-in-out;}
+        
+        /* Mobile navigation label animation */
+        #navToggle:checked ~ label:before {transform: translateY(7px) rotate(135deg); width: 1.4em; margin-left: 5px;}
+        #navToggle:checked ~ label:after {transform: translateY(-9px) rotate(-135deg); width: 1.4em; margin-left: 5px;}
+        #navToggle:checked ~ label span {transform: scale(0);}
+        #navToggle:checked ~ label[for="navToggle"] span,
+        #navToggle:checked ~ label[for="navToggle"]:before,
+        #navToggle:checked ~ label[for="navToggle"]:after {transition: all 200ms ease-in-out 100ms;}
+    }
+    
+    /* Page Styles  ----------------------------*/
+    div.page {
+        .pageHeader {
+            padding: 40px 40px;
+            h1 {font-size: 2.4rem;}
+        } 
+    }
+    
+    /* Hero  ----------------------------*/
+    .hero {
+        top: -80px;
+        height: 100vh;
+        h1 {font-size: 1.8rem;}
+    }
+    
+    /* Footer  ----------------------------*/
+    footer {
+        .container {flex-direction: column; text-align: center;}
+        .contact:first-child {margin-right: 0;}
+        .sitemap ul {text-align: center;}
+        .social {margin-top: 20px;}
+    }
+    
+}
+
+@media #{$medium} {
+    .wrapper {padding-top: 73px;}
+    #armadilloLogo {width: 150px; height: 27px;}
+    div.page .pageHeader, div.page .pageContent {
+        padding: 40px 40px;
+    }
+        /* Page Section  ----------------------------*/
+        section.page {
+            .pageHeader {font-size: 2rem;}
+        }
+
+}
+
+@media #{$Xsmall} {
+    
+}
+
+@media #{$XXsmall} {
+    html {font-size: 14px;}
+    /* Hero  ----------------------------*/
+    .hero {
+        top: -40px;
+    }
+    .hero #Layer_1 {
+        height: 146px;
+        margin-bottom: 20px;
+    }
+    
+    /* Footer --------------------------*/
+    footer .sitemap li {
+        margin: 0 10px 0 0;
+    }
+}
+
+
+
+@import 'blog';
+@import 'who-we-are';
+@import 'case-study';

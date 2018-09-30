@@ -1,0 +1,86 @@
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    &.center {justify-content: center;}
+    &.contain {max-width: 1600px; margin: 0 auto;}
+}
+
+.col {
+    flex: 1;
+    
+    &.col_33 {
+        width: 33.33%;
+        flex: none;
+        &.marg:not:nth-child(3n+3) {
+            flex-basis: calc(33.33% - 20px);
+            margin-right: 20px;
+        } 
+    }
+    
+    &.col_50 {
+        width: 50%;
+        flex: none;
+        &.marg:nth-child(odd) {
+            flex: 1 calc(50% - 20px);
+            margin-right: 20px;
+        }
+    }
+     
+    &.col_75 {
+        width: 75%;
+        flex: none;
+        &.marg {
+            flex-basis: calc(75% - 20px);
+            margin-right: 20px;
+        }
+    }
+}
+
+
+@media #{$Xlarge} { 
+    .col {
+        flex: 1;
+
+        &.col_33 {
+            width: 50%;
+            flex: none;
+            &.marg:nth-child(odd) {
+                flex: 1 calc(50% - 20px);
+                margin-right: 20px;
+            }
+        }
+
+        &.col_50 {
+            width: 100%;
+            flex: none;
+            &.marg {
+                flex: 1 100%;
+                margin-right: 0px;
+            }
+        }
+
+        &.col_75 {
+            width: 100%;
+            flex: none;
+            &.marg {
+                flex: 1 100%;
+                margin-right: 0px;
+            }
+        }
+    }
+}
+
+@media #{$medium} { 
+    .col {
+        flex: 1 1 100%;
+
+        &.col_33 {
+            width: 100%;
+            flex: none;
+            &.marg {
+                flex: 1 100%;
+                margin-right: 0px;
+            }
+        }
+    }
+}

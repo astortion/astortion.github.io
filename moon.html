@@ -172,11 +172,14 @@
     #wrapper {width: 720px; height: 600px; position: relative; overflow: hidden; background-color: #000000;}
     #wrapper table {width: 300%; height: 300%; position: relative; top: -100%; left: -100%; transition: transform 3s ease-in-out, top 2s, left 2s; background-image: url(https://astortion.github.io/moon.jpg); background-size: contain; background-position: center; background-repeat: no-repeat; transform: scale(0.2);}
     #wrapper table tr td {width: 100%; height: 100%;}
-    h1.startText {font-family: 'Quicksand', sans-serif; color: #ffffff; font-size: 16px; line-height: 19px; display: inline-block; margin-top: 10px; margin-left: 0; position: relative; z-index: 999; transition: all 3s;}
+    h1.startText {font-family: 'Quicksand', sans-serif; color: #ffffff; font-size: 16px; line-height: 19px; display: inline-block; margin-top: 10px; margin-left: 0; position: relative; z-index: 999; transition: all 3s ease-in-out;}
+    .start2 {opacity: 0; max-height: 0;}
     label {display: none; cursor: pointer; -webkit-tap-highlight-color: transparent;}
-    label[for="start"], label[for="backToStart"] {display: inline-block; margin-top: 0; margin-left: 0; position: relative; z-index: 999;}
-    label[for="backToStart"] {z-index: 0;}
-    #controls {padding: 20px 0; opacity: 0; max-height: 0; margin-top: 0; margin-left: 0; width: 120px; position: relative; z-index: 999; transition: all 3s;}
+    label[for="start"], label[for="start2"] {display: inline-block; margin-top: 0; margin-left: 0; position: relative; z-index: 999;}
+    label[for="start2"] img {opacity: 0; max-height: 0;}
+    label[for="reset"] {display: inline-block;}
+    label[for="reset"] div {background: url(https://astortion.github.io/reset.png) no-repeat center; background-size: contain; width: 10px; height: 10px;}
+    #controls {padding: 20px 0; opacity: 0; max-height: 0; margin-top: 0; margin-left: 0; width: 120px; position: relative; z-index: 999; transition: all 3s ease-in-out;}
     #controls table tr td {width: 40px; height: 40px; text-align: center;}
     .arrow {background: url(https://astortion.github.io/arrow.png) no-repeat center; background-size: contain; width: 40px; height: 40px;}
     .arrow.up {transform: rotate(90deg);}
@@ -190,12 +193,15 @@
     .control:checked ~ div #controls table tr td .startArrow {display: none!important;}
     .start:checked ~ div label[for="start"] {display: none}
     .start:checked ~ div h1.startText {opacity: 0; max-height: 0;}
-    .start:checked ~ #wrapper table {transform: scale(1.1);}
-    .start:checked ~ #wrapper table {top: -100%; left: -100%;}
+    .start:checked ~ #wrapper table {transform: scale(1.1); top: -100%; left: -100%;}
     .start:checked ~ div #controls {opacity: 1; max-height: none;}
     .start:checked ~ div #controls table tr td .startArrow {display: block;}
-    .center:checked ~ div label[for="backToStart"] {z-index: 999;}
-    .backToStart:checked ~ div label[for="backToStart"] {z-index: 0!important;}
+    
+    .reset:checked ~ div h1.startText {opacity: 1; max-height: none;}
+    .reset:checked ~ #wrapper table {transform: scale(0.2); top: -100%!important; left: -100%!important;}
+    .reset:checked ~ div label[for="start2"] img {opacity: 1; max-height: none;}
+    .reset:checked ~ div #controls {opacity: 0; max-height: 0;}
+    .reset:checked ~ div #controls table tr td label[for="reset"] {opacity: 0; max-height: 0;}
     
     .center:checked ~ #wrapper table {top: -100%!important; left: -100%!important;}
     .centerUp:checked ~ #wrapper table {top: 0%; left: -100%;}
@@ -241,7 +247,9 @@
                                     <div class="interactive" style="display :none; max-height: 0; overflow: hidden;">
                                         <!--[if !mso]><!-- -->
                                         <input type="radio" name="start" id="start" class="start">
-                                        <input type="radio" name="start" id="backToStart" class="backToStart">
+                                        <input type="radio" name="control" id="start2" class="start2">
+                                        
+                                        <input type="radio" name="control" id="reset" class="control reset">
                                         
                                         <input type="radio" name="control" id="centerUp" class="control centerUp">
                                         <input type="radio" name="control" id="upCenterDown" class="control center">
@@ -277,7 +285,7 @@
                                         
                                         <div class="absolute"><h1 class="startText">CLICK THE MOON TO START EXPLORING</h1></div>
                                         <div class="absolute"><label for="start"><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></label></div>
-                                        <div class="absolute"><label for="backToStart"><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></label></div>
+                                        <div class="absolute"><label for="start2"><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></label></div>
                                         
                                         <div id="wrapper">
                                             <table cellpadding="0" cellspacing="0" border="0">
@@ -323,7 +331,7 @@
                                                             <label class="downRightArrow" for="downRightLeft"><div class="arrow left"></div></label>
                                                             <label class="centerRightArrow" for="centerRightLeft"><div class="arrow left"></div></label>
                                                         </td>
-                                                        <td></td>
+                                                        <td><label for="reset"><div></div></label></td>
                                                         <td>
                                                             <label class="startArrow" for="centerRight"><div class="arrow right"></div></label>
                                                             <label class="centerUpArrow" for="upCenterRight"><div class="arrow right"></div></label>

@@ -1,27 +1,23 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
     <!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 " />
     <!--[if !mso]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <![endif]-->
     <meta name="x-apple-disable-message-reformatting">
+    <meta name="format-detection" content="telephone=no"/>
     <title></title>
     <!--[if mso]>
         <style>
-            * { font-family: sans-serif !important; }
+            * {font-family: sans-serif !important;}
         </style>
     <![endif]-->
     <!--[if !mso]><!-->
         <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <!--<![endif]-->
-    
-    
-    
-    
-    
     <style type="text/css">
         *,
         *:after,
@@ -30,86 +26,27 @@
             -moz-box-sizing: border-box;
             box-sizing: border-box;
         }
-        * {
-            -ms-text-size-adjust: 100%;
-            -webkit-text-size-adjust: 100%;
-        }
-        html,
-        body,
-        .document {
-            width: 100% !important;
-            height: 100% !important;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-        }
-        div[style*="margin: 16px 0"] {
-            margin: 0 !important;
-        }
-        table,
-        td {
-            mso-table-lspace: 0pt;
-            mso-table-rspace: 0pt;
-        }
-        table {
-            border-spacing: 0;
-            border-collapse: collapse;
-            table-layout: fixed;
-            margin: 0 auto;
-        }
-        img {
-            -ms-interpolation-mode: bicubic;
-            max-width: 100%;
-            border: 0;
-        }
-        *[x-apple-data-detectors] {
-            color: inherit !important;
-            text-decoration: none !important;
-        }
+        * {-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;}
+        html, body, .document {width: 100% !important; height: 100% !important; margin: 0; padding: 0;}
+        body {-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;}
+        div[style*="margin: 16px 0"] {margin: 0 !important;}
+        .ExternalClass * {line-height: 100%;}
+        table, td {mso-table-lspace: 0pt; mso-table-rspace: 0pt;}
+        table {border-spacing: 0; border-collapse: collapse; table-layout: fixed; margin: 0 auto;}
+        img {-ms-interpolation-mode: bicubic; max-width: 100%; border: 0;}
+        *[x-apple-data-detectors] {color: inherit !important; text-decoration: none !important;}
         .x-gmail-data-detectors,
         .x-gmail-data-detectors *,
-        .aBn {
-            border-bottom: 0 !important;
-            cursor: default !important;
-        }
-        .outlookNone {
-            display: none;
-        }
-        #MessageViewBody, #MessageWebViewDiv {
-            width: 100% !important;
-        }
+        .aBn {border-bottom: 0 !important; cursor: default !important;}
+        .outlookNone {display: none;}
 
         /* Generic mobile styles */
-        @media only screen and (max-width: 480px) {
-            .desktop {
-                display: none !important;
-            }
-
-            .mobile {
-                display: block !important;
-                width: auto !important;
-                max-height: inherit !important;
-            }
-
-            .outlookNone {
-                display: inline-block !important;
-            }
-
-            .fullWidth {
-                width: 100% !important;
-                min-width: 0!important;
-                margin: auto !important;
-            }
-
-           .fullWidthAuto {
-                width: 100% !important;
-                height: auto !important;
-            }
-            
+        @media only screen and (max-width: 599px) {
+            .desktop {display: none !important;}
+            .mobile {display: block !important; width: auto !important; max-height: inherit !important;}
+            .outlookNone {display: inline-block !important;}
+            .fullWidth {width: 100% !important; margin: auto !important;}
+           .fullWidthAuto {width: 100% !important; height: auto !important;}
         }
 
         @media only screen and (min-width: 376px) and (max-width: 480px) {
@@ -132,13 +69,16 @@
 <style>
     .fallback {display:none!important;}
     .interactive {display:block!important; max-height:none!important; position: relative; overflow: visible!important;}
-
+    
+    #MessageViewBody.fallback {display:none!important;}
+    #MessageViewBody .interactive {display:block!important; max-height:none!important; position: relative; overflow: visible!important;}
+    
     @media screen yahoo and (min-width:10000px){
         .fallback {display: block; max-height: none!important;}
         .interactive {display: none; display: none!important; max-height:0; overflow: hidden;}
     }
     
-    input[type="radio"] {display: none; display: none!important; max-height:0;}
+    input[type="radio"] {display: none; display: none!important; opacity: 0; max-height: 0; visibility: hidden;}
     .absolute {max-height: 0; overflow: visible;}
     #wrapper {width: 720px; height: 600px; position: relative; overflow: hidden; background-color: #000000; display: inline-block; margin-top: 0; margin-left: 0;}
     #wrapper table {width: 300%; height: 300%; position: relative; top: -100%; left: -100%; transition: transform 3s ease-in-out, top 2s, left 2s; background-image: url(https://astortion.github.io/moon.jpg); background-size: contain; background-position: center; background-repeat: no-repeat; transform: scale(0.2);}
@@ -194,9 +134,13 @@
     .leftDown:checked ~ div #controls table tr td .downLeftArrow, 
     .rightDown:checked ~ div #controls table tr td .downRightArrow {display: block;}
 
-    @media only screen and (max-width: 480px) {
-        #wrapper {width: 100%; height: 398px;}
+    @media only screen and (max-width: 599px) {
+        #wrapper {width: 100%; height: 490px;}
         #controls {margin-top: 100%;}
+    }
+    
+    @media only screen and (min-width: 376px) and (max-width: 480px) {
+        #wrapper {height: 398px;}
     }
     
     @media only screen and (min-width: 361px) and (max-width: 376px) {
@@ -211,20 +155,17 @@
         #wrapper {height: 315px;}
     }
     
-    
-    #MessageViewBody {}
-    
 </style>
 </head>
 
-<body style="margin: 0; padding: 0; width: 100%!important;">
+<body style="margin:0px; padding:0px;">
 <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
     <tr>
         <td align="center" bgcolor="#ffffff">
-            <table width="720" style="min-width:720px" border="0" cellpadding="0" cellspacing="0" align="center" class="fullWidth">
+            <table width="720" style="table-layout:fixed; width:720px" border="0" cellpadding="0" cellspacing="0" align="center" class="fullWidth">
                 <tr>
                     <td align="center">
-                        <table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                 <td align="center">
 
@@ -273,7 +214,7 @@
                                         
                                         <div class="absolute">
                                             <div id="wrapper">
-                                                <table cellpadding="0" cellspacing="0" border="0">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                                     <tr>
                                                         <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
                                                         <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
@@ -295,7 +236,7 @@
                                         
                                         <div class="absolute">
                                             <div id="controls">
-                                                <table cellpadding="0" cellspacing="0" border="0">
+                                                <table border="0" cellspacing="0" cellpadding="0">
                                                     <tr>
                                                         <td></td>
                                                         <td>
@@ -346,7 +287,7 @@
                                     </div>
 
                                     <div class="fallback">
-
+                                        
                                     </div>
 
                                 </td>

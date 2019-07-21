@@ -7,7 +7,7 @@
     <title></title>
     <!--[if !mso]><!-- -->
     <style>
-        @import url();
+        @import url(https://fonts.googleapis.com/css?family=Quicksand&display=swap);
     </style>
     <!--<![endif]-->
 
@@ -161,163 +161,59 @@
     </style>
 
 <style>
-.fallback {display:none!important;}
-.interactive {display:block!important; max-height:none!important; position: relative;}
+    .fallback {display:none!important;}
+    .interactive {display:block!important; max-height:none!important; position: relative; overflow: visible!important;}
 
-@media screen yahoo and (min-width:10000px){
-    .fallback {display: block; max-height: none!important;}
-    .interactive {display: none; display: none!important; max-height:0; overflow: hidden;}
-}
+    @media screen yahoo and (min-width:10000px){
+        .fallback {display: block; max-height: none!important;}
+        .interactive {display: none; display: none!important; max-height:0; overflow: hidden;}
+    }
+    
     input[type="radio"] {display: none; display: none!important; max-height:0;}
     .absolute {max-height: 0; overflow: visible;}
+    #wrapper {width: 720px; height: 600px; position: relative; overflow: hidden; background-color: #000000;}
+    #wrapper table {width: 300%; height: 300%; position: relative; top: -100%; left: -100%; transition: transform 3s ease-in-out, top 2s, left 2s; background-image: url(https://astortion.github.io/moon.jpg); background-size: contain; background-position: center; background-repeat: no-repeat; transform: scale(0.2);}
+    #wrapper table tr td {width: 100%; height: 100%;}
+    h1.startText {font-family: 'Quicksand', sans-serif; color: #ffffff; font-size: 16px; line-height: 19px; display: inline-block; margin-top: 10px; margin-left: 0; position: relative; z-index: 999; transition: all 3s;}
+    label {display: none; cursor: pointer;}
+    label[for="start"] {display: inline-block; margin-top: 0; margin-left: 0; position: relative; z-index: 999; transition: all 2s;}
+    #controls {padding: 20px 0; opacity: 0; max-height: 0; margin-top: 0; margin-left: 0; width: 120px; position: relative; z-index: 999; transition: all 3s;}
+    #controls table tr td {width: 40px; height: 40px; text-align: center;}
+    .arrow {background: url(https://astortion.github.io/arrow.png) no-repeat center; background-size: contain; width: 40px; height: 40px;}
+    .arrow.up, .arrow.up:hover {transform: rotate(90deg);}
+    .arrow.down, .arrow.down:hover {transform: rotate(-90deg);}
+    .arrow.right, .arrow.right:hover {transform: rotate(180deg);}
+    .arrow.up:hover, .arrow.down:hover, .arrow.right:hover, .arrow.left:hover {transform: scale(1.1);}
     
-    #wrapper {
-        position: relative;
-        overflow: hidden;
-        background-color: #000000;
-        width: 720px;
-        height: 600px;
-    }
+    .control:checked ~ div #controls table tr td .startArrow {display: none!important;}
+    .start:checked ~ div label[for="start"], .start:checked ~ div h1.startText {opacity: 0; max-height: 0;}
+    .start:checked ~ #wrapper table {transform: scale(1.1);}
+    .start:checked ~ div #controls {opacity: 1; max-height: none;}
+    .start:checked ~ div #controls table tr td .startArrow {display: block;}
     
-    #wrapper table {
-        width: 300%;
-        height: 300%;
-        position: relative;
-        top: -100%;
-        left: -100%;
-        transition: transform 3s ease-in-out, top 2s, left 2s;
-        background-image: url(https://astortion.github.io/moon.jpg);
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        transform: scale(0.2);
-    }
+    .center:checked ~ #wrapper table {top: -100%!important; left: -100%!important;}
+    .centerUp:checked ~ #wrapper table {top: 0%; left: -100%;}
+    .centerDown:checked ~ #wrapper table {top: -200%; left: -100%;}
+    .centerLeft:checked ~ #wrapper table {top: -100%; left: 0%;}
+    .centerRight:checked ~ #wrapper table {top: -100%; left: -200%;}
+    .leftUp:checked ~ #wrapper table {top: 0%; left: 0%;}
+    .rightUp:checked ~ #wrapper table {top: 0%; left: -200%;}
+    .leftDown:checked ~ #wrapper table {top: -200%; left: 0%;}
+    .rightDown:checked ~ #wrapper table {top: -200%; left: -200%;}
     
-    #wrapper table tr td {
-        width: 100%;
-        height: 100%;
-    }
-    
-    #controls {
-        display: inline-block;
-        margin-top: 10px;
-        margin-left: 0;
-        width: 120px;
-        position: relative;
-        z-index: 999;
-    }
-    
-    #controls table tr td {
-        width: 40px;
-        height: 40px;
-        text-align: center;
-    }
-    
-    label[for="start"] {
-        font-family: Arial;
-        color: #ffffff;
-        font-size: 16px;
-        line-height: 19px;
-        width: 154px;
-    }
-    
-    .arrow {
-        background: url(https://astortion.github.io/arrow.png) no-repeat center;
-        background-size: contain;
-        width: 40px;
-        height: 40px;
-    }
-    
-    .arrow.up {transform: rotate(90deg);}
-    .arrow.down {transform: rotate(-90deg);}
-    .arrow.right {transform: rotate(180deg);}
-    
-    .arrow.up:hover {transform: rotate(90deg) scale(1.1);}
-    .arrow.down:hover {transform: rotate(-90deg) scale(1.1);}
-    .arrow.right:hover {transform: rotate(180deg) scale(1.1);}
-    .arrow.left:hover {transform: scale(1.1);}
-    
-    .control, label {display: none; cursor: pointer;}
-    label[for="start"] {display: block;}
-    #start:checked ~ #wrapper table {transform: scale(1.1);}
-    #start:checked ~ div #controls table tr td label[for="start"] {display: none;}
-    #start:checked ~ div #controls table tr td label[for="centerUp"], 
-    #start:checked ~ div #controls table tr td label[for="centerDown"], 
-    #start:checked ~ div #controls table tr td label[for="centerLeft"], 
-    #start:checked ~ div #controls table tr td label[for="centerRight"] {display: block;}
-    
-    input[name="control"]:checked ~ div #controls table tr td label[for="centerUp"], 
-    input[name="control"]:checked ~ div #controls table tr td  label[for="centerDown"], 
-    input[name="control"]:checked ~ div #controls table tr td label[for="centerLeft"], 
-    input[name="control"]:checked ~ div #controls table tr td label[for="centerRight"] {display: none!important;}
-    
-    #upCenterLeft:checked ~ #wrapper table {top: 0%; left: 0%;}
-    #upCenterRight:checked ~ #wrapper table {top: 0%; left: -200%;}
-    
-    #upCenterLeft:checked ~ div #controls table tr td label[for="upLeftDown"],
-    #upCenterLeft:checked ~ div #controls table tr td label[for="upLeftRight"] {display: block;}
-
-    #upCenterRight:checked ~ div #controls table tr td label[for="upRightDown"],
-    #upCenterRight:checked ~ div #controls table tr td label[for="upRightLeft"] {display: block;}
-
-    #downCenterLeft:checked ~ #wrapper table {top: -200%; left: 0%;}
-    #downCenterRight:checked ~ #wrapper table {top: -200%; left: -200%;}
-    
-    #downCenterLeft:checked ~ div #controls table tr td label[for="downLeftUp"],
-    #downCenterLeft:checked ~ div #controls table tr td label[for="downLeftRight"] {display: block;}
-    
-    #downCenterRight:checked ~ div #controls table tr td label[for="downRightUp"],
-    #downCenterRight:checked ~ div #controls table tr td label[for="downRightLeft"] {display: block;}
-    
-    #centerLeftUp:checked ~ #wrapper table {top: 0%!important; left: 0%!important;}
-    #centerLeftUp:checked ~ div #controls table tr td label[for="upLeftDown"],
-    #centerLeftUp:checked ~ div #controls table tr td label[for="upLeftRight"] {display: block;}
-    
-    #centerLeftDown:checked ~ #wrapper table {top: -200%!important; left: 0%!important;}
-    #centerLeftDown:checked ~ div #controls table tr td label[for="downLeftUp"],
-    #centerLeftDown:checked ~ div #controls table tr td label[for="downLeftRight"] {display: block;}
-    
-    #centerRightUp:checked ~ #wrapper table {top: 0%!important; left: -200%!important;}
-    #centerRightUp:checked ~ div #controls table tr td label[for="upRightDown"],
-    #centerRightUp:checked ~ div #controls table tr td label[for="upRightLeft"] {display: block;}
-    
-    #centerRightDown:checked ~ #wrapper table {top: -200%!important; left: -200%!important;}
-    #centerRightDown:checked ~ div #controls table tr td label[for="downRightUp"],
-    #centerRightDown:checked ~ div #controls table tr td label[for="downRightLeft"] {display: block;}
-    
-    /* Back to center */
-    input[class="center"]:checked ~ #wrapper table {top: -100%!important; left: -100%!important;}
-    input[class="center"]:checked ~ div #controls table tr td label[for="centerUp"], 
-    input[class="center"]:checked ~ div #controls table tr td label[for="centerDown"], 
-    input[class="center"]:checked ~ div #controls table tr td label[for="centerLeft"], 
-    input[class="center"]:checked ~ div #controls table tr td label[for="centerRight"] {display: block!important;}
-    
-    input[class="centerUp"]:checked ~ #wrapper table {top: 0%!important; left: -100%!important;}
-    input[class="centerUp"]:checked ~ div #controls table tr td label[for="upCenterDown"], 
-    input[class="centerUp"]:checked ~ div #controls table tr td label[for="upCenterLeft"], 
-    input[class="centerUp"]:checked ~ div #controls table tr td label[for="upCenterRight"] {display: block;}
-    
-    input[class="centerDown"]:checked ~ #wrapper table {top: -200%!important; left: -100%!important;}
-    input[class="centerDown"]:checked ~ div #controls table tr td label[for="downCenterUp"], 
-    input[class="centerDown"]:checked ~ div #controls table tr td label[for="downCenterLeft"], 
-    input[class="centerDown"]:checked ~ div #controls table tr td label[for="downCenterRight"] {display: block;}
-    
-    input[class="centerLeft"]:checked ~ #wrapper table {top: -100%; left: 0%;}
-    input[class="centerLeft"]:checked ~ div #controls table tr td label[for="centerLeftUp"],
-    input[class="centerLeft"]:checked ~ div #controls table tr td label[for="centerLeftDown"],
-    input[class="centerLeft"]:checked ~ div #controls table tr td label[for="centerLeftRight"] {display: block;}
-    
-    input[class="centerRight"]:checked ~ #wrapper table {top: -100%; left: -200%;}
-    input[class="centerRight"]:checked ~ div #controls table tr td label[for="centerRightUp"],
-    input[class="centerRight"]:checked ~ div #controls table tr td label[for="centerRightDown"],
-    input[class="centerRight"]:checked ~ div #controls table tr td label[for="centerRightLeft"] {display: block;}
+    .center:checked ~ div #controls table tr td .startArrow {display: block!important;}
+    .centerUp:checked ~ div #controls table tr td .centerUpArrow, 
+    .centerDown:checked ~ div #controls table tr td .centerDownArrow, 
+    .centerLeft:checked ~ div #controls table tr td .centerLeftArrow, 
+    .centerRight:checked ~ div #controls table tr td .centerRightArrow, 
+    .leftUp:checked ~ div #controls table tr td .upLeftArrow, 
+    .rightUp:checked ~ div #controls table tr td .upRightArrow, 
+    .leftDown:checked ~ div #controls table tr td .downLeftArrow, 
+    .rightDown:checked ~ div #controls table tr td .downRightArrow {display: block;}
 
     @media only screen and (max-width: 480px) {
         .fullWidthAuto {width: 100vw!important;}
-        #wrapper {
-            width: 100vw;
-            height: 54vh;
-        }
+        #wrapper {width: 100vw; height: 54vh;}
     }
     
     #MessageViewBody {}
@@ -325,10 +221,10 @@
 </style>
 </head>
 
-<body style="margin: 0; padding: 0; width: 100%!important;" bgcolor="#000000">
+<body style="margin: 0; padding: 0; width: 100%!important;">
 <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
     <tr>
-        <td align="center" bgcolor="#000000">
+        <td align="center" bgcolor="#ffffff">
             <table width="720" style="min-width:720px" border="0" cellpadding="0" cellspacing="0" align="center" class="fullWidth" bgcolor="#000000">
                 <tr>
                     <td align="center">
@@ -338,94 +234,46 @@
 
                                     <div class="interactive" style="display :none; max-height: 0; overflow: hidden;">
                                         <!--[if !mso]><!-- -->
-                                        <input type="radio" name="start" id="start">
+                                        <input type="radio" name="start" id="start" class="start">
                                         
-                                        <input type="radio" name="control" id="centerUp" class="centerUp">
-                                        <input type="radio" name="control" id="upCenterDown" class="center">
-                                        <input type="radio" name="control" id="upCenterLeft">
-                                        <input type="radio" name="control" id="upCenterRight">
+                                        <input type="radio" name="control" id="centerUp" class="control centerUp">
+                                        <input type="radio" name="control" id="upCenterDown" class="control center">
+                                        <input type="radio" name="control" id="upCenterLeft" class="control leftUp">
+                                        <input type="radio" name="control" id="upCenterRight" class="control rightUp">
                                         
-                                        <input type="radio" name="control" id="upLeftDown" class="centerLeft">
-                                        <input type="radio" name="control" id="upLeftRight" class="centerUp">
+                                        <input type="radio" name="control" id="upLeftDown" class="ccontrol enterLeft">
+                                        <input type="radio" name="control" id="upLeftRight" class="control centerUp">
                                         
-                                        <input type="radio" name="control" id="upRightDown" class="centerRight">
-                                        <input type="radio" name="control" id="upRightLeft" class="centerUp">
+                                        <input type="radio" name="control" id="upRightDown" class="control centerRight">
+                                        <input type="radio" name="control" id="upRightLeft" class="control centerUp">
                                         
-                                        <input type="radio" name="control" id="centerDown" class="centerDown">
-                                        <input type="radio" name="control" id="downCenterUp" class="center">
-                                        <input type="radio" name="control" id="downCenterLeft">
-                                        <input type="radio" name="control" id="downCenterRight">
+                                        <input type="radio" name="control" id="centerDown" class="control centerDown">
+                                        <input type="radio" name="control" id="downCenterUp" class="control center">
+                                        <input type="radio" name="control" id="downCenterLeft" class="control leftDown">
+                                        <input type="radio" name="control" id="downCenterRight" class="control rightDown">
                                         
-                                        <input type="radio" name="control" id="downLeftUp" class="centerLeft">
-                                        <input type="radio" name="control" id="downLeftRight" class="centerDown">
+                                        <input type="radio" name="control" id="downLeftUp" class="control centerLeft">
+                                        <input type="radio" name="control" id="downLeftRight" class="control centerDown">
                                         
-                                        <input type="radio" name="control" id="downRightUp" class="centerRight">
-                                        <input type="radio" name="control" id="downRightLeft" class="centerDown">
+                                        <input type="radio" name="control" id="downRightUp" class="control centerRight">
+                                        <input type="radio" name="control" id="downRightLeft" class="control centerDown">
                                         
-                                        <input type="radio" name="control" id="centerLeft" class="centerLeft">
-                                        <input type="radio" name="control" id="centerLeftRight" class="center">
-                                        <input type="radio" name="control" id="centerLeftUp">
-                                        <input type="radio" name="control" id="centerLeftDown">
+                                        <input type="radio" name="control" id="centerLeft" class="control centerLeft">
+                                        <input type="radio" name="control" id="centerLeftRight" class="control center">
+                                        <input type="radio" name="control" id="centerLeftUp" class="control leftUp">
+                                        <input type="radio" name="control" id="centerLeftDown" class="control leftDown">
                                         
-                                        <input type="radio" name="control" id="centerRight" class="centerRight">
-                                        <input type="radio" name="control" id="centerRightLeft" class="center">
-                                        <input type="radio" name="control" id="centerRightUp">
-                                        <input type="radio" name="control" id="centerRightDown">
-                                                                    
-                                        <div class="absolute">
-                                            <div id="controls">
-                                                <table cellpadding="0" cellspacing="0" border="0">
-                                                    <tr>
-                                                        <td></td>
-                                                        <td>
-                                                            <label class="control" for="centerUp"><div class="arrow up"></div></label>
-                                                            <label class="control" for="downCenterUp"><div class="arrow up"></div></label>
-                                                            <label class="control" for="downLeftUp"><div class="arrow up"></div></label>
-                                                            <label class="control" for="downRightUp"><div class="arrow up"></div></label>
-                                                            <label class="control" for="centerLeftUp"><div class="arrow up"></div></label>
-                                                            <label class="control" for="centerRightUp"><div class="arrow up"></div></label>
-                                                        </td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="control" for="centerLeft"><div class="arrow left"></div></label>
-                                                            <label class="control" for="upCenterLeft"><div class="arrow left"></div></label>
-                                                            <label class="control" for="downCenterLeft"><div class="arrow left"></div></label>
-                                                            <label class="control" for="upRightLeft"><div class="arrow left"></div></label>
-                                                            <label class="control" for="downRightLeft"><div class="arrow left"></div></label>
-                                                            <label class="control" for="centerRightLeft"><div class="arrow left"></div></label>
-                                                        </td>
-                                                        <td><label for="start">CLICK HERE TO START EXPLORING</label></td>
-                                                        <td>
-                                                            <label class="control" for="centerRight"><div class="arrow right"></div></label>
-                                                            <label class="control" for="upCenterRight"><div class="arrow right"></div></label>
-                                                            <label class="control" for="downCenterRight"><div class="arrow right"></div></label>
-                                                            <label class="control" for="upLeftRight"><div class="arrow right"></div></label>
-                                                            <label class="control" for="downLeftRight"><div class="arrow right"></div></label>
-                                                            <label class="control" for="centerLeftRight"><div class="arrow right"></div></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td>
-                                                            <label class="control" for="centerDown"><div class="arrow down"></div></label>
-                                                            <label class="control" for="upCenterDown"><div class="arrow down"></div></label>
-                                                            <label class="control" for="upLeftDown"><div class="arrow down"></div></label>
-                                                            <label class="control" for="upRightDown"><div class="arrow down"></div></label>
-                                                            <label class="control" for="centerLeftDown"><div class="arrow down"></div></label>
-                                                            <label class="control" for="centerRightDown"><div class="arrow down"></div></label>
-                                                        </td>
-                                                        <td></td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
+                                        <input type="radio" name="control" id="centerRight" class="control centerRight">
+                                        <input type="radio" name="control" id="centerRightLeft" class="control center">
+                                        <input type="radio" name="control" id="centerRightUp" class="control rightUp">
+                                        <input type="radio" name="control" id="centerRightDown" class="control rightDown">
                                         
+                                        <div class="absolute"><h1 class="startText">CLICK THE MOON TO START EXPLORING</h1></div>
+                                        <div class="absolute"><label for="start"><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></label></div>
                                         <div id="wrapper">
                                             <table cellpadding="0" cellspacing="0" border="0">
                                                 <tr>
-                                                    <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"</td>
+                                                    <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
                                                     <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
                                                     <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
                                                 </tr>
@@ -441,6 +289,56 @@
                                                 </tr>
                                             </table>
                                         </div>
+                                        
+                                        <div class="absolute">
+                                            <div id="controls">
+                                                <table cellpadding="0" cellspacing="0" border="0">
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>
+                                                            <label class="startArrow" for="centerUp"><div class="arrow up"></div></label>
+                                                            <label class="centerDownArrow" for="downCenterUp"><div class="arrow up"></div></label>
+                                                            <label class="downLeftArrow" for="downLeftUp"><div class="arrow up"></div></label>
+                                                            <label class="downRightArrow" for="downRightUp"><div class="arrow up"></div></label>
+                                                            <label class="centerLeftArrow" for="centerLeftUp"><div class="arrow up"></div></label>
+                                                            <label class="centerRightArrow" for="centerRightUp"><div class="arrow up"></div></label>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label class="startArrow" for="centerLeft"><div class="arrow left"></div></label>
+                                                            <label class="centerUpArrow" for="upCenterLeft"><div class="arrow left"></div></label>
+                                                            <label class="centerDownArrow" for="downCenterLeft"><div class="arrow left"></div></label>
+                                                            <label class="upRightArrow" for="upRightLeft"><div class="arrow left"></div></label>
+                                                            <label class="downRightArrow" for="downRightLeft"><div class="arrow left"></div></label>
+                                                            <label class="centerRightArrow" for="centerRightLeft"><div class="arrow left"></div></label>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>
+                                                            <label class="startArrow" for="centerRight"><div class="arrow right"></div></label>
+                                                            <label class="centerUpArrow" for="upCenterRight"><div class="arrow right"></div></label>
+                                                            <label class="centerDownArrow" for="downCenterRight"><div class="arrow right"></div></label>
+                                                            <label class="upLeftArrow" for="upLeftRight"><div class="arrow right"></div></label>
+                                                            <label class="downLeftArrow" for="downLeftRight"><div class="arrow right"></div></label>
+                                                            <label class="centerLeftArrow" for="centerLeftRight"><div class="arrow right"></div></label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td>
+                                                            <label class="startArrow" for="centerDown"><div class="arrow down"></div></label>
+                                                            <label class="centerUpArrow" for="upCenterDown"><div class="arrow down"></div></label>
+                                                            <label class="upLeftArrow" for="upLeftDown"><div class="arrow down"></div></label>
+                                                            <label class="upRightArrow" for="upRightDown"><div class="arrow down"></div></label>
+                                                            <label class="centerLeftArrow" for="centerLeftDown"><div class="arrow down"></div></label>
+                                                            <label class="centerRightArrow" for="centerRightDown"><div class="arrow down"></div></label>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
                                         <!--<![endif]-->
                                     </div>
 
@@ -450,7 +348,6 @@
 
                                 </td>
                             </tr>
-
                         </table>
                     </td>
                 </tr>

@@ -141,8 +141,6 @@
             
         }
 
-        
-
         @media only screen and (min-width: 376px) and (max-width: 480px) {
 
         }
@@ -175,21 +173,29 @@
     #wrapper table {width: 300%; height: 300%; position: relative; top: -100%; left: -100%; transition: transform 3s ease-in-out, top 2s, left 2s; background-image: url(https://astortion.github.io/moon.jpg); background-size: contain; background-position: center; background-repeat: no-repeat; transform: scale(0.2);}
     #wrapper table tr td {width: 100%; height: 100%;}
     h1.startText {font-family: 'Quicksand', sans-serif; color: #ffffff; font-size: 16px; line-height: 19px; display: inline-block; margin-top: 10px; margin-left: 0; position: relative; z-index: 999; transition: all 3s;}
-    label {display: none; cursor: pointer;}
-    label[for="start"] {display: inline-block; margin-top: 0; margin-left: 0; position: relative; z-index: 999; transition: all 2s;}
+    label {display: none; cursor: pointer; -webkit-tap-highlight-color: transparent;}
+    label[for="start"], label[for="backToStart"] {display: inline-block; margin-top: 0; margin-left: 0; position: relative; z-index: 999;}
+    label[for="backToStart"] {z-index: 0;}
     #controls {padding: 20px 0; opacity: 0; max-height: 0; margin-top: 0; margin-left: 0; width: 120px; position: relative; z-index: 999; transition: all 3s;}
     #controls table tr td {width: 40px; height: 40px; text-align: center;}
     .arrow {background: url(https://astortion.github.io/arrow.png) no-repeat center; background-size: contain; width: 40px; height: 40px;}
-    .arrow.up, .arrow.up:hover {transform: rotate(90deg);}
-    .arrow.down, .arrow.down:hover {transform: rotate(-90deg);}
-    .arrow.right, .arrow.right:hover {transform: rotate(180deg);}
-    .arrow.up:hover, .arrow.down:hover, .arrow.right:hover, .arrow.left:hover {transform: scale(1.1);}
+    .arrow.up {transform: rotate(90deg);}
+    .arrow.down {transform: rotate(-90deg);}
+    .arrow.right {transform: rotate(180deg);}
+    .arrow.up:hover {transform: rotate(90deg) scale(1.1);}
+    .arrow.down:hover {transform: rotate(-90deg) scale(1.1);}
+    .arrow.right:hover {transform: rotate(180deg) scale(1.1);}
+    .arrow.left:hover {transform: scale(1.1);}
     
     .control:checked ~ div #controls table tr td .startArrow {display: none!important;}
-    .start:checked ~ div label[for="start"], .start:checked ~ div h1.startText {opacity: 0; max-height: 0;}
+    .start:checked ~ div label[for="start"] {display: none}
+    .start:checked ~ div h1.startText {opacity: 0; max-height: 0;}
     .start:checked ~ #wrapper table {transform: scale(1.1);}
+    .start:checked ~ #wrapper table {top: -100%; left: -100%;}
     .start:checked ~ div #controls {opacity: 1; max-height: none;}
     .start:checked ~ div #controls table tr td .startArrow {display: block;}
+    .center:checked ~ div label[for="backToStart"] {z-index: 999;}
+    .backToStart:checked ~ div label[for="backToStart"] {z-index: 0!important;}
     
     .center:checked ~ #wrapper table {top: -100%!important; left: -100%!important;}
     .centerUp:checked ~ #wrapper table {top: 0%; left: -100%;}
@@ -235,13 +241,14 @@
                                     <div class="interactive" style="display :none; max-height: 0; overflow: hidden;">
                                         <!--[if !mso]><!-- -->
                                         <input type="radio" name="start" id="start" class="start">
+                                        <input type="radio" name="start" id="backToStart" class="backToStart">
                                         
                                         <input type="radio" name="control" id="centerUp" class="control centerUp">
                                         <input type="radio" name="control" id="upCenterDown" class="control center">
                                         <input type="radio" name="control" id="upCenterLeft" class="control leftUp">
                                         <input type="radio" name="control" id="upCenterRight" class="control rightUp">
                                         
-                                        <input type="radio" name="control" id="upLeftDown" class="ccontrol enterLeft">
+                                        <input type="radio" name="control" id="upLeftDown" class="control centerLeft">
                                         <input type="radio" name="control" id="upLeftRight" class="control centerUp">
                                         
                                         <input type="radio" name="control" id="upRightDown" class="control centerRight">
@@ -270,6 +277,8 @@
                                         
                                         <div class="absolute"><h1 class="startText">CLICK THE MOON TO START EXPLORING</h1></div>
                                         <div class="absolute"><label for="start"><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></label></div>
+                                        <div class="absolute"><label for="backToStart"><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></label></div>
+                                        
                                         <div id="wrapper">
                                             <table cellpadding="0" cellspacing="0" border="0">
                                                 <tr>

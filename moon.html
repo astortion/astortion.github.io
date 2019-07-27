@@ -11,21 +11,13 @@
     <meta name="format-detection" content="telephone=no"/>
     <title></title>
     <!--[if mso]>
-        <style>
-            * {font-family: sans-serif !important;}
-        </style>
+        <style>* {font-family: sans-serif !important;}</style>
     <![endif]-->
     <!--[if !mso]><!-->
         <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <!--<![endif]-->
     <style type="text/css">
-        *,
-        *:after,
-        *:before {
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
+        *, *:after, *:before {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
         * {-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;}
         html, body, .document {width: 100% !important; height: 100% !important; margin: 0; padding: 0;}
         body {-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;}
@@ -39,138 +31,185 @@
         .x-gmail-data-detectors *,
         .aBn {border-bottom: 0 !important; cursor: default !important;}
         .outlookNone {display: none;}
+        input[type="radio"] {display: none; display: none!important; opacity: 0; max-height: 0; visibility: hidden;}
 
-        /* Generic mobile styles */
-        @media only screen and (max-width: 599px) {
+        @media only screen and (max-width: 480px) {
             .desktop {display: none !important;}
             .mobile {display: block !important; width: auto !important; max-height: inherit !important;}
             .outlookNone {display: inline-block !important;}
             .fullWidth {width: 100% !important; margin: auto !important;}
            .fullWidthAuto {width: 100% !important; height: auto !important;}
         }
-
-        @media only screen and (min-width: 376px) and (max-width: 480px) {
-
-        }
-
-        @media only screen and (min-width: 361px) and (max-width: 376px) {
-            
-        }
-
-        @media only screen and (min-width: 351px) and (max-width: 360px) {
-            
-        }
-
-        @media only screen and (max-width: 350px) {
-            
-        }
     </style>
 
 <style>
-    .fallback {display:none!important;}
-    .interactive {display:block!important; max-height:none!important; position: relative; overflow: visible!important;}
     
-    #MessageViewBody.fallback {display:none!important;}
-    #MessageViewBody .interactive {display:block!important; max-height:none!important; position: relative; overflow: visible!important;}
+    /* Show interactivity on iPhones/iPads */
+    @supports (-webkit-overflow-scrolling:touch) {
+        .fallback {display:none!important;}
+        .interactive {display:block!important; max-height:none!important; position: relative; overflow: visible!important;}
+    }
     
-    @media screen yahoo and (min-width:10000px){
+    /* Show interactivity on Samsung mobile mail client */
+    @media only screen and (max-width: 480px) {
+        #MessageViewBody .fallback {display:none!important;}
+        #MessageViewBody .interactive {display:block!important; max-height:none!important; position: relative; overflow: visible!important;}
+    }
+    
+    /* Hide interactivity on Outlook App */
+    body[data-outlook-cycle] .fallback{display:block !important; max-height:none!important; position:relative;}
+    body[data-outlook-cycle] .interactive {display:none!important;}
+    
+    /* Hide interactivity on Yahoo */
+    @media screen yahoo {
         .fallback {display: block; max-height: none!important;}
         .interactive {display: none; display: none!important; max-height:0; overflow: hidden;}
     }
     
-    input[type="radio"] {display: none; display: none!important; opacity: 0; max-height: 0; visibility: hidden;}
-    .absolute {max-height: 0; overflow: visible;}
-    #wrapper {width: 720px; height: 600px; position: relative; overflow: hidden; background-color: #000000; display: inline-block; margin-top: 0; margin-left: 0;}
-    #wrapper table {width: 300%; height: 300%; position: relative; top: -100%; left: -100%; transition: transform 3s ease-in-out, top 2s, left 2s; background-image: url(https://astortion.github.io/moon.jpg); background-size: contain; background-position: center; background-repeat: no-repeat; transform: scale(0.2);}
-    #wrapper table tr td {width: 100%; height: 100%;}
-    h1.startText {font-family: 'Quicksand', sans-serif; color: #ffffff; font-size: 16px; line-height: 19px; display: inline-block; margin-top: 10px; margin-left: 0; position: relative; z-index: 999; transition: all 3s ease-in-out;}
-    .start2 {opacity: 0; max-height: 0;}
-    label {display: none; cursor: pointer; -webkit-tap-highlight-color: transparent;}
-    label[for="start"], label[for="start2"] {display: inline-block; margin-top: 0; margin-left: 0; position: relative; z-index: 999;}
-    label[for="start2"] img {opacity: 0; max-height: 0;}
-    label[for="reset"] {display: inline-block;}
-    label[for="reset"] div {background: url(https://astortion.github.io/reset.png) no-repeat center; background-size: contain; width: 10px; height: 10px;}
-    #controls {opacity: 0; max-height: 0; margin-top: 610px; margin-left: 0; position: relative; z-index: 999; transition: opacity 3s ease-in-out;}
-    #controls table tr td {width: 40px; height: 40px; text-align: center;}
-    .arrow {background: url(https://astortion.github.io/arrow.png) no-repeat center; background-size: contain; width: 40px; height: 40px;}
-    .arrow.up {transform: rotate(90deg);}
-    .arrow.down {transform: rotate(-90deg);}
-    .arrow.right {transform: rotate(180deg);}
-    .arrow.up:hover {transform: rotate(90deg) scale(1.1);}
-    .arrow.down:hover {transform: rotate(-90deg) scale(1.1);}
-    .arrow.right:hover {transform: rotate(180deg) scale(1.1);}
-    .arrow.left:hover {transform: scale(1.1);}
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
     
-    .control:checked ~ div #controls table tr td .startArrow {display: none!important;}
-    .start:checked ~ div label[for="start"] {display: none}
-    .start:checked ~ div h1.startText {opacity: 0; max-height: 0;}
-    .start:checked ~ div #wrapper table {transform: scale(1.1); top: -100%; left: -100%;}
-    .start:checked ~ div #controls {opacity: 1; max-height: none;}
-    .start:checked ~ div #controls table tr td .startArrow {display: block;}
-    
-    .reset:checked ~ div h1.startText {opacity: 1; max-height: none;}
-    .reset:checked ~ div #wrapper table {transform: scale(0.2); transition: top 2s, left 2s, transform 2s ease-in-out;}
-    .reset:checked ~ div label[for="start2"] img {opacity: 1; max-height: none;}
-    .reset:checked ~ div #controls {opacity: 0; max-height: 0;}
-    .reset:checked ~ div #controls table tr td label[for="reset"] {opacity: 0; max-height: 0;}
-    
-    .center:checked ~ div #wrapper table {top: -100%!important; left: -100%!important;}
-    .centerUp:checked ~ div #wrapper table {top: 0%; left: -100%;}
-    .centerDown:checked ~ div #wrapper table {top: -200%; left: -100%;}
-    .centerLeft:checked ~ div #wrapper table {top: -100%; left: 0%;}
-    .centerRight:checked ~ div #wrapper table {top: -100%; left: -200%;}
-    .leftUp:checked ~ div #wrapper table {top: 0%; left: 0%;}
-    .rightUp:checked ~ div #wrapper table {top: 0%; left: -200%;}
-    .leftDown:checked ~ div #wrapper table {top: -200%; left: 0%;}
-    .rightDown:checked ~ div #wrapper table {top: -200%; left: -200%;}
-    
-    .center:checked ~ div #controls table tr td .startArrow {display: block!important;}
-    .centerUp:checked ~ div #controls table tr td .centerUpArrow, 
-    .centerDown:checked ~ div #controls table tr td .centerDownArrow, 
-    .centerLeft:checked ~ div #controls table tr td .centerLeftArrow, 
-    .centerRight:checked ~ div #controls table tr td .centerRightArrow, 
-    .leftUp:checked ~ div #controls table tr td .upLeftArrow, 
-    .rightUp:checked ~ div #controls table tr td .upRightArrow, 
-    .leftDown:checked ~ div #controls table tr td .downLeftArrow, 
-    .rightDown:checked ~ div #controls table tr td .downRightArrow {display: block;}
+        #cbox:checked + .fallback {display:none!important;}
+        #cbox:checked + .interactive {display:block!important; max-height:none!important; position: relative; overflow: visible!important;}
 
-    @media only screen and (max-width: 599px) {
-        #wrapper {width: 100%; height: 490px;}
-        #controls {margin-top: 100%;}
-    }
-    
-    @media only screen and (min-width: 376px) and (max-width: 480px) {
-        #wrapper {height: 398px;}
-    }
-    
-    @media only screen and (min-width: 361px) and (max-width: 376px) {
-        #wrapper {height: 350px;}
-    }
-    
-    @media only screen and (min-width: 351px) and (max-width: 360px) {
-        #wrapper {height: 345px;}
-    }
+        /* Interactive Start */
+        .absolute {max-height: 0; overflow: visible;}
+        #wrapper {background-color: #000000; background-image: url(https://astortion.github.io/night-sky.jpg); background-size: cover; border: 1px solid #4b4945; width: 720px; height: 600px; position: relative; overflow: hidden; background-color: #000000; display: inline-block; margin-top: 0; margin-left: 0;}
+        #wrapper table {width: 300%; height: 300%; position: relative; top: -100%; left: -100%; transition: transform 3s ease-in-out, top 2s, left 2s; background-image: url(https://astortion.github.io/moon.png); background-size: contain; background-position: center; background-repeat: no-repeat; transform: scale(0.1);}
+        #wrapper table tr td {width: 100%; height: 100%;}
+        h1.startText {font-family: 'Quicksand', sans-serif; color: #ffffff; font-size: 16px; line-height: 19px; display: inline-block; margin-top: 10px; margin-left: 0; position: relative; z-index: 999; transition: all 3s ease-in-out;}
+        .start2 {opacity: 0; max-height: 0;}
+        label {display: none; cursor: pointer; -webkit-tap-highlight-color: transparent;}
+        label[for="start"], label[for="start2"] {display: inline-block; margin-top: 0; margin-left: 0; position: relative; z-index: 999;}
+        label[for="start2"] img {opacity: 0; max-height: 0;}
+        label[for="reset"] {display: inline-block;}
+        label[for="reset"] div {background: url(https://astortion.github.io/reset-white.png) no-repeat center; background-size: contain; width: 10px; height: 10px;}
+        
+        label[for="rocket"] {display: block; transform: scale(0.2); position: relative; z-index: 999999; margin-top: -4%; margin-left: 8%; width: 180px; height: 310px; background-image: url(images/rocket-sprite.png); background-size: cover;}
+        
+        /* Controls styles */
+        #controls {opacity: 0; max-height: 0; margin-top: 610px; margin-left: 0; position: relative; z-index: 999; transition: opacity 3s ease-in-out;}
+        #controls table tr td {width: 40px; height: 40px; text-align: center;}
 
-    @media only screen and (max-width: 350px) {
-        #wrapper {height: 315px;}
+        /* Arrow styles */
+        .arrow {background: url(https://astortion.github.io/arrow-white.png) no-repeat center; background-size: contain; width: 40px; height: 40px;}
+        .arrow.up {transform: rotate(90deg);}
+        .arrow.down {transform: rotate(-90deg);}
+        .arrow.right {transform: rotate(180deg);}
+        .arrow.up:hover {transform: rotate(90deg) scale(1.1);}
+        .arrow.down:hover {transform: rotate(-90deg) scale(1.1);}
+        .arrow.right:hover {transform: rotate(180deg) scale(1.1);}
+        .arrow.left:hover {transform: scale(1.1);}
+
+        /* Initial display and options */
+        .control:checked ~ div #controls table tr td .startArrow {display: none!important;}
+        .start:checked ~ div label[for="start"] {display: none}
+        .start:checked ~ div h1.startText {opacity: 0; max-height: 0;}
+        .start:checked ~ div #wrapper table {transform: scale(1.05); top: -100%; left: -100%;}
+        .start:checked ~ div #controls {opacity: 1; max-height: none;}
+        .start:checked ~ div #controls table tr td .startArrow {display: block;}
+
+        /* Reset */
+        .reset:checked ~ div h1.startText {opacity: 1; max-height: none;}
+        .reset:checked ~ div #wrapper table {transform: scale(0.1); transition: top 2s, left 2s, transform 2s ease-in-out;}
+        .reset:checked ~ div label[for="start2"] img {opacity: 1; max-height: none;}
+        .reset:checked ~ div #controls {opacity: 0; max-height: 0;}
+        .reset:checked ~ div #controls table tr td label[for="reset"] {opacity: 0; max-height: 0;}
+
+        /* Position the zoomed image after and arrow is clicked */
+        .center:checked ~ div #wrapper table {top: -100%!important; left: -100%!important;}
+        .centerUp:checked ~ div #wrapper table {top: 0%; left: -100%;}
+        .centerDown:checked ~ div #wrapper table {top: -200%; left: -100%;}
+        .centerLeft:checked ~ div #wrapper table {top: -100%; left: 0%;}
+        .centerRight:checked ~ div #wrapper table {top: -100%; left: -200%;}
+        .leftUp:checked ~ div #wrapper table {top: 0%; left: 0%;}
+        .rightUp:checked ~ div #wrapper table {top: 0%; left: -200%;}
+        .leftDown:checked ~ div #wrapper table {top: -200%; left: 0%;}
+        .rightDown:checked ~ div #wrapper table {top: -200%; left: -200%;}
+
+        /* Display the correct arrows after and arrow is clicked */
+        .center:checked ~ div #controls table tr td .startArrow {display: block!important;}
+        .centerUp:checked ~ div #controls table tr td .centerUpArrow, 
+        .centerDown:checked ~ div #controls table tr td .centerDownArrow, 
+        .centerLeft:checked ~ div #controls table tr td .centerLeftArrow, 
+        .centerRight:checked ~ div #controls table tr td .centerRightArrow, 
+        .leftUp:checked ~ div #controls table tr td .upLeftArrow, 
+        .rightUp:checked ~ div #controls table tr td .upRightArrow, 
+        .leftDown:checked ~ div #controls table tr td .downLeftArrow, 
+        .rightDown:checked ~ div #controls table tr td .downRightArrow {display: block;}
+        
+        .rocket:checked ~  div #wrapper table tr td div label[for="rocket"] {animation: play 0.8s steps(6) infinite, rocket 8s forwards;}
+
+        @keyframes play {
+           100% {background-position: -1080px;}
+        }
+        
+        @keyframes rocket {
+            0% {}
+            40% {transform: scale(1.2) rotate(55deg); }
+            50% {transform: scale(1.2) rotate(55deg); margin-left: 15%;}
+            90% {transform: scale(1.2) rotate(55deg); margin-left: 100%; }
+            100% {margin-left: 400%; transform: scale(1.2) rotate(55deg);}
+        }
+        
+        @media only screen and (max-width: 480px) {
+            #wrapper {width: 100%; height: 345px;}
+            #controls {margin-top: 355px;}
+        }
+
+        @media only screen and (min-width: 361px) and (max-width: 376px) {
+            #wrapper {height: 314px;}
+            #controls {margin-top: 324px;}
+        }
+
+        @media only screen and (min-width: 351px) and (max-width: 360px) {
+            #wrapper {height: 300px;}
+            #controls {margin-top: 310px;}
+        }
+
+        @media only screen and (max-width: 350px) {
+            #wrapper {height: 268px;}
+            #controls {margin-top: 278px;}
+        }
+        /* Interactive End */
+        
     }
     
+    /* Show zoomed box area for testing */
+    /*#wrapper table tr td {outline: 2px solid white!important;}*/
+    
+    /* Hide interactivity on Outlook App */
+    body[data-outlook-cycle] .fallback{display:block !important; max-height:none!important; position:relative;}
+    body[data-outlook-cycle] .interactive {display:none!important;}
+    
+    /* Hide interactivity on Yahoo */
+    @media screen yahoo {
+        .fallback {display: block; max-height: none!important;}
+        .interactive {display: none; display: none!important; max-height:0; overflow: hidden;}
+    }
 </style>
 </head>
-
-<body style="margin:0px; padding:0px;">
+<body style="margin:0px; padding:0px;" bgcolor="#1e1e1e">
+<style>
+@media screen yahoo {
+    .fallback {display: block; max-height: none!important;}
+    .interactive {display: none; display: none!important; max-height:0; overflow: hidden;}
+}    
+</style>
 <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
     <tr>
-        <td align="center" bgcolor="#ffffff">
+        <td align="center" bgcolor="#1e1e1e">
             <table width="720" style="table-layout:fixed; width:720px" border="0" cellpadding="0" cellspacing="0" align="center" class="fullWidth">
                 <tr>
                     <td align="center">
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td align="center">
-
-                                    <div class="interactive" style="display :none; max-height: 0; overflow: hidden;">
-                                        <!--[if !mso]><!-- -->
+                                <td align="center" style="padding: 20px 0 0 0;">
+                                    <!--[if !mso]><!-- -->
+                                    <input type="checkbox" name="cbox" id="cbox" style="display: none; max-height: 0; visibility: hidden;" checked />
+                                    
+                                    <div class="interactive" style="display: none; max-height: 0; overflow: hidden;">
+                                        <input type="radio" name="rocket" id="rocket" class="rocket">
+                                        
                                         <input type="radio" name="start" id="start" class="start">
                                         <input type="radio" name="control" id="start2" class="start2">
                                         
@@ -216,19 +255,7 @@
                                             <div id="wrapper">
                                                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                                     <tr>
-                                                        <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
-                                                        <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
-                                                        <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
-                                                        <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
-                                                        <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
-                                                        <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
-                                                        <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
+                                                        <td><div class="absolute"><label for="rocket"></label></div></td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -283,11 +310,14 @@
                                                 </table>
                                             </div>
                                         </div>
-                                        <!--<![endif]-->
                                     </div>
-
+                                    <!--<![endif]-->
+                                    
+                                    <!--[if !mso]><!-- -->
+                                    <input type="checkbox" name="cbox" id="cbox" style="display: none; max-height: 0; visibility: hidden;" checked />
+                                    <!--<![endif]-->
                                     <div class="fallback">
-                                        
+                                        <p style="color: #ffffff; font-size: 50px;">FALLBACK</p>
                                     </div>
 
                                 </td>

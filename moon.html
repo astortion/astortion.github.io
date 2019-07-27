@@ -84,7 +84,7 @@
         label[for="reset"] {display: inline-block;}
         label[for="reset"] div {background: url(https://astortion.github.io/reset-white.png) no-repeat center; background-size: contain; width: 10px; height: 10px;}
         
-        label[for="rocket"] {display: block; transform: scale(0.2); position: relative; z-index: 999999; margin-top: -4%; margin-left: 8%; width: 180px; height: 310px; background-image: url(images/rocket-sprite.png); background-size: cover;}
+        label[for="rocket"] {display: block; transform: scale(0.15) rotate(-67deg); position: relative; z-index: 999999; margin-top: -7%; margin-left: 8%; width: 180px; height: 310px; background-image: url(https://astortion.github.io/rocket.png); background-size: cover;}
         
         /* Controls styles */
         #controls {opacity: 0; max-height: 0; margin-top: 610px; margin-left: 0; position: relative; z-index: 999; transition: opacity 3s ease-in-out;}
@@ -137,26 +137,36 @@
         .leftDown:checked ~ div #controls table tr td .downLeftArrow, 
         .rightDown:checked ~ div #controls table tr td .downRightArrow {display: block;}
         
-        .rocket:checked ~  div #wrapper table tr td div label[for="rocket"] {animation: play 0.8s steps(6) infinite, rocket 8s forwards;}
+        .rocket:checked ~  div #wrapper table tr td div label[for="rocket"] {animation: rocketAnimation 0.8s steps(6) infinite, rocketTakeOff 10s forwards, rocketMove 60s forwards 10s;}
 
-        @keyframes play {
+        @keyframes rocketAnimation {
+            0%, 100% {background-image: url(https://astortion.github.io/rocket-sprite.png);}
            100% {background-position: -1080px;}
         }
         
-        @keyframes rocket {
+        @keyframes rocketTakeOff {
             0% {}
-            40% {transform: scale(1.2) rotate(55deg); }
-            50% {transform: scale(1.2) rotate(55deg); margin-left: 15%;}
-            90% {transform: scale(1.2) rotate(55deg); margin-left: 100%; }
-            100% {margin-left: 400%; transform: scale(1.2) rotate(55deg);}
+            20% {margin-left: -28%;}
+            100% {margin-top: -12%; margin-left: 8%; transform: rotate(90deg); transform: scale(1.4) rotate(90deg);}
+        }
+        
+        @keyframes rocketMove {
+            0% {margin-left: 8%;}
+            100% {margin-left: 240%;}
         }
         
         @media only screen and (max-width: 480px) {
             #wrapper {width: 100%; height: 345px;}
             #controls {margin-top: 355px;}
+            @keyframes rocketTakeOff {
+                0% {}
+                20% {margin-left: -28%;}
+                100% {margin-top: -12%; margin-left: 8%; transform: rotate(90deg); transform: scale(1) rotate(90deg);}
+            }
         }
 
         @media only screen and (min-width: 361px) and (max-width: 376px) {
+            #wrapper table {background-image: url(https://astortion.github.io/moon-sm.png);}
             #wrapper {height: 314px;}
             #controls {margin-top: 324px;}
         }

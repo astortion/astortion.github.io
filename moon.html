@@ -73,9 +73,11 @@
 
         /* Interactive Start */
         .absolute {max-height: 0; overflow: visible;}
+        .absolute img {margin-top: 0; margin-left: 0; position: relative; z-index: -1; display: inline-block;}
         #wrapper {background-color: #000000; background-image: url(https://astortion.github.io/night-sky.jpg); background-size: cover; border: 1px solid #4b4945; width: 720px; height: 600px; position: relative; overflow: hidden; background-color: #000000; display: inline-block; margin-top: 0; margin-left: 0;}
         #wrapper table {width: 300%; height: 300%; position: relative; top: -100%; left: -100%; transform: scale(0.1); transition: transform 3s ease-in-out, top 2s, left 2s; background-image: url(https://astortion.github.io/moon.png); background-size: contain; background-position: center; background-repeat: no-repeat;}
         #wrapper table tr td {width: 100%; height: 100%;}
+        #wrapper table tr td .absoluteWrapper {display: block; height: 100%;}
         h1.startText {font-family: 'Quicksand', sans-serif; color: #ffffff; font-size: 16px; line-height: 19px; display: inline-block; margin-top: 10px; margin-left: 0; position: relative; z-index: 999; transition: all 3s ease-in-out;}
         .start2 {opacity: 0; max-height: 0;}
         label {display: none; cursor: pointer; -webkit-tap-highlight-color: transparent;}
@@ -136,16 +138,16 @@
         .rightDown:checked ~ div #controls table tr td .downRightArrow {display: block;}
         
         /* Rocket */
-        label[for="rocket"] {margin-top: -16%; margin-left: 26%; display: block; transform: scale(0.15) rotate(-67deg); position: relative; z-index: 999999; width: 180px; height: 310px; background-image: url(https://astortion.github.io/rocket-take-off-sprite.png); background-size: cover;}
+        label[for="rocket"] {margin-top: 33%; margin-left: 26%; display: inline-block; transform: scale(0.15) rotate(-67deg); position: relative; z-index: 999999; width: 180px; height: 310px; background-image: url(https://astortion.github.io/rocket-take-off-sprite.png); background-size: cover;}
         #rocket {background-image: url(https://astortion.github.io/rocket-sprite.png);}
         .rocket:checked ~  div #wrapper table tr td div label[for="rocket"] {animation: takeOff 40s cubic-bezier(.13,.01,.64,-0.07) forwards, rocketAnimation 0.8s steps(6) 6s infinite;}
 
         @keyframes takeOff {
             0%, 100% {background-position: -180px;}
-            10% {margin-top: -26%; margin-left: -36%; transform: scale(0.8) rotate(-67deg);}
+            10% {margin-top: 20%; margin-left: -36%; transform: scale(0.8) rotate(-67deg);}
             12%, 100% {transform: scale(1.1) rotate(80deg);}
             60% {margin-left: 700%;}
-            100% {margin-top: -30%; margin-left: 700%; transform:}
+            100% {margin-top: 10%; margin-left: 700%; transform:}
         }
         
         @keyframes rocketAnimation {
@@ -154,8 +156,8 @@
         }
         
         /* Alien */
-        label[for="alien"] {animation: alienAnimation 0.8s steps(6) infinite; display: block; transform: scale(0.15); position: relative; z-index: 999999; margin-top: -27%; margin-left: 17%; width: 200px; height: 310px; background-image: url(https://astortion.github.io/alien-sprite.png); background-size: cover;}
-        label[for="alienPopUp"] {visibility: hidden; border-radius: 50%; transition: all 1s ease-in; display: block; opacity: 0; -webkit-box-shadow: -1px 7px 29px -7px rgba(123,156,3,1); box-shadow: -1px 7px 29px -7px rgba(123,156,3,1); padding: 20px  20px 20px 40px; overflow: hidden; width: 220px; height: 200px; margin-top: -6%; margin-left: 34%; background: #ffffff;}
+        label[for="alien"] {display: inline-block; animation: alienAnimation 0.8s steps(6) infinite; transform: scale(0.15) rotate(-9deg); position: relative; z-index: 999999; margin-top: 7%; margin-left: 17%; width: 200px; height: 310px; background-image: url(https://astortion.github.io/alien-sprite.png); background-size: cover;}
+        label[for="alienPopUp"] {display: inline-block; visibility: hidden; border-radius: 50%; transition: all 1s ease-in; opacity: 0; -webkit-box-shadow: -1px 7px 29px -7px rgba(123,156,3,1); box-shadow: -1px 7px 29px -7px rgba(123,156,3,1); padding: 20px  20px 20px 40px; overflow: hidden; width: 220px; height: 200px; margin-top: 5%; margin-left: 40%; background: #ffffff;}
         label[for="alienPopUp"] div {width: 200px; height: 310px; background-image: url(https://astortion.github.io/alien-sprite.png); animation: alienAnimation 0.8s steps(6) infinite;}
         .alien:checked ~ div #wrapper table tr td div label[for="alienPopUp"] {opacity: 1; visibility: visible;}
         
@@ -164,47 +166,61 @@
         }
         
         /* Flag */
-        label[for="flag"] {margin-top: -20%; margin-left: 17%; animation: flagAnimation 0.8s steps(6) infinite; display: block; transform: scale(1) rotate(122deg); position: relative; z-index: 999999; width: 40px; height: 43px; background-image: url(https://astortion.github.io/flag-sprite.png); background-size: cover;}
-        label[for="flagPopUp"] {outline: 2px solid #4e4e4e; display: block; opacity: 0; margin-top: -6%; margin-left: 65%; width: 200px; height: 190px; background-image: url(https://astortion.github.io/man-on-moon-sprite.jpg); animation: alienAnimation 0.8s steps(6) infinite; visibility: hidden; transition: all 200ms ease;}
-        .moonLandingText {transition: all 1s ease-in-out; opacity: 0; visibility: hidden; margin-top: 30%; margin-left: -50%; font-family: 'Quicksand', sans-serif; color: #ffffff; font-size: 21px; line-height: 25px;}
-        .flag:checked ~ div #wrapper table tr td div label[for="flagPopUp"] {opacity: 1; visibility: visible;}
-        .flag:checked ~ div #wrapper table tr td div .moonLandingText {opacity: 1; visibility: visible; margin-left: 64%;}
+        label[for="flag"] {display: inline-block; margin-top: 49%; margin-left: 6%; animation: flagAnimation 0.8s steps(6) infinite; transform: scale(1) rotate(122deg); position: relative; z-index: 999999; width: 40px; height: 43px; background-image: url(https://astortion.github.io/flag-sprite.png); background-size: cover;}
+        label[for="flagPopUp"] {display: inline-block; outline: 2px solid #4e4e4e; opacity: 0; margin-top: 3%; margin-left: 169%; width: 200px; height: 190px; background-image: url(https://astortion.github.io/man-on-moon-sprite.jpg); animation: manOnMoonAnimation 0.8s steps(6) infinite; visibility: hidden; transition: all 1s ease-in-out;}
+        .moonLandingText {display: inline-block; transition: all 1s ease-in-out; opacity: 0; visibility: hidden; margin-top: 32%; margin-left: -50%; font-family: 'Quicksand', sans-serif; color: #ffffff; font-size: 21px; line-height: 25px;}
+        .flag:checked ~ div #wrapper table tr td div label[for="flagPopUp"], 
+        .flag:checked ~ div #wrapper table tr td div .moonLandingText {opacity: 1; visibility: visible; margin-left: 69%;}
         
         @keyframes flagAnimation {
            100% {background-position: -240px;}
+        }
+        
+        @keyframes manOnMoonAnimation {
+           100% {background-position: -1200px;}
         }
         
         @media only screen and (max-width: 480px) {
             #wrapper table {background-image: url(https://astortion.github.io/moon-sm.png);}
             #wrapper {width: 100%; height: 345px;}
             #controls {margin-top: 355px;}
-            label[for="alien"] {margin-left: 6%;}
+            label[for="alien"] {margin-left: -6%;}
+            label[for="alienPopUp"] {margin-left: 32%;}
+            label[for="rocket"] {margin-top: 12%; margin-left: 14%;}
             @keyframes takeOff {
                 0%, 100% {background-position: -180px;}
-                10% {margin-top: -30%; margin-left: -73%; transform: scale(0.8) rotate(-67deg);}
+                10% {margin-top: -10%; margin-left: -70%; transform: scale(0.8) rotate(-67deg);}
                 12%, 100% {transform: scale(1) rotate(80deg);}
-                60% {margin-left: 700%;}
+                50% {margin-left: 700%;}
                 100% {margin-top: -40%; margin-left: 700%; transform:}
             }
-            label[for="flagPopUp"] {margin-top: 2%; margin-left: 42%;}
-            .moonLandingText {margin-top: 55%; font-size: 18px; line-height: 21px;}
-            .flag:checked ~ div #wrapper table tr td div .moonLandingText {margin-left: 43%;}
+            .flag:checked ~ div #wrapper table tr td div label[for="flagPopUp"], 
+            .flag:checked ~ div #wrapper table tr td div .moonLandingText {opacity: 1; visibility: visible; margin-left: 48%;}
+            .moonLandingText {font-size: 18px; line-height: 21px; margin-top: 52%;}
         }
 
         @media only screen and (min-width: 361px) and (max-width: 376px) {
             #wrapper {height: 314px;}
             #controls {margin-top: 324px;}
+            .flag:checked ~ div #wrapper table tr td div label[for="flagPopUp"], 
+            .flag:checked ~ div #wrapper table tr td div .moonLandingText {opacity: 1; visibility: visible; margin-left: 40%;}
+            .moonLandingText {margin-top: 58%;}
         }
 
         @media only screen and (min-width: 351px) and (max-width: 360px) {
             #wrapper {height: 300px;}
             #controls {margin-top: 310px;}
+            .flag:checked ~ div #wrapper table tr td div label[for="flagPopUp"], 
+            .flag:checked ~ div #wrapper table tr td div .moonLandingText {opacity: 1; visibility: visible; margin-left: 40%;}
+            .moonLandingText {margin-top: 58%;}
         }
 
         @media only screen and (max-width: 350px) {
             #wrapper {height: 268px;}
             #controls {margin-top: 278px;}
-            .moonLandingText {margin-top: 62%; font-size: 14px; line-height: 18px;}
+            .flag:checked ~ div #wrapper table tr td div label[for="flagPopUp"], 
+            .flag:checked ~ div #wrapper table tr td div .moonLandingText {opacity: 1; visibility: visible; margin-left: 34%;}
+            .moonLandingText {font-size: 14px; line-height: 18px; margin-top: 65%;}
         }
         /* Interactive End */
         
@@ -296,18 +312,30 @@
                                                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                                     <tr>
                                                         <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
-                                                        <td><div class="absolute"><label for="alien"></label></div><div class="absolute"><label for="alienPopUp"><div></div></label></div></td>
+                                                        <td>
+                                                            <div class="absoluteWrapper">
+                                                                <div class="absolute"><label for="alien"></label></div><div class="absolute"><label for="alienPopUp"><div></div></label></div>
+                                                            </div>
+                                                        </td>
                                                         <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><div class="absolute"><label for="rocket"></label></div></td>
+                                                        <td>
+                                                            <div class="absoluteWrapper">
+                                                                <div class="absolute"><label for="rocket"></label></div>
+                                                            </div>
+                                                        </td>
                                                         <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
-                                                        <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
+                                                        <td>
+                                                            <div class="absoluteWrapper">
+                                                                <div class="absolute"><label for="flag"></label></div><div class="absolute"><label for="flagPopUp"></label></div><div class="absolute"><div class="moonLandingText"><strong>July 20, 1969:</strong> One Giant Leap For Mankind</div></div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
                                                         <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
-                                                        <td><div class="absolute"><label for="flag"></label></div><div class="absolute"><label for="flagPopUp"></label></div><div class="absolute"><div class="moonLandingText"><strong>July 20, 1969:</strong> One Giant Leap For Mankind</div></div></td>
+                                                        <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
                                                     </tr>
                                                 </table>
                                             </div>

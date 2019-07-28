@@ -142,7 +142,7 @@
 
         @keyframes takeOff {
             0%, 100% {background-position: -180px;}
-            10% {margin-top: -26%; margin-left: -35%; transform: scale(0.8) rotate(-67deg);}
+            10% {margin-top: -26%; margin-left: -36%; transform: scale(0.8) rotate(-67deg);}
             12%, 100% {transform: scale(1.1) rotate(80deg);}
             60% {margin-left: 700%;}
             100% {margin-top: -30%; margin-left: 700%; transform:}
@@ -154,10 +154,10 @@
         }
         
         /* Alien */
-        label[for="alien"] {animation: alienAnimation 0.8s steps(6) infinite; display: block; transform: scale(0.15); position: relative; z-index: 999999; margin-top: -27%; margin-left: 17%; width: 200px; height: 310px; background-image: url(images/alien-sprite.png); background-size: cover;}
+        label[for="alien"] {animation: alienAnimation 0.8s steps(6) infinite; display: block; transform: scale(0.15); position: relative; z-index: 999999; margin-top: -27%; margin-left: 17%; width: 200px; height: 310px; background-image: url(https://astortion.github.io/alien-sprite.png); background-size: cover;}
         .alien:checked ~  div #wrapper table tr td div label[for="alien"] {}
         label[for="alienPopUp"] {visibility: hidden; border-radius: 50%; transition: all 1s ease-in; display: block; opacity: 0; -webkit-box-shadow: -1px 7px 29px -7px rgba(123,156,3,1); box-shadow: -1px 7px 29px -7px rgba(123,156,3,1); padding: 20px  20px 20px 40px; overflow: hidden; width: 220px; height: 200px; margin-top: -6%; margin-left: 34%; background: #ffffff;}
-        label[for="alienPopUp"] div {width: 200px; height: 310px; background-image: url(images/alien-sprite.png); animation: alienAnimation 0.8s steps(6) infinite;}
+        label[for="alienPopUp"] div {width: 200px; height: 310px; background-image: url(https://astortion.github.io/alien-sprite.png); animation: alienAnimation 0.8s steps(6) infinite;}
         .alien:checked ~ div #wrapper table tr td div label[for="alienPopUp"] {opacity: 1; visibility: visible;}
         
         @keyframes alienAnimation {

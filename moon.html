@@ -157,17 +157,22 @@
         
         /* Alien */
         label[for="alien"] {display: inline-block; animation: alienAnimation 0.8s steps(6) infinite; transform: scale(0.15) rotate(-9deg); position: relative; z-index: 999999; margin-top: 7%; margin-left: 17%; width: 200px; height: 310px; background-image: url(https://astortion.github.io/alien-sprite.png); background-size: cover;}
-        label[for="alienPopUp"] {display: inline-block; visibility: hidden; border-radius: 50%; transition: all 1s ease-in; opacity: 0; -webkit-box-shadow: -1px 7px 29px -7px rgba(123,156,3,1); box-shadow: -1px 7px 29px -7px rgba(123,156,3,1); padding: 20px  20px 20px 40px; overflow: hidden; width: 220px; height: 200px; margin-top: 5%; margin-left: 40%; background: #ffffff;}
+        label[for="alienPopUp"] {display: inline-block; visibility: hidden; border: 2px solid #4e4e4e; transition: all 1s ease-in; opacity: 0; padding: 20px  20px 20px 40px; overflow: hidden; width: 220px; height: 200px; margin-top: 5%; margin-left: 40%; background: url(images/alien-bg.jpg);}
         label[for="alienPopUp"] div {width: 200px; height: 310px; background-image: url(https://astortion.github.io/alien-sprite.png); animation: alienAnimation 0.8s steps(6) infinite;}
+        .alienBubble { opacity: 0; visibility: hidden; background-image: url(images/alien-bubble.png); margin-top: -8%; margin-left: 14%; display: inline-block; position: relative; transform: scale(0.5); width: 300px; height: 238px;}
         .alien:checked ~ div #wrapper table tr td div label[for="alienPopUp"] {opacity: 1; visibility: visible;}
+        .alien:checked ~ div #wrapper table tr td div .alienBubble {transition: opacity 1s 2s; opacity: 1; visibility: visible; animation: alienBubble 2s steps(3) 2s forwards;} 
         
         @keyframes alienAnimation {
            100% {background-position: -1200px;}
         }
+        @keyframes alienBubble {
+           100% {background-position: -900px;}
+        }
         
         /* Flag */
         label[for="flag"] {display: inline-block; margin-top: 49%; margin-left: 6%; animation: flagAnimation 0.8s steps(6) infinite; transform: scale(1) rotate(122deg); position: relative; z-index: 999999; width: 40px; height: 43px; background-image: url(https://astortion.github.io/flag-sprite.png); background-size: cover;}
-        label[for="flagPopUp"] {display: inline-block; outline: 2px solid #4e4e4e; opacity: 0; margin-top: 3%; margin-left: 169%; width: 200px; height: 190px; background-image: url(https://astortion.github.io/man-on-moon-sprite.jpg); animation: manOnMoonAnimation 0.8s steps(6) infinite; visibility: hidden; transition: all 1s ease-in-out;}
+        label[for="flagPopUp"] {display: inline-block; outline: 2px solid #4e4e4e; opacity: 0; margin-top: 3%; margin-left: 169%; width: 200px; height: 190px; background-image: url(images/man-on-moon-sprite.jpg); animation: manOnMoonAnimation 0.8s steps(6) infinite; visibility: hidden; transition: all 1s ease-in-out;}
         .moonLandingText {display: inline-block; transition: all 1s ease-in-out; opacity: 0; visibility: hidden; margin-top: 32%; margin-left: -50%; font-family: 'Quicksand', sans-serif; color: #ffffff; font-size: 21px; line-height: 25px;}
         .flag:checked ~ div #wrapper table tr td div label[for="flagPopUp"], 
         .flag:checked ~ div #wrapper table tr td div .moonLandingText {opacity: 1; visibility: visible; margin-left: 69%;}
@@ -186,6 +191,7 @@
             #controls {margin-top: 355px;}
             label[for="alien"] {margin-left: -6%;}
             label[for="alienPopUp"] {margin-left: 32%;}
+            .alienBubble {margin-top: -12%; margin-left: -14%;}
             label[for="rocket"] {margin-top: 12%; margin-left: 14%;}
             @keyframes takeOff {
                 0%, 100% {background-position: -180px;}
@@ -205,6 +211,7 @@
             .flag:checked ~ div #wrapper table tr td div label[for="flagPopUp"], 
             .flag:checked ~ div #wrapper table tr td div .moonLandingText {opacity: 1; visibility: visible; margin-left: 40%;}
             .moonLandingText {margin-top: 58%;}
+            .alienBubble {margin-left: -17%;}
         }
 
         @media only screen and (min-width: 351px) and (max-width: 360px) {
@@ -213,6 +220,7 @@
             .flag:checked ~ div #wrapper table tr td div label[for="flagPopUp"], 
             .flag:checked ~ div #wrapper table tr td div .moonLandingText {opacity: 1; visibility: visible; margin-left: 40%;}
             .moonLandingText {margin-top: 58%;}
+            .alienBubble {margin-left: -17%;}
         }
 
         @media only screen and (max-width: 350px) {
@@ -221,6 +229,8 @@
             .flag:checked ~ div #wrapper table tr td div label[for="flagPopUp"], 
             .flag:checked ~ div #wrapper table tr td div .moonLandingText {opacity: 1; visibility: visible; margin-left: 34%;}
             .moonLandingText {font-size: 14px; line-height: 18px; margin-top: 65%;}
+            label[for="alienPopUp"] {transform: scale(0.9);}
+            .alienBubble {margin-top: -15%; margin-left: -20%;}
         }
         /* Interactive End */
         
@@ -314,7 +324,7 @@
                                                         <td><img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto"></td>
                                                         <td>
                                                             <div class="absoluteWrapper">
-                                                                <div class="absolute"><label for="alien"></label></div><div class="absolute"><label for="alienPopUp"><div></div></label></div>
+                                                                <div class="absolute"><label for="alien"></label></div><div class="absolute"><label for="alienPopUp"><div></div></label></div><div class="absolute"><div class="alienBubble"></div></div>
                                                             </div>
                                                             <img src="https://imgplaceholder.com/720x600/transparent?text=_none_" class="fullWidthAuto">
                                                         </td>
